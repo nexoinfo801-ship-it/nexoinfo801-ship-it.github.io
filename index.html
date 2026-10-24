@@ -264,6 +264,36 @@
       </div>
     </section>
 
+    <section id="historia-nexo">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Quem está por trás</div>
+          <h2>Tecnologia com uma história real.</h2>
+          <p>O NEXO nasce da experiência prática de quem trabalha com informática e tecnologia perto de seus clientes.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="icon" aria-hidden="true">👨‍💻</div>
+            <h3>Everton Junior de Jesus Pires</h3>
+            <p>Fundador e responsável pela iniciativa NEXO Playloud Informática, Automação, Redes e Sistemas. Segundo o fundador, são mais de seis anos de atuação no mercado, com trabalho voltado a tecnologia e às necessidades reais dos negócios.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🛠️</div>
+            <h3>Experiência em tecnologia</h3>
+            <p>A trajetória envolve informática e suporte técnico, com foco em computadores, automação comercial, redes e sistemas. A proposta do NEXO é aproximar essa experiência da rotina de quem administra um comércio.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🔎</div>
+            <h3>História que pode ser consultada</h3>
+            <p>Um semanário público da Câmara Municipal de Avaré, de agosto de 2016, registra o nome Everton Junior de Jesus Pires em uma relação de pedidos deferidos para uma loja de equipamentos de informática. Também há uma página pública da Playloud Informática com descrição de serviços técnicos em Avaré.</p>
+            <p style="margin-top:12px"><a href="https://camaraavare.sp.gov.br/semanarios/d7a6f6249933f68ba85202b836cc7e9a.pdf" target="_blank" rel="noopener noreferrer">Consultar registro público de 2016 ↗</a></p>
+            <p style="margin-top:8px"><a href="https://playloud-iformatica.ueniweb.com/" target="_blank" rel="noopener noreferrer">Conhecer a página da Playloud Informática ↗</a></p>
+          </article>
+        </div>
+        <p class="fineprint" style="text-align:center;margin-top:18px">Antes de contratar, o cliente pode solicitar demonstração, proposta formal, dados do fornecedor e condições de suporte e cancelamento.</p>
+      </div>
+    </section>
+
     <section id="contato">
       <div class="wrap">
         <div class="contact">
@@ -460,7 +490,7 @@
         window.nexoChatChoices([['Falar com a equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]); return;
       }
       if(value==='confianca'){
-        window.nexoChatMessage('É justo querer saber com quem está contratando. Não vou inventar o ano de fundação, a cidade de origem ou números de clientes sem confirmação oficial. Antes de fechar, peça à equipe a razão social e o CNPJ do fornecedor, contrato com valores e condições de cancelamento, canais de suporte e referências de clientes. Você também pode solicitar uma demonstração e confirmar os recursos antes de decidir.','bot');
+        window.nexoChatMessage('O NEXO está ligado à iniciativa NEXO Playloud Informática, Automação, Redes e Sistemas, fundada por Everton Junior de Jesus Pires. Segundo o fundador, a empresa atua há mais de seis anos no mercado. Também encontramos um registro público da Câmara Municipal de Avaré, de agosto de 2016, que menciona Everton Junior de Jesus Pires em uma atividade de loja de equipamentos de informática, além de uma página pública da Playloud Informática com serviços técnicos em Avaré. Esses registros ajudam a conhecer a trajetória, mas não substituem a conferência dos dados cadastrais do fornecedor e do contrato. Você pode pedir uma demonstração, proposta formal, dados da empresa e condições de suporte antes de decidir.','bot');
         window.nexoChatChoices([['Perguntar à equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]); return;
       }
       if(value==='troca'){
@@ -482,7 +512,7 @@
       } else if (/demonstra|demonstrar|ver o sistema|conhecer|apresenta/.test(q)) {
         answer='Podemos encaminhar você à equipe NEXO para combinar uma demonstração e confirmar quais recursos atendem ao seu negócio.';
       } else if (/golpe|confi[aá]vel|confian[cç]a|hist[oó]ria|quanto tempo.*mercado|tempo.*mercado|de onde.*(veio|vieram|s[aã]o)|origem|cnpj|raz[aã]o social|empresa.*(s[eé]ria|leg[ií]tima)|fraude/.test(q)) {
-        answer='É justo querer saber com quem está contratando. Não vou inventar o ano de fundação, a cidade de origem ou números de clientes sem confirmação oficial. Antes de fechar, peça à equipe a razão social e o CNPJ do fornecedor, contrato com valores e condições de cancelamento, canais de suporte e referências de clientes. Você também pode solicitar uma demonstração e confirmar os recursos antes de decidir.';
+        answer='O NEXO está ligado à iniciativa NEXO Playloud Informática, Automação, Redes e Sistemas, fundada por Everton Junior de Jesus Pires. Segundo o fundador, a empresa atua há mais de seis anos no mercado. Um semanário público da Câmara Municipal de Avaré, de agosto de 2016, também menciona Everton Junior de Jesus Pires em uma atividade de loja de equipamentos de informática, e há uma página pública da Playloud Informática com serviços técnicos em Avaré. Esses registros ajudam a conhecer a trajetória, mas não substituem a conferência dos dados cadastrais do fornecedor e do contrato. Peça uma demonstração, proposta formal, dados da empresa e condições de suporte antes de decidir.';
       } else if (/trocar|outro sistema|já tenho|ja tenho|uso sistema|concorrente/.test(q)) {
         answer='Trocar de sistema só faz sentido se houver valor real. Compare recursos, atendimento, custos e necessidades. A equipe pode apresentar o NEXO para você avaliar, sem precisar decidir agora.';
       } else if (/recurso|funcionalidade|faz|tem como|integra|estoque|financeiro|venda|pdv/.test(q)) {
