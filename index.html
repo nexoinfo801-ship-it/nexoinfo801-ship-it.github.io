@@ -139,6 +139,7 @@
 </style>
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
   <header>
     <div class="wrap">
       <nav aria-label="Navegação principal">
@@ -156,7 +157,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="conteudo">
     <section class="hero" id="inicio">
       <div class="wrap">
         <div class="eyebrow">Gestão mais simples. Decisões mais claras.</div>
@@ -378,6 +379,10 @@
             <summary>O que acontece com a mensagem que escrevo para a Cleópatra?</summary>
             <p>Nesta página, a Cleópatra usa respostas programadas para orientar o primeiro atendimento. Ao clicar para falar com a equipe, o site prepara uma mensagem e abre o WhatsApp para você revisar e enviar. Não informe senhas, dados bancários ou outras informações sensíveis no chat.</p>
           </details>
+          <details class="faq-item">
+            <summary>Como meus dados são tratados neste site?</summary>
+            <p>O formulário comercial não envia os campos para um banco de dados do site. As informações são usadas no navegador para preparar uma mensagem que você pode revisar antes de abrir o WhatsApp. Se decidir enviar a mensagem, o tratamento também estará sujeito às práticas e políticas do WhatsApp e aos procedimentos de atendimento da equipe NEXO. Não inclua dados sensíveis. Esta explicação é um resumo de funcionamento, não substitui uma política de privacidade completa.</p>
+          </details>
         </div>
         <p class="faq-cta">Ainda tem dúvidas? <a href="https://wa.me/5514998356762?text=Ol%C3%A1%21%20Tenho%20algumas%20d%C3%BAvidas%20sobre%20o%20NEXO%20ERP%20PDV." target="_blank" rel="noopener noreferrer">Converse com a equipe NEXO pelo WhatsApp ↗</a></p>
       </div>
@@ -483,6 +488,9 @@
     .chat-composer{display:flex;flex:0 0 auto;gap:8px;padding:10px 12px;border-top:1px solid #eee;background:#fff}.chat-input{min-width:0;flex:1;border:1px solid #d2d2d7;border-radius:13px;padding:11px 12px;font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;outline:none}.chat-input:focus{border-color:#06c;box-shadow:0 0 0 3px rgba(0,102,204,.12)}.chat-send{border:0;border-radius:13px;background:#06c;color:#fff;padding:0 14px;font-weight:650;cursor:pointer}.chat-disclaimer{flex:0 0 auto;padding:9px 14px 12px;color:#6e6e73;font-size:11px;border-top:1px solid #eee}
     @media(max-width:480px){.chat-launch{right:14px;bottom:calc(14px + env(safe-area-inset-bottom))}.chat-panel{right:14px;bottom:calc(76px + env(safe-area-inset-bottom));height:min(560px,calc(100dvh - 130px - env(safe-area-inset-bottom)));width:calc(100vw - 28px)}}
 
+
+    .skip-link{position:absolute;left:12px;top:8px;z-index:20;padding:10px 14px;background:#fff;color:#064f9e;border:2px solid #064f9e;border-radius:10px;transform:translateY(-160%);font-weight:700}
+    .skip-link:focus{transform:translateY(0)}
     :focus-visible{outline:3px solid #005fcc;outline-offset:3px}
     button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
@@ -490,11 +498,11 @@
     @media(max-width:420px){.wrap{width:calc(100% - 24px)}.navlinks{gap:7px}.navlinks>a[href="#oferta"]{font-size:13px}.navlinks .button{padding:9px 11px}.diagnostic-actions .button{width:100%}.demo-appbar{flex-wrap:wrap}.demo-appbrand{min-width:0}.demo-pagehead{flex-direction:column}.demo-date{white-space:normal}}
 
   </style>
-  <button class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
+  <button type="button" class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
   <section class="chat-panel" id="nexoChat" role="dialog" aria-label="Assistente virtual do NEXO" aria-modal="false">
     <div class="chat-head">
       <div><strong>Cleópatra · NEXO</strong><small>Assistente virtual de atendimento</small></div>
-      <button class="chat-close" id="chatClose" aria-label="Fechar atendimento" onclick="window.nexoCloseChat()">×</button>
+      <button type="button" class="chat-close" id="chatClose" aria-label="Fechar atendimento" onclick="window.nexoCloseChat()">×</button>
     </div>
     <div class="chat-log" id="chatLog" aria-live="polite"></div>
     <div class="chat-choices" id="chatChoices"></div>
