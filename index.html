@@ -400,7 +400,7 @@
       launch.setAttribute('aria-expanded', opening ? 'true' : 'false');
       if (opening && !document.getElementById('chatLog').hasChildNodes()) {
         window.nexoChatMessage('Olá! Sou a Cleópatra, assistente virtual do NEXO ERP PDV. Posso ajudar a entender sua necessidade e encaminhar você à equipe.', 'bot');
-        window.nexoChatChoices([['Quero conhecer o NEXO','segmento'],['Dúvidas sobre valores','valores'],['Já uso outro sistema','troca']]);
+        window.nexoChatChoices([['Quero conhecer o NEXO','segmento'],['Dúvidas sobre valores','valores'],['História e confiança','confianca'],['Já uso outro sistema','troca']]);
       }
       if (opening) {
         var input=document.getElementById('chatInput');
@@ -459,6 +459,10 @@
         window.nexoChatMessage('A oferta publicada é de R$ 49,90 por mês para os primeiros 10 clientes durante 12 meses, conforme contrato. O preço mensal de referência após a oferta é R$ 149,90. Confirme plano e condições com a equipe.','bot');
         window.nexoChatChoices([['Falar com a equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]); return;
       }
+      if(value==='confianca'){
+        window.nexoChatMessage('É justo querer saber com quem está contratando. Não vou inventar o ano de fundação, a cidade de origem ou números de clientes sem confirmação oficial. Antes de fechar, peça à equipe a razão social e o CNPJ do fornecedor, contrato com valores e condições de cancelamento, canais de suporte e referências de clientes. Você também pode solicitar uma demonstração e confirmar os recursos antes de decidir.','bot');
+        window.nexoChatChoices([['Perguntar à equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]); return;
+      }
       if(value==='troca'){
         window.nexoChatMessage('Trocar de sistema só faz sentido se houver valor real. Compare recursos, atendimento, custos e necessidades antes de decidir. A equipe pode apresentar o NEXO para você avaliar.','bot');
         window.nexoChatChoices([['Falar com a equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]); return;
@@ -477,6 +481,8 @@
         answer='No site, a oferta de lançamento é de R$ 49,90 por mês para os primeiros 10 clientes, durante 12 meses, conforme contrato. O valor mensal de referência após a oferta é R$ 149,90. A equipe precisa confirmar o plano e as condições.';
       } else if (/demonstra|demonstrar|ver o sistema|conhecer|apresenta/.test(q)) {
         answer='Podemos encaminhar você à equipe NEXO para combinar uma demonstração e confirmar quais recursos atendem ao seu negócio.';
+      } else if (/golpe|confi[aá]vel|confian[cç]a|hist[oó]ria|quanto tempo.*mercado|tempo.*mercado|de onde.*(veio|vieram|s[aã]o)|origem|cnpj|raz[aã]o social|empresa.*(s[eé]ria|leg[ií]tima)|fraude/.test(q)) {
+        answer='É justo querer saber com quem está contratando. Não vou inventar o ano de fundação, a cidade de origem ou números de clientes sem confirmação oficial. Antes de fechar, peça à equipe a razão social e o CNPJ do fornecedor, contrato com valores e condições de cancelamento, canais de suporte e referências de clientes. Você também pode solicitar uma demonstração e confirmar os recursos antes de decidir.';
       } else if (/trocar|outro sistema|já tenho|ja tenho|uso sistema|concorrente/.test(q)) {
         answer='Trocar de sistema só faz sentido se houver valor real. Compare recursos, atendimento, custos e necessidades. A equipe pode apresentar o NEXO para você avaliar, sem precisar decidir agora.';
       } else if (/recurso|funcionalidade|faz|tem como|integra|estoque|financeiro|venda|pdv/.test(q)) {
