@@ -111,7 +111,19 @@
     @media(max-width:900px){.demo-appbody{grid-template-columns:165px minmax(0,1fr)}.demo-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.demo-pos{grid-template-columns:1fr}.demo-order{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.demo-order-head,.demo-order-lines,.demo-order-summary,.demo-notice{grid-column:1/-1}.demo-customer-label{align-self:end}.demo-order select{margin-bottom:8px}}
     @media(max-width:620px){.demo-appbar{flex-wrap:wrap;gap:10px;padding:12px}.demo-appbrand{min-width:0;margin-right:auto}.demo-appcontext{order:3;width:100%}.demo-appbody{grid-template-columns:1fr;min-height:0}.demo-sidebar{padding:8px;display:flex;flex-direction:row;gap:4px;overflow-x:auto;border-right:0;border-bottom:1px solid #e9ebf0}.demo-side-label,.demo-side-note{display:none}.demo-nav{flex:0 0 auto;white-space:nowrap;padding:10px;font-size:11px}.demo-nav i{display:none}.demo-workspace{padding:15px 12px}.demo-pagehead{display:block}.demo-date{display:inline-block;margin-top:12px}.demo-kpis{gap:8px}.demo-kpi{padding:12px 10px}.demo-dash-grid{grid-template-columns:1fr}.demo-pos{grid-template-columns:1fr}.demo-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.demo-order{display:block}.demo-appfoot{display:block;line-height:1.7}.demo-appfoot span{display:block}.demo-below{align-items:flex-start;flex-direction:column;padding:22px}.demo-below .button{white-space:normal}.demo-reset-all{font-size:11px;padding:8px}.demo-pagehead h3{font-size:22px}}
 
-  </style>
+  
+    .faq-list{max-width:850px;margin:0 auto;display:grid;gap:12px}
+    .faq-item{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:0 20px}
+    .faq-item summary{cursor:pointer;list-style:none;font-weight:650;padding:19px 28px 19px 0;position:relative}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary:after{content:"+";position:absolute;right:0;top:15px;font-size:24px;font-weight:400;color:var(--blue)}
+    .faq-item[open] summary:after{content:"−"}
+    .faq-item p{margin:0;padding:0 0 20px;color:var(--muted)}
+    .faq-item summary:focus-visible,.faq-cta a:focus-visible{outline:3px solid #80b8ff;outline-offset:4px;border-radius:4px}
+    .faq-cta{text-align:center;color:var(--muted);margin:25px 0 0}
+    .faq-cta a{color:var(--blue);font-weight:650;text-decoration:none}
+    .faq-cta a:hover{text-decoration:underline}
+</style>
 </head>
 <body>
   <header>
@@ -122,6 +134,7 @@
           <a class="hide-mobile" href="#solucao">A solução</a>
           <a class="hide-mobile" href="#demoNexo">Experimente</a>
           <a class="hide-mobile" href="#historia-nexo">Nossa história</a>
+          <a class="hide-mobile" href="#perguntas">Dúvidas</a>
           <a href="#oferta">Oferta</a>
           <a class="button" href="#contato">Conhecer o NEXO</a>
         </div>
@@ -316,6 +329,43 @@
           </article>
         </div>
         <p class="fineprint" style="text-align:center;margin-top:18px">O registro municipal de 2016 documenta uma atividade relacionada à informática naquele período. O cadastro empresarial de 2020 identifica a constituição da empresa atual. São marcos diferentes, apresentados com transparência e respeito à trajetória do fundador.</p>
+      </div>
+    </section>
+
+    <section id="perguntas">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Transparência antes de contratar</div>
+          <h2>Perguntas frequentes.</h2>
+          <p>Respostas diretas para você avaliar o NEXO sem promessas vagas nem surpresas no contrato.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Quanto custa o NEXO ERP PDV?</summary>
+            <p>A condição publicada é de R$ 49,90 por mês para os primeiros 10 clientes, durante 12 meses, conforme contrato. O preço mensal de referência após esse período é R$ 149,90. A disponibilidade da oferta, o plano incluído e as demais condições precisam ser confirmados por escrito com a equipe antes da contratação.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Quais recursos estão incluídos?</summary>
+            <p>Os recursos disponíveis dependem do produto, da configuração e do plano contratado. A equipe deve confirmar cada necessidade na demonstração e registrar o escopo na proposta. Assim, você decide com base no que será realmente entregue.</p>
+          </details>
+          <details class="faq-item">
+            <summary>A demonstração do site é o sistema real?</summary>
+            <p>Não necessariamente. A demonstração interativa desta página é ilustrativa e usa dados de exemplo para mostrar um fluxo de uso. Ela não comprova integração com banco de dados, equipamentos ou operação real. Peça uma demonstração do ambiente real antes de contratar.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Consigo migrar de outro sistema?</summary>
+            <p>A possibilidade de migração depende do sistema atual, dos dados disponíveis e do escopo acordado. A equipe precisa avaliar seu caso e explicar previamente o que pode ser migrado, os prazos e eventuais custos.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Como funcionam suporte, implantação e treinamento?</summary>
+            <p>Peça que a proposta descreva os canais e horários de suporte, a implantação, o treinamento, os prazos de atendimento e os custos aplicáveis. Não considere esses itens incluídos até que estejam confirmados no contrato.</p>
+          </details>
+          <details class="faq-item">
+            <summary>O que acontece com a mensagem que escrevo para a Cleópatra?</summary>
+            <p>Nesta página, a Cleópatra usa respostas programadas para orientar o primeiro atendimento. Ao clicar para falar com a equipe, o site prepara uma mensagem e abre o WhatsApp para você revisar e enviar. Não informe senhas, dados bancários ou outras informações sensíveis no chat.</p>
+          </details>
+        </div>
+        <p class="faq-cta">Ainda tem dúvidas? <a href="https://wa.me/5514998356762?text=Ol%C3%A1%21%20Tenho%20algumas%20d%C3%BAvidas%20sobre%20o%20NEXO%20ERP%20PDV." target="_blank" rel="noopener noreferrer">Converse com a equipe NEXO pelo WhatsApp ↗</a></p>
       </div>
     </section>
 
