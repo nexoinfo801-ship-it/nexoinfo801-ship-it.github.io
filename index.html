@@ -336,7 +336,7 @@
         var payment=document.getElementById('demoPayment').value,customer=document.getElementById('demoCustomer').value;
         var receipt=document.getElementById('demoReceipt');
         receipt.innerHTML='<strong>✓ Venda de teste finalizada!</strong><span>'+items+' item(ns) · '+money(total)+' · Pagamento: '+payment+' · Cliente: '+customer+'.</span><br><span>Nenhuma transação ou alteração real foi realizada.</span>';
-        receipt.hidden=false;salesCount++;salesTotal+=total;document.getElementById('demoFeedback').textContent='Simulação concluída. Os indicadores ilustrativos foram atualizados nesta página.';cart=[];renderCart();showTab('painel');
+        receipt.hidden=false;salesCount++;salesTotal+=total;document.getElementById('demoFeedback').textContent='Simulação concluída. Os indicadores ilustrativos foram atualizados nesta página.';cart=[];renderCart();
         receipt.scrollIntoView({behavior:'smooth',block:'nearest'});
       });
       var resetAll=document.getElementById('demoResetAll');
