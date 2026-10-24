@@ -165,6 +165,7 @@
           <div class="eyebrow">Experiência interativa</div>
           <h2>Não imagine como seria. Experimente.</h2>
           <p>Explore uma rotina demonstrativa do NEXO: acompanhe indicadores, registre uma venda de teste, consulte produtos e veja um resumo de resultados.</p>
+          <p class="fineprint demo-data-note"><strong>Importante:</strong> esta é uma simulação interativa com dados fictícios. Ela não está conectada ao sistema NEXO real e não grava vendas ou altera estoques.</p>
         </div>
         <div class="demo-business-picker">
           <div class="demo-picker-heading"><div><span class="eyebrow">Escolha sua realidade</span><h3>Qual é o seu tipo de negócio?</h3><p>A demonstração muda conforme o ramo selecionado.</p></div><span class="demo-picker-count">8 experiências</span></div>
@@ -224,7 +225,7 @@
           </div>
           <div class="demo-appfoot"><span>ⓘ Demonstração guiada • Os dados são fictícios e ficam apenas nesta página.</span><span>Não é o ambiente de produção do NEXO.</span></div>
         </div>
-        <div class="demo-below"><div><span class="eyebrow">Seu negócio é diferente</span><h3>Veja o NEXO aplicado à sua realidade.</h3><p>A equipe pode apresentar o sistema real e confirmar os recursos disponíveis para sua operação e seu plano.</p></div><a class="button" href="https://wa.me/5514998356762?text=Ol%C3%A1%21%20Experimentei%20a%20demonstra%C3%A7%C3%A3o%20do%20NEXO%20ERP%20PDV%20e%20quero%20ver%20o%20sistema%20real." target="_blank" rel="noopener noreferrer">Agendar demonstração real ↗</a></div>
+        <div class="demo-below"><div><span class="eyebrow">Seu negócio é diferente</span><h3>Veja o NEXO aplicado à sua realidade.</h3><p>A equipe pode apresentar o sistema real e confirmar os recursos disponíveis para sua operação e seu plano.</p></div><a class="button" id="demoWhatsAppCta" href="https://wa.me/5514998356762?text=Ol%C3%A1%21%20Experimentei%20a%20demonstra%C3%A7%C3%A3o%20do%20NEXO%20ERP%20PDV%20e%20quero%20ver%20o%20sistema%20real." target="_blank" rel="noopener noreferrer">Agendar demonstração real ↗</a></div>
       </div>
     </section>
 
@@ -273,6 +274,7 @@
   </footer>
 
   <style>
+    .demo-data-note{max-width:820px;margin:12px auto 24px;padding:12px 15px;border:1px solid #e5e5ea;border-radius:12px;background:rgba(255,255,255,.72);font-size:13px}
     .chat-launch{position:fixed;right:22px;bottom:22px;z-index:20;border:0;border-radius:999px;padding:14px 19px;background:#06c;color:#fff;font:600 15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;box-shadow:0 8px 28px rgba(0,60,130,.25);cursor:pointer}
     .chat-panel{position:fixed;right:22px;bottom:84px;z-index:21;width:min(370px,calc(100vw - 28px));height:min(560px,calc(100dvh - 115px));padding:0;margin:0;background:#fff;border:1px solid #e5e5ea;border-radius:22px;box-shadow:0 18px 60px rgba(0,0,0,.18);display:none;overflow:hidden;flex-direction:column}
     .chat-panel.open{display:flex}
@@ -342,6 +344,8 @@
       function addProduct(button){var name=button.getAttribute('data-demo-product'),price=Number(button.getAttribute('data-demo-price')),icon=button.getAttribute('data-demo-icon')||'•';var found=cart.find(function(item){return item.name===name;});if(found)found.qty++;else cart.push({name:name,price:price,icon:icon,qty:1});document.getElementById('demoFeedback').textContent=name+' adicionado à simulação de '+businesses[currentBusiness].label+'.';document.getElementById('demoReceipt').hidden=true;renderCart();}
       function buildBusiness(key){
         currentBusiness=key;var data=businesses[key];cart=[];salesCount=18;salesTotal=1284.5;document.getElementById('demoReceipt').hidden=true;document.getElementById('demoCurrentBusiness').textContent=data.label;
+        var demoCta=document.getElementById('demoWhatsAppCta');
+        if(demoCta){var demoMessage='Olá! Experimentei a demonstração ilustrativa do NEXO ERP PDV para '+data.label+' e gostaria de agendar uma demonstração do sistema real. Podem confirmar os recursos e condições para meu negócio?';demoCta.href='https://wa.me/5514998356762?text='+encodeURIComponent(demoMessage);}
         document.querySelectorAll('[data-demo-business]').forEach(function(b){var active=b.getAttribute('data-demo-business')===key;b.classList.toggle('active',active);b.setAttribute('aria-pressed',active?'true':'false');});
         var catalog=document.getElementById('demoCatalog');catalog.innerHTML='';
         data.items.forEach(function(item){var b=document.createElement('button');b.type='button';b.className='demo-item';b.setAttribute('data-demo-product',item[1]);b.setAttribute('data-demo-price',item[2]);b.setAttribute('data-demo-icon',item[0]);b.innerHTML='<span class="demo-item-icon">'+item[0]+'</span><span><strong>'+item[1]+'</strong><small>'+(item[4]>0?'Disponível: '+item[4]:'Serviço demonstrativo')+'</small></span><b>'+money(item[2])+'</b>';b.addEventListener('click',function(){addProduct(b);});catalog.appendChild(b);});
