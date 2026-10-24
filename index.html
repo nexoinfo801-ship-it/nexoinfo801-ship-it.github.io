@@ -435,7 +435,7 @@
         window.nexoChatChoices([['Falar com a equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]); return;
       }
       if(value==='whatsapp'){
-        var text='Olá! Vim pelo site do NEXO ERP PDV e conversei com a Cleópatra.\nTipo de negócio: '+(window.nexoSegmento||'Não informado')+'\nPrincipal interesse: '+(window.nexoInteresse||'Não informado')+'\nSistema atual: '+(window.nexoSistema||'Não informado')+'\nQuero conhecer melhor a solução.';
+        var text='Olá! Vim pelo site do NEXO ERP PDV e conversei com a Cleópatra.\nTipo de negócio: '+(window.nexoSegmento||'Não informado')+'\nPrincipal interesse: '+(window.nexoInteresse||'Não informado')+'\nSistema atual: '+(window.nexoSistema||'Não informado')+'\nMinha dúvida ou mensagem: '+(window.nexoLastQuestion||'Quero conhecer melhor a solução.')+'\nQuero conhecer melhor a solução.';
         window.open('https://wa.me/5514998356762?text='+encodeURIComponent(text),'_blank','noopener,noreferrer');
       }
     };
