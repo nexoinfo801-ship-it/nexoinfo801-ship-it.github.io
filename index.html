@@ -168,47 +168,81 @@
     .chat-disclaimer{padding:9px 14px 12px;color:#6e6e73;font-size:11px;border-top:1px solid #eee}
     @media(max-width:480px){.chat-launch{right:14px;bottom:14px}.chat-panel{right:14px;bottom:76px}}
   </style>
-  <button class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false">💬 Fale com a Cleópatra</button>
+  <button class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
   <section class="chat-panel" id="nexoChat" role="dialog" aria-label="Assistente virtual do NEXO" aria-modal="false">
     <div class="chat-head">
       <div><strong>Cleópatra · NEXO</strong><small>Assistente virtual de atendimento</small></div>
-      <button class="chat-close" id="chatClose" aria-label="Fechar atendimento">×</button>
+      <button class="chat-close" id="chatClose" aria-label="Fechar atendimento" onclick="window.nexoCloseChat()">×</button>
     </div>
     <div class="chat-log" id="chatLog" aria-live="polite"></div>
     <div class="chat-choices" id="chatChoices"></div>
     <div class="chat-disclaimer">Atendimento inicial demonstrativo. Para confirmar recursos, preços e condições, fale com a equipe NEXO.</div>
   </section>
+  
   <script>
-    (function(){
-      const launch=document.getElementById('chatLaunch'), panel=document.getElementById('nexoChat'), close=document.getElementById('chatClose'), log=document.getElementById('chatLog'), choices=document.getElementById('chatChoices');
-      let state='segmento', answers={segmento:'',desafio:'',sistema:''};
-      const options={
-        inicio:[['Quero conhecer o NEXO','segmento'],['Tenho dúvidas sobre valores','valores'],['Já uso outro sistema','troca']],
-        segmento:[['Mercado ou conveniência','segmento:Mercado ou conveniência'],['Bar, café ou marmitaria','segmento:Bar, café ou marmitaria'],['Loja ou comércio','segmento:Loja ou comércio'],['Oficina ou assistência','segmento:Oficina ou assistência'],['Outro tipo de negócio','segmento:Outro tipo de negócio']],
-        desafio:[['Organizar a operação','desafio:Organizar a operação'],['Entender melhor os recursos','desafio:Entender melhor os recursos'],['Avaliar custos e benefícios','desafio:Avaliar custos e benefícios'],['Outro desafio','desafio:Outro desafio']],
-        sistema:[['Sim, já uso um sistema','sistema:Sim, já uso um sistema'],['Não uso sistema atualmente','sistema:Não uso sistema atualmente'],['Prefiro não informar','sistema:Prefiro não informar']],
-        fim:[['Falar com a equipe no WhatsApp','whatsapp'],['Começar novamente','reiniciar']]
-      };
-      function msg(text,who){const el=document.createElement('div');el.className='chat-msg '+who;el.textContent=text;log.appendChild(el);log.scrollTop=log.scrollHeight}
-      function showChoices(items){choices.replaceChildren();items.forEach(([label,value])=>{const b=document.createElement('button');b.className='chat-choice';b.textContent=label;b.type='button';b.addEventListener('click',()=>act(label,value));choices.appendChild(b)})}
-      function start(){state='segmento';answers={segmento:'',desafio:'',sistema:''};log.replaceChildren();msg('Olá! Sou a Cleópatra, assistente virtual do NEXO ERP PDV. Vou ajudar você a encontrar o melhor próximo passo. Para começar, que tipo de negócio você tem?','bot');showChoices(options.segmento)}
-      function act(label,value){
-        msg(label,'user');
-        if(value.startsWith('segmento:')){answers.segmento=value.split(':')[1];state='desafio';msg('Entendi. O que você mais gostaria de melhorar ou descobrir no seu negócio?','bot');showChoices(options.desafio);return}
-        if(value.startsWith('desafio:')){answers.desafio=value.split(':')[1];state='sistema';msg('Obrigado. Você já utiliza algum sistema de gestão ou PDV?','bot');showChoices(options.sistema);return}
-        if(value.startsWith('sistema:')){answers.sistema=value.split(':')[1];msg('Perfeito. A equipe pode mostrar o NEXO considerando essas informações. Eu não vou inventar recursos ou prometer resultados sem confirmar os detalhes.','bot');showChoices(options.fim);return}
-        if(value==='segmento'){state='segmento';msg('Para começar, que tipo de negócio você tem?','bot');showChoices(options.segmento);return}
-        if(value==='valores'){msg('A oferta divulgada no site é de R$ 49,90 por mês para os primeiros 10 clientes, durante 12 meses, conforme contrato. O preço de referência após a oferta é R$ 149,90 por mês. A equipe precisa confirmar o plano, escopo e condições antes da contratação.','bot');showChoices(options.fim);return}
-        if(value==='troca'){msg('Trocar de sistema só faz sentido se houver valor real para o seu negócio. Compare recursos, atendimento, custos e necessidades antes de decidir. Posso encaminhar você à equipe para uma demonstração e conversa sem compromisso.','bot');showChoices(options.fim);return}
-        if(value==='whatsapp'){
-          const summary='Olá! Vim pelo site do NEXO ERP PDV e conversei com a Cleópatra.\nTipo de negócio: '+(answers.segmento||'Não informado')+'\nPrincipal interesse: '+(answers.desafio||'Não informado')+'\nSistema atual: '+(answers.sistema||'Não informado')+'\nQuero conhecer melhor a solução e confirmar recursos e condições.';
-          window.open('https://wa.me/5514998356762?text='+encodeURIComponent(summary),'_blank','noopener,noreferrer');return;
-        }
-        if(value==='reiniciar'){start()}
+    window.nexoToggleChat = function () {
+      var panel = document.getElementById('nexoChat');
+      var launch = document.getElementById('chatLaunch');
+      if (!panel || !launch) return;
+      var opening = !panel.classList.contains('open');
+      panel.classList.toggle('open', opening);
+      launch.setAttribute('aria-expanded', opening ? 'true' : 'false');
+      if (opening && !document.getElementById('chatLog').hasChildNodes()) {
+        window.nexoChatMessage('Olá! Sou a Cleópatra, assistente virtual do NEXO ERP PDV. Posso ajudar a entender sua necessidade e encaminhar você à equipe.', 'bot');
+        window.nexoChatChoices([['Quero conhecer o NEXO','segmento'],['Dúvidas sobre valores','valores'],['Já uso outro sistema','troca']]);
       }
-      launch.addEventListener('click',()=>{const open=!panel.classList.contains('open');panel.classList.toggle('open',open);launch.setAttribute('aria-expanded',String(open));if(open&&log.childElementCount===0){msg('Olá! Sou a Cleópatra, assistente virtual do NEXO ERP PDV. Posso explicar a oferta publicada ou ajudar a encaminhar uma conversa com a equipe.','bot');showChoices(options.inicio)}})
-      close.addEventListener('click',()=>{panel.classList.remove('open');launch.setAttribute('aria-expanded','false')});
-    })();
+    };
+    window.nexoCloseChat = function () {
+      var panel=document.getElementById('nexoChat'), launch=document.getElementById('chatLaunch');
+      if(panel) panel.classList.remove('open');
+      if(launch) launch.setAttribute('aria-expanded','false');
+    };
+    window.nexoChatMessage = function(text,who) {
+      var log=document.getElementById('chatLog'); if(!log) return;
+      var el=document.createElement('div'); el.className='chat-msg '+who; el.textContent=text; log.appendChild(el); log.scrollTop=log.scrollHeight;
+    };
+    window.nexoChatChoices = function(items) {
+      var choices=document.getElementById('chatChoices'); if(!choices) return;
+      choices.replaceChildren();
+      items.forEach(function(item){
+        var b=document.createElement('button'); b.type='button'; b.className='chat-choice'; b.textContent=item[0];
+        b.onclick=function(){window.nexoChatAct(item[0],item[1]);}; choices.appendChild(b);
+      });
+    };
+    window.nexoChatAct = function(label,value) {
+      window.nexoChatMessage(label,'user');
+      if(value==='segmento'){
+        window.nexoChatMessage('Que tipo de negócio você tem?','bot');
+        window.nexoChatChoices([['Mercado ou conveniência','seg:Mercado ou conveniência'],['Bar, café ou marmitaria','seg:Bar, café ou marmitaria'],['Loja ou comércio','seg:Loja ou comércio'],['Oficina ou assistência','seg:Oficina ou assistência'],['Outro negócio','seg:Outro negócio']]); return;
+      }
+      if(value.indexOf('seg:')===0){
+        window.nexoSegmento=value.slice(4);
+        window.nexoChatMessage('Entendi. O que você mais quer melhorar?','bot');
+        window.nexoChatChoices([['Organizar a operação','need:Organizar a operação'],['Conhecer recursos','need:Conhecer recursos'],['Avaliar custos e benefícios','need:Avaliar custos e benefícios']]); return;
+      }
+      if(value.indexOf('need:')===0){
+        window.nexoInteresse=value.slice(5);
+        window.nexoChatMessage('Você já usa algum sistema de gestão ou PDV?','bot');
+        window.nexoChatChoices([['Sim, já uso','sys:Sim, já uso'],['Não uso atualmente','sys:Não uso atualmente'],['Prefiro não informar','sys:Prefiro não informar']]); return;
+      }
+      if(value.indexOf('sys:')===0){
+        window.nexoSistema=value.slice(4);
+        window.nexoChatMessage('Obrigado! A equipe pode mostrar o NEXO considerando sua realidade. Os recursos e condições devem ser confirmados com a equipe.','bot');
+        window.nexoChatChoices([['Falar com a equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]); return;
+      }
+      if(value==='valores'){
+        window.nexoChatMessage('A oferta publicada é de R$ 49,90 por mês para os primeiros 10 clientes durante 12 meses, conforme contrato. O preço mensal de referência após a oferta é R$ 149,90. Confirme plano e condições com a equipe.','bot');
+        window.nexoChatChoices([['Falar com a equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]); return;
+      }
+      if(value==='troca'){
+        window.nexoChatMessage('Trocar de sistema só faz sentido se houver valor real. Compare recursos, atendimento, custos e necessidades antes de decidir. A equipe pode apresentar o NEXO para você avaliar.','bot');
+        window.nexoChatChoices([['Falar com a equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]); return;
+      }
+      if(value==='whatsapp'){
+        var text='Olá! Vim pelo site do NEXO ERP PDV e conversei com a Cleópatra.\nTipo de negócio: '+(window.nexoSegmento||'Não informado')+'\nPrincipal interesse: '+(window.nexoInteresse||'Não informado')+'\nSistema atual: '+(window.nexoSistema||'Não informado')+'\nQuero conhecer melhor a solução.';
+        window.open('https://wa.me/5514998356762?text='+encodeURIComponent(text),'_blank','noopener,noreferrer');
+      }
+    };
   </script>
 
 </body>
