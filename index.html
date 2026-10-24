@@ -365,7 +365,7 @@
           </details>
           <details class="faq-item">
             <summary>A demonstração do site é o sistema real?</summary>
-            <p>Não necessariamente. A demonstração interativa desta página é ilustrativa e usa dados de exemplo para mostrar um fluxo de uso. Ela não comprova integração com banco de dados, equipamentos ou operação real. Peça uma demonstração do ambiente real antes de contratar.</p>
+            <p>Não. A demonstração interativa desta página é ilustrativa e usa dados fictícios para mostrar um fluxo de uso. Ela não está conectada ao sistema NEXO real e não comprova integração com banco de dados, equipamentos ou operação real. Peça uma demonstração do ambiente real antes de contratar.</p>
           </details>
           <details class="faq-item">
             <summary>Consigo migrar de outro sistema?</summary>
@@ -499,15 +499,15 @@
 
   </style>
   <button type="button" class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
-  <section class="chat-panel" id="nexoChat" role="dialog" aria-label="Assistente virtual do NEXO" aria-modal="false">
+  <section class="chat-panel" id="nexoChat" role="dialog" aria-labelledby="chatTitle" aria-describedby="chatDisclaimer" aria-modal="false">
     <div class="chat-head">
-      <div><strong>Cleópatra · NEXO</strong><small>Assistente virtual de atendimento</small></div>
+      <div><strong id="chatTitle">Cleópatra · NEXO</strong><small>Assistente virtual de atendimento</small></div>
       <button type="button" class="chat-close" id="chatClose" aria-label="Fechar atendimento" onclick="window.nexoCloseChat()">×</button>
     </div>
     <div class="chat-log" id="chatLog" aria-live="polite"></div>
     <div class="chat-choices" id="chatChoices"></div>
     <form class="chat-composer" id="chatForm"><input class="chat-input" id="chatInput" type="text" maxlength="500" placeholder="Escreva sua dúvida..." aria-label="Escreva sua dúvida"><button class="chat-send" type="submit">Enviar</button></form>
-    <div class="chat-disclaimer">Atendimento inicial demonstrativo. Para confirmar recursos, preços e condições, fale com a equipe NEXO.</div>
+    <div class="chat-disclaimer" id="chatDisclaimer">Atendimento inicial demonstrativo. Para confirmar recursos, preços e condições, fale com a equipe NEXO.</div>
   </section>
   
   <script>
