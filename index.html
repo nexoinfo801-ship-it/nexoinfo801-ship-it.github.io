@@ -50,6 +50,29 @@
     footer{padding:28px 0 38px;color:var(--muted);font-size:13px}
     .footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     @media(max-width:760px){.navlinks{gap:12px}.navlinks .hide-mobile{display:none}.hero{padding:64px 0 55px}section{padding:52px 0}.grid{grid-template-columns:1fr}.offer{grid-template-columns:1fr}.wrap{width:min(100% - 28px,1100px)}}
+
+    .demo-shell{background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.07)}
+    .demo-topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;background:#fbfbfd;border-bottom:1px solid var(--line)}
+    .demo-brand{font-weight:800;letter-spacing:.08em}.demo-status{font-size:12px;color:#8a5b00;background:#fff4d6;padding:6px 10px;border-radius:999px;font-weight:650}
+    .demo-layout{display:grid;grid-template-columns:190px minmax(0,1fr);min-height:370px}
+    .demo-tabs{padding:16px 12px;background:#f7f7f9;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+    .demo-tab{border:0;background:transparent;text-align:left;padding:12px 13px;border-radius:12px;font:600 14px inherit;color:#555;cursor:pointer}
+    .demo-tab.active{background:#e8f2ff;color:var(--blue)}
+    .demo-content{padding:clamp(18px,3vw,30px);min-width:0}
+    .demo-pane{display:none}.demo-pane.active{display:block}
+    .demo-title{font-size:clamp(22px,3vw,30px);letter-spacing:-.035em;margin:0 0 6px}.demo-sub{margin:0 0 22px;color:var(--muted);font-size:14px}
+    .demo-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0}
+    .demo-stat{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff}.demo-stat span{display:block;font-size:12px;color:var(--muted)}.demo-stat strong{display:block;font-size:clamp(18px,2.4vw,25px);margin-top:5px}
+    .demo-products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .demo-product{border:1px solid var(--line);border-radius:16px;padding:15px;display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0}
+    .demo-product .emoji{font-size:26px}.demo-product strong{font-size:14px}.demo-product span{color:var(--muted);font-size:13px}
+    .demo-add{margin-top:auto;border:0;background:var(--blue);color:white;border-radius:999px;padding:9px 12px;font-size:12px;font-weight:700;cursor:pointer}
+    .demo-table{width:100%;border-collapse:collapse;font-size:14px}.demo-table th,.demo-table td{text-align:left;padding:12px 8px;border-bottom:1px solid var(--line)}.demo-table th{color:var(--muted);font-size:12px}
+    .demo-cart{margin-top:20px;padding:16px;background:#f7f7f9;border-radius:16px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    .demo-cart strong{font-size:20px}.demo-reset{border:1px solid #b7d4f5;background:#fff;color:var(--blue);padding:9px 12px;border-radius:999px;cursor:pointer;font-weight:650}
+    .demo-notice{margin:14px 0 0;color:var(--muted);font-size:12px}
+    @media(max-width:760px){.demo-layout{grid-template-columns:1fr}.demo-tabs{border-right:0;border-bottom:1px solid var(--line);flex-direction:row;overflow-x:auto}.demo-tab{white-space:nowrap}.demo-stats{grid-template-columns:1fr}.demo-products{grid-template-columns:1fr}.demo-topbar{padding:15px}.demo-table{font-size:12px}.demo-table th,.demo-table td{padding:10px 5px}}
+
   </style>
 </head>
 <body>
@@ -104,6 +127,51 @@
           </article>
         </div>
         <p class="fineprint" style="text-align:center;margin-top:20px">Os recursos aplicáveis variam conforme a configuração e o plano contratado. Consulte a equipe NEXO para confirmar os detalhes.</p>
+      </div>
+    </section>
+
+
+    <section id="demoNexo">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Experimente agora</div>
+          <h2>Um gostinho da rotina com o NEXO.</h2>
+          <p>Explore uma demonstração interativa: registre uma venda fictícia, confira produtos e veja um resumo. Sem cadastro e sem instalar nada.</p>
+        </div>
+        <div class="demo-shell">
+          <div class="demo-topbar"><div><div class="demo-brand">NEXO <span style="font-weight:500;color:var(--muted);letter-spacing:0">ERP PDV</span></div><small style="color:var(--muted)">Ambiente de demonstração</small></div><span class="demo-status">● Dados de exemplo</span></div>
+          <div class="demo-layout">
+            <div class="demo-tabs" role="tablist" aria-label="Áreas da demonstração">
+              <button class="demo-tab active" type="button" data-demo-tab="inicio" role="tab" aria-selected="true">⌂ Visão geral</button>
+              <button class="demo-tab" type="button" data-demo-tab="venda" role="tab" aria-selected="false">▣ Simular venda</button>
+              <button class="demo-tab" type="button" data-demo-tab="estoque" role="tab" aria-selected="false">▤ Produtos</button>
+            </div>
+            <div class="demo-content">
+              <div class="demo-pane active" data-demo-pane="inicio">
+                <h3 class="demo-title">Visão geral</h3><p class="demo-sub">Veja como uma tela de gestão pode organizar informações do dia a dia.</p>
+                <div class="demo-stats"><div class="demo-stat"><span>Vendas de exemplo</span><strong id="demoSalesCount">12</strong></div><div class="demo-stat"><span>Total ilustrativo</span><strong id="demoSalesTotal">R$ 684,50</strong></div><div class="demo-stat"><span>Produtos de exemplo</span><strong>3</strong></div></div>
+                <button class="button" type="button" data-demo-go="venda">Experimentar uma venda</button>
+              </div>
+              <div class="demo-pane" data-demo-pane="venda">
+                <h3 class="demo-title">Simular venda</h3><p class="demo-sub">Clique em um produto para adicioná-lo à venda fictícia.</p>
+                <div class="demo-products">
+                  <article class="demo-product"><span class="emoji">☕</span><strong>Café</strong><span>R$ 5,00 · unidade</span><button class="demo-add" type="button" data-demo-product="Café" data-demo-price="5">Adicionar</button></article>
+                  <article class="demo-product"><span class="emoji">🥤</span><strong>Suco</strong><span>R$ 7,50 · unidade</span><button class="demo-add" type="button" data-demo-product="Suco" data-demo-price="7.5">Adicionar</button></article>
+                  <article class="demo-product"><span class="emoji">🥪</span><strong>Lanche</strong><span>R$ 12,00 · unidade</span><button class="demo-add" type="button" data-demo-product="Lanche" data-demo-price="12">Adicionar</button></article>
+                </div>
+                <div class="demo-cart"><div><span style="display:block;color:var(--muted);font-size:12px">Total da venda simulada</span><strong id="demoCartTotal">R$ 0,00</strong><div id="demoCartItems" style="font-size:12px;color:var(--muted);margin-top:4px">Nenhum item adicionado</div></div><button class="demo-reset" id="demoReset" type="button">Limpar venda</button></div>
+                <p id="demoFeedback" class="demo-notice" aria-live="polite">Esta simulação não registra uma venda real.</p>
+              </div>
+              <div class="demo-pane" data-demo-pane="estoque">
+                <h3 class="demo-title">Produtos de exemplo</h3><p class="demo-sub">Uma visão ilustrativa de itens e quantidades disponíveis.</p>
+                <table class="demo-table"><thead><tr><th>Produto</th><th>Preço de exemplo</th><th>Quantidade fictícia</th></tr></thead><tbody><tr><td>Café</td><td>R$ 5,00</td><td>24</td></tr><tr><td>Suco</td><td>R$ 7,50</td><td>18</td></tr><tr><td>Lanche</td><td>R$ 12,00</td><td>9</td></tr></tbody></table>
+                <p class="demo-notice">Produtos, preços e quantidades são fictícios e servem apenas para demonstrar a interação.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="fineprint" style="text-align:center;margin-top:18px">Importante: esta é uma simulação ilustrativa, não o ambiente real do NEXO. Nenhuma venda, alteração de estoque ou dado de cliente é gravado. Os recursos reais devem ser confirmados com a equipe.</p>
+        <div class="actions" style="margin-top:22px"><a class="button" href="https://wa.me/5514998356762?text=Ol%C3%A1%21%20Experimentei%20a%20demonstra%C3%A7%C3%A3o%20do%20NEXO%20ERP%20PDV%20e%20quero%20ver%20o%20sistema%20real." target="_blank" rel="noopener noreferrer">Quero ver o sistema real</a></div>
       </div>
     </section>
 
@@ -181,6 +249,30 @@
   </section>
   
   <script>
+
+    (function(){
+      var cart=[], salesCount=12, salesTotal=684.5;
+      function money(n){return n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});}
+      function showTab(name){
+        document.querySelectorAll('[data-demo-tab]').forEach(function(b){var active=b.getAttribute('data-demo-tab')===name;b.classList.toggle('active',active);b.setAttribute('aria-selected',active?'true':'false');});
+        document.querySelectorAll('[data-demo-pane]').forEach(function(p){p.classList.toggle('active',p.getAttribute('data-demo-pane')===name);});
+      }
+      document.querySelectorAll('[data-demo-tab]').forEach(function(b){b.addEventListener('click',function(){showTab(b.getAttribute('data-demo-tab'));});});
+      document.querySelectorAll('[data-demo-go]').forEach(function(b){b.addEventListener('click',function(){showTab(b.getAttribute('data-demo-go'));});});
+      function renderCart(){
+        var total=cart.reduce(function(sum,item){return sum+item.price;},0);
+        document.getElementById('demoCartTotal').textContent=money(total);
+        document.getElementById('demoCartItems').textContent=cart.length?cart.map(function(item){return item.name;}).join(' · '):'Nenhum item adicionado';
+        document.getElementById('demoFeedback').textContent=cart.length?'Simulação: '+cart.length+' item(ns) no carrinho. Nenhuma venda real foi registrada.':'Esta simulação não registra uma venda real.';
+        document.getElementById('demoSalesCount').textContent=String(salesCount);
+        document.getElementById('demoSalesTotal').textContent=money(salesTotal);
+      }
+      document.querySelectorAll('[data-demo-product]').forEach(function(b){b.addEventListener('click',function(){cart.push({name:b.getAttribute('data-demo-product'),price:Number(b.getAttribute('data-demo-price'))});renderCart();});});
+      var reset=document.getElementById('demoReset');
+      if(reset) reset.addEventListener('click',function(){cart=[];renderCart();});
+      renderCart();
+    })();
+
     window.nexoToggleChat = function () {
       var panel = document.getElementById('nexoChat');
       var launch = document.getElementById('chatLaunch');
