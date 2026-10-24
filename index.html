@@ -59,6 +59,19 @@
     .contact{background:#1d1d1f;color:#fff;border-radius:28px;padding:clamp(30px,5vw,55px);text-align:center}
     .contact p{color:#c6c6ca;max-width:650px;margin:0 auto 24px;font-size:17px}
     footer{padding:28px 0 38px;color:var(--muted);font-size:13px}
+
+    .diagnostic-card{max-width:820px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(22px,4vw,38px);box-shadow:0 12px 38px rgba(0,0,0,.035)}
+    .diagnostic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .diagnostic-field{display:flex;flex-direction:column;gap:7px;min-width:0}
+    .diagnostic-field.full{grid-column:1/-1}
+    .diagnostic-field label{font-size:13px;font-weight:700;color:#424245}
+    .diagnostic-field input,.diagnostic-field select,.diagnostic-field textarea{width:100%;min-height:46px;border:1px solid #d8d8df;border-radius:12px;background:#fff;padding:11px 12px;color:var(--ink);font:inherit}
+    .diagnostic-field textarea{min-height:90px;resize:vertical}
+    .diagnostic-field input:focus,.diagnostic-field select:focus,.diagnostic-field textarea:focus{outline:3px solid rgba(0,102,204,.16);border-color:var(--blue)}
+    .diagnostic-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:20px}
+    .diagnostic-privacy{font-size:12px;color:var(--muted);margin:14px 0 0}
+    @media(max-width:620px){.diagnostic-grid{grid-template-columns:1fr}.diagnostic-field.full{grid-column:auto}}
+
     .footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     @media(max-width:760px){.navlinks{gap:12px}.navlinks .hide-mobile{display:none}.hero{padding:64px 0 55px}section{padding:52px 0}.grid{grid-template-columns:1fr}.offer{grid-template-columns:1fr}.wrap{width:min(100% - 28px,1100px)}}
 
@@ -135,6 +148,7 @@
           <a class="hide-mobile" href="#demoNexo">Experimente</a>
           <a class="hide-mobile" href="#historia-nexo">Nossa história</a>
           <a class="hide-mobile" href="#perguntas">Dúvidas</a>
+          <a class="hide-mobile" href="#diagnostico">Seu negócio</a>
           <a href="#oferta">Oferta</a>
           <a class="button" href="#contato">Conhecer o NEXO</a>
         </div>
@@ -366,6 +380,68 @@
           </details>
         </div>
         <p class="faq-cta">Ainda tem dúvidas? <a href="https://wa.me/5514998356762?text=Ol%C3%A1%21%20Tenho%20algumas%20d%C3%BAvidas%20sobre%20o%20NEXO%20ERP%20PDV." target="_blank" rel="noopener noreferrer">Converse com a equipe NEXO pelo WhatsApp ↗</a></p>
+      </div>
+    </section>
+
+    <section id="diagnostico">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Atendimento personalizado</div>
+          <h2>Conte um pouco sobre seu negócio.</h2>
+          <p>Responda algumas perguntas rápidas. O site prepara uma mensagem com seu contexto para você revisar antes de abrir o WhatsApp da equipe NEXO.</p>
+        </div>
+        <form class="diagnostic-card" id="diagnosticForm">
+          <div class="diagnostic-grid">
+            <div class="diagnostic-field">
+              <label for="leadName">Seu nome (opcional)</label>
+              <input id="leadName" name="name" autocomplete="name" maxlength="80" placeholder="Como podemos chamar você?">
+            </div>
+            <div class="diagnostic-field">
+              <label for="leadCity">Cidade</label>
+              <input id="leadCity" name="city" autocomplete="address-level2" maxlength="80" placeholder="Ex.: Avaré - SP" required>
+            </div>
+            <div class="diagnostic-field">
+              <label for="leadBusiness">Tipo de negócio</label>
+              <select id="leadBusiness" name="business" required>
+                <option value="">Selecione uma opção</option>
+                <option>Mercado ou conveniência</option>
+                <option>Loja ou comércio em geral</option>
+                <option>Bar, café ou restaurante</option>
+                <option>Oficina ou assistência técnica</option>
+                <option>Materiais de construção</option>
+                <option>Serviços</option>
+                <option>Outro segmento</option>
+              </select>
+            </div>
+            <div class="diagnostic-field">
+              <label for="leadSystem">Usa algum sistema hoje?</label>
+              <select id="leadSystem" name="system" required>
+                <option value="">Selecione uma opção</option>
+                <option>Sim, uso um sistema</option>
+                <option>Uso planilhas ou controles manuais</option>
+                <option>Ainda não uso sistema</option>
+                <option>Prefiro conversar sobre isso</option>
+              </select>
+            </div>
+            <div class="diagnostic-field full">
+              <label for="leadNeed">O que você mais quer melhorar?</label>
+              <select id="leadNeed" name="need" required>
+                <option value="">Selecione sua prioridade</option>
+                <option>Frente de caixa e vendas</option>
+                <option>Estoque e cadastro de produtos</option>
+                <option>Organização da rotina da empresa</option>
+                <option>Relatórios e visão do negócio</option>
+                <option>Conhecer recursos e comparar opções</option>
+                <option>Outra necessidade</option>
+              </select>
+            </div>
+          </div>
+          <div class="diagnostic-actions">
+            <button class="button" type="submit">Continuar pelo WhatsApp</button>
+            <a class="button secondary" href="#demoNexo">Ver demonstração ilustrativa</a>
+          </div>
+          <p class="diagnostic-privacy">Privacidade: este formulário não envia nem salva os dados em um servidor. Ao continuar, os campos preenchidos são incluídos na mensagem do WhatsApp para você revisar antes de enviar. Evite informar dados confidenciais.</p>
+        </form>
       </div>
     </section>
 
@@ -611,7 +687,29 @@
         window.nexoChatAnswerText(value);
       });
     })();
+
   </script>
+  <script>
+    (function(){
+      var form=document.getElementById('diagnosticForm');
+      if(!form) return;
+      form.addEventListener('submit',function(event){
+        event.preventDefault();
+        if(!form.reportValidity()) return;
+        var get=function(id){return document.getElementById(id).value.trim();};
+        var message=[
+          'Olá! Vim pelo site do NEXO ERP PDV e gostaria de conversar sobre meu negócio.',
+          'Nome: '+(get('leadName')||'Não informado'),
+          'Cidade: '+get('leadCity'),
+          'Tipo de negócio: '+get('leadBusiness'),
+          'Sistema atual: '+get('leadSystem'),
+          'Principal prioridade: '+get('leadNeed'),
+          'Gostaria de conhecer os recursos e confirmar uma demonstração e as condições adequadas.'
+        ].join('\\n');
+        window.open('https://wa.me/5514998356762?text='+encodeURIComponent(message),'_blank','noopener,noreferrer');
+      });
+    })();
+
 
 </body>
 </html>
