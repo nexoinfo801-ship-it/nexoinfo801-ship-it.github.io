@@ -166,8 +166,21 @@
           <h2>Não imagine como seria. Experimente.</h2>
           <p>Explore uma rotina demonstrativa do NEXO: acompanhe indicadores, registre uma venda de teste, consulte produtos e veja um resumo de resultados.</p>
         </div>
+        <div class="demo-business-picker">
+          <div class="demo-picker-heading"><div><span class="eyebrow">Escolha sua realidade</span><h3>Qual é o seu tipo de negócio?</h3><p>A demonstração muda conforme o ramo selecionado.</p></div><span class="demo-picker-count">8 experiências</span></div>
+          <div class="demo-business-grid" role="group" aria-label="Escolha o ramo do negócio">
+            <button class="demo-business-choice active" type="button" data-demo-business="marmitaria" aria-pressed="true"><span>🍱</span><strong>Marmitaria</strong><small>Pedidos e refeições</small></button>
+            <button class="demo-business-choice" type="button" data-demo-business="mercado" aria-pressed="false"><span>🛒</span><strong>Mercado</strong><small>Produtos e estoque</small></button>
+            <button class="demo-business-choice" type="button" data-demo-business="bar" aria-pressed="false"><span>🍻</span><strong>Bar</strong><small>Consumo e balcão</small></button>
+            <button class="demo-business-choice" type="button" data-demo-business="cafeteria" aria-pressed="false"><span>☕</span><strong>Cafeteria</strong><small>Bebidas e lanches</small></button>
+            <button class="demo-business-choice" type="button" data-demo-business="roupas" aria-pressed="false"><span>👕</span><strong>Loja de roupas</strong><small>Peças e acessórios</small></button>
+            <button class="demo-business-choice" type="button" data-demo-business="informatica" aria-pressed="false"><span>💻</span><strong>Loja de informática</strong><small>Equipamentos e acessórios</small></button>
+            <button class="demo-business-choice" type="button" data-demo-business="funilaria" aria-pressed="false"><span>🚘</span><strong>Funilaria</strong><small>Peças e serviços</small></button>
+            <button class="demo-business-choice" type="button" data-demo-business="oficina" aria-pressed="false"><span>🔧</span><strong>Oficina mecânica</strong><small>Peças e mão de obra</small></button>
+          </div>
+        </div>
         <div class="demo-app">
-          <div class="demo-appbar"><div class="demo-appbrand"><span class="demo-mark">N</span><span>NEXO <small>ERP PDV</small></span></div><div class="demo-appcontext"><span class="demo-live-dot"></span> Ambiente de demonstração <span class="demo-tag">DADOS FICTÍCIOS</span></div><button class="demo-reset-all" id="demoResetAll" type="button">Reiniciar demo ↻</button></div>
+          <div class="demo-appbar"><div class="demo-appbrand"><span class="demo-mark">N</span><span>NEXO <small>ERP PDV</small></span></div><div class="demo-appcontext"><span class="demo-live-dot"></span> Ambiente de demonstração · <span id="demoCurrentBusiness">Marmitaria</span> <span class="demo-tag">DADOS FICTÍCIOS</span></div><button class="demo-reset-all" id="demoResetAll" type="button">Reiniciar demo ↻</button></div>
           <div class="demo-appbody">
             <aside class="demo-sidebar" aria-label="Menu da demonstração">
               <div class="demo-side-label">ÁREA DE TRABALHO</div>
@@ -198,7 +211,7 @@
               </div>
               <div class="demo-pane" data-demo-pane="produtos">
                 <div class="demo-pagehead"><div><div class="demo-breadcrumb">Cadastros / Produtos</div><h3>Produtos e estoque</h3><p>Consulte uma pequena lista fictícia de produtos.</p></div><span class="demo-tag">EXEMPLO</span></div>
-                <div class="demo-table-wrap"><table class="demo-table"><thead><tr><th>PRODUTO</th><th>CATEGORIA</th><th>PREÇO</th><th>ESTOQUE</th><th>SITUAÇÃO</th></tr></thead><tbody><tr><td>☕ Café</td><td>Bebidas</td><td>R$ 5,00</td><td>24 un.</td><td><span class="demo-stock ok">Disponível</span></td></tr><tr><td>🥤 Suco natural</td><td>Bebidas</td><td>R$ 7,50</td><td>18 un.</td><td><span class="demo-stock ok">Disponível</span></td></tr><tr><td>🥪 Sanduíche</td><td>Alimentos</td><td>R$ 12,00</td><td>9 un.</td><td><span class="demo-stock low">Estoque baixo</span></td></tr><tr><td>💧 Água mineral</td><td>Bebidas</td><td>R$ 3,50</td><td>32 un.</td><td><span class="demo-stock ok">Disponível</span></td></tr><tr><td>🍰 Bolo do dia</td><td>Alimentos</td><td>R$ 8,00</td><td>7 un.</td><td><span class="demo-stock low">Estoque baixo</span></td></tr><tr><td>🥤 Refrigerante</td><td>Bebidas</td><td>R$ 6,00</td><td>15 un.</td><td><span class="demo-stock ok">Disponível</span></td></tr></tbody></table></div>
+                <div class="demo-table-wrap"><table class="demo-table"><thead><tr><th>PRODUTO</th><th>CATEGORIA</th><th>PREÇO</th><th>ESTOQUE</th><th>SITUAÇÃO</th></tr></thead><tbody id="demoProductsBody"></tbody></table></div>
                 <div class="demo-footnote">Os dados acima são fictícios. No sistema real, confirme com a equipe quais cadastros e controles estão disponíveis no plano contratado.</div>
               </div>
               <div class="demo-pane" data-demo-pane="relatorio">
@@ -291,59 +304,48 @@
   <script>
 
     (function(){
-      var cart=[],salesCount=18,salesTotal=1284.5;
+      var cart=[],salesCount=18,salesTotal=1284.5,currentBusiness='marmitaria',search;
+      var businesses={
+        marmitaria:{label:'Marmitaria',items:[['🍱','Marmita tradicional',22,'Refeições',18],['🍗','Marmita de frango',25,'Refeições',12],['🥗','Marmita leve',24,'Refeições',8],['🥤','Suco natural',7,'Bebidas',16],['🥫','Refrigerante lata',6,'Bebidas',22],['🍮','Pudim',8,'Sobremesas',5]]},
+        mercado:{label:'Mercado',items:[['🍚','Arroz 5 kg',29.9,'Mercearia',20],['🫘','Feijão 1 kg',8.5,'Mercearia',14],['🥛','Leite 1 L',5.5,'Laticínios',18],['🧼','Detergente',2.99,'Limpeza',7],['🛢️','Óleo 900 ml',7.9,'Mercearia',24],['🍞','Pão de forma',9.5,'Padaria',9]]},
+        bar:{label:'Bar',items:[['🍺','Cerveja lata',6.5,'Bebidas',30],['🥤','Refrigerante',6,'Bebidas',18],['🥜','Porção de amendoim',9,'Porções',12],['🍟','Batata frita',24,'Porções',7],['🍔','X-salada',28,'Lanches',8],['💧','Água mineral',4,'Bebidas',20]]},
+        cafeteria:{label:'Cafeteria',items:[['☕','Café espresso',5,'Bebidas quentes',24],['🥤','Suco natural',7.5,'Bebidas frias',18],['🥪','Sanduíche',12,'Lanches',9],['💧','Água mineral',3.5,'Bebidas frias',32],['🍰','Fatia de bolo',8,'Confeitaria',7],['🥐','Croissant',9,'Confeitaria',11]]},
+        roupas:{label:'Loja de roupas',items:[['👕','Camiseta básica',49.9,'Vestuário',15],['👖','Calça jeans',129.9,'Vestuário',8],['👗','Vestido casual',119.9,'Vestuário',6],['🧢','Boné',39.9,'Acessórios',12],['🧦','Meias',14.9,'Acessórios',20],['👜','Bolsa',89.9,'Acessórios',5]]},
+        informatica:{label:'Loja de informática',items:[['🖱️','Mouse USB',49.9,'Periféricos',14],['⌨️','Teclado',89.9,'Periféricos',9],['🎧','Headset',139.9,'Áudio',6],['🔌','Cabo HDMI',29.9,'Cabos',18],['💾','SSD 480 GB',249.9,'Armazenamento',4],['🔋','Nobreak',499,'Energia',3]]},
+        funilaria:{label:'Funilaria',items:[['🚘','Avaliação de lataria',80,'Serviços',0],['🎨','Pintura de para-choque',450,'Serviços',0],['🔧','Reparo de amassado',280,'Serviços',0],['🧴','Material de pintura',85,'Materiais',6],['🚗','Polimento técnico',180,'Serviços',0],['🛡️','Verniz automotivo',120,'Materiais',4]]},
+        oficina:{label:'Oficina mecânica',items:[['🔍','Diagnóstico',90,'Serviços',0],['🛢️','Troca de óleo · serviço',60,'Serviços',0],['🔩','Filtro de óleo',35,'Peças',8],['🔋','Bateria automotiva',420,'Peças',3],['🛞','Alinhamento',100,'Serviços',0],['⚙️','Pastilha de freio',160,'Peças',5]]}
+      };
       function money(n){return n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});}
-      function showTab(name){
-        document.querySelectorAll('[data-demo-tab]').forEach(function(b){var active=b.getAttribute('data-demo-tab')===name;b.classList.toggle('active',active);b.setAttribute('aria-selected',active?'true':'false');});
-        document.querySelectorAll('[data-demo-pane]').forEach(function(p){p.classList.toggle('active',p.getAttribute('data-demo-pane')===name);});
-      }
+      function showTab(name){document.querySelectorAll('[data-demo-tab]').forEach(function(b){var active=b.getAttribute('data-demo-tab')===name;b.classList.toggle('active',active);b.setAttribute('aria-selected',active?'true':'false');});document.querySelectorAll('[data-demo-pane]').forEach(function(p){p.classList.toggle('active',p.getAttribute('data-demo-pane')===name);});}
       document.querySelectorAll('[data-demo-tab]').forEach(function(b){b.addEventListener('click',function(){showTab(b.getAttribute('data-demo-tab'));});});
       document.querySelectorAll('[data-demo-go]').forEach(function(b){b.addEventListener('click',function(){showTab(b.getAttribute('data-demo-go'));});});
       function renderCart(){
-        var total=cart.reduce(function(sum,item){return sum+item.price*item.qty;},0);
-        var count=cart.reduce(function(sum,item){return sum+item.qty;},0);
-        document.getElementById('demoCartTotal').textContent=money(total);
-        document.getElementById('demoSubtotal').textContent=money(total);
-        document.getElementById('demoItemCount').textContent=String(count);
+        var total=cart.reduce(function(sum,item){return sum+item.price*item.qty;},0),count=cart.reduce(function(sum,item){return sum+item.qty;},0);
+        document.getElementById('demoCartTotal').textContent=money(total);document.getElementById('demoSubtotal').textContent=money(total);document.getElementById('demoItemCount').textContent=String(count);
         var lines=document.getElementById('demoOrderLines');
-        if(!cart.length){lines.innerHTML='<div class="demo-empty">Seu carrinho está vazio.<br>Escolha um produto ao lado.</div>';}
+        if(!cart.length){lines.innerHTML='<div class="demo-empty">Sua lista está vazia.<br>Escolha um item ao lado.</div>';}
         else{lines.innerHTML=cart.map(function(item,index){return '<div class="demo-line"><div><strong>'+item.icon+' '+item.name+'</strong><small>'+money(item.price)+' cada</small></div><div class="demo-line-right"><b>'+money(item.price*item.qty)+'</b><div class="demo-qty"><button type="button" data-demo-minus="'+index+'" aria-label="Diminuir quantidade">−</button><span>'+item.qty+'</span><button type="button" data-demo-plus="'+index+'" aria-label="Aumentar quantidade">+</button></div></div></div>';}).join('');}
-        document.getElementById('demoSalesCount').textContent=String(salesCount);
-        document.getElementById('demoSalesTotal').textContent=money(salesTotal);
-        document.getElementById('demoReportCount').textContent=String(salesCount);
-        document.getElementById('demoReportTotal').textContent=money(salesTotal);
-        document.getElementById('demoTicket').textContent=money(salesCount?salesTotal/salesCount:0);
+        document.getElementById('demoSalesCount').textContent=String(salesCount);document.getElementById('demoSalesTotal').textContent=money(salesTotal);document.getElementById('demoReportCount').textContent=String(salesCount);document.getElementById('demoReportTotal').textContent=money(salesTotal);document.getElementById('demoTicket').textContent=money(salesCount?salesTotal/salesCount:0);
         lines.querySelectorAll('[data-demo-minus]').forEach(function(b){b.addEventListener('click',function(){var i=Number(b.getAttribute('data-demo-minus'));cart[i].qty--;if(cart[i].qty<=0)cart.splice(i,1);renderCart();});});
         lines.querySelectorAll('[data-demo-plus]').forEach(function(b){b.addEventListener('click',function(){cart[Number(b.getAttribute('data-demo-plus'))].qty++;renderCart();});});
       }
-      function addProduct(button){
-        var name=button.getAttribute('data-demo-product'),price=Number(button.getAttribute('data-demo-price')),icon=button.getAttribute('data-demo-icon')||'•';
-        var found=cart.find(function(item){return item.name===name;});
-        if(found)found.qty++;else cart.push({name:name,price:price,icon:icon,qty:1});
-        document.getElementById('demoFeedback').textContent=name+' adicionado à venda de teste.';
-        document.getElementById('demoReceipt').hidden=true;
-        renderCart();
+      function addProduct(button){var name=button.getAttribute('data-demo-product'),price=Number(button.getAttribute('data-demo-price')),icon=button.getAttribute('data-demo-icon')||'•';var found=cart.find(function(item){return item.name===name;});if(found)found.qty++;else cart.push({name:name,price:price,icon:icon,qty:1});document.getElementById('demoFeedback').textContent=name+' adicionado à simulação de '+businesses[currentBusiness].label+'.';document.getElementById('demoReceipt').hidden=true;renderCart();}
+      function buildBusiness(key){
+        currentBusiness=key;var data=businesses[key];cart=[];document.getElementById('demoReceipt').hidden=true;document.getElementById('demoCurrentBusiness').textContent=data.label;
+        document.querySelectorAll('[data-demo-business]').forEach(function(b){var active=b.getAttribute('data-demo-business')===key;b.classList.toggle('active',active);b.setAttribute('aria-pressed',active?'true':'false');});
+        var catalog=document.getElementById('demoCatalog');catalog.innerHTML='';
+        data.items.forEach(function(item){var b=document.createElement('button');b.type='button';b.className='demo-item';b.setAttribute('data-demo-product',item[1]);b.setAttribute('data-demo-price',item[2]);b.setAttribute('data-demo-icon',item[0]);b.innerHTML='<span class="demo-item-icon">'+item[0]+'</span><span><strong>'+item[1]+'</strong><small>'+(item[4]>0?'Disponível: '+item[4]:'Serviço demonstrativo')+'</small></span><b>'+money(item[2])+'</b>';b.addEventListener('click',function(){addProduct(b);});catalog.appendChild(b);});
+        var body=document.getElementById('demoProductsBody');body.innerHTML='';
+        data.items.forEach(function(item){var tr=document.createElement('tr'),stock=item[4]>0?'<span class="demo-stock '+(item[4]<8?'low':'ok')+'">'+(item[4]<8?'Conferir estoque':'Disponível')+'</span>':'<span class="demo-stock">'+(item[3]==='Serviços'?'Serviço':'Não se aplica')+'</span>';tr.innerHTML='<td>'+item[0]+' '+item[1]+'</td><td>'+item[3]+'</td><td>'+money(item[2])+'</td><td>'+(item[4]>0?item[4]+' un.':'Não se aplica')+'</td><td>'+stock+'</td>';body.appendChild(tr);});
+        document.getElementById('demoFeedback').textContent='Experiência selecionada: '+data.label+'. Adicione itens para simular uma operação.';if(search)search.value='';renderCart();
       }
-      document.querySelectorAll('[data-demo-product]').forEach(function(b){b.addEventListener('click',function(){addProduct(b);});});
-      var search=document.getElementById('demoSearch');
-      if(search)search.addEventListener('input',function(){var q=search.value.toLocaleLowerCase('pt-BR');document.querySelectorAll('#demoCatalog .demo-item').forEach(function(b){b.hidden=!b.getAttribute('data-demo-product').toLocaleLowerCase('pt-BR').includes(q);});});
-      var reset=document.getElementById('demoReset');
-      if(reset)reset.addEventListener('click',function(){cart=[];document.getElementById('demoReceipt').hidden=true;document.getElementById('demoFeedback').textContent='Carrinho limpo. Nenhuma venda real foi registrada.';renderCart();});
-      var finish=document.getElementById('demoFinish');
-      if(finish)finish.addEventListener('click',function(){
-        if(!cart.length){document.getElementById('demoFeedback').textContent='Adicione pelo menos um produto antes de finalizar a venda de teste.';return;}
-        var total=cart.reduce(function(sum,item){return sum+item.price*item.qty;},0),items=cart.reduce(function(sum,item){return sum+item.qty;},0);
-        var payment=document.getElementById('demoPayment').value,customer=document.getElementById('demoCustomer').value;
-        var receipt=document.getElementById('demoReceipt');
-        receipt.innerHTML='<strong>✓ Venda de teste finalizada!</strong><span>'+items+' item(ns) · '+money(total)+' · Pagamento: '+payment+' · Cliente: '+customer+'.</span><br><span>Nenhuma transação ou alteração real foi realizada.</span>';
-        receipt.hidden=false;salesCount++;salesTotal+=total;document.getElementById('demoFeedback').textContent='Simulação concluída. Os indicadores ilustrativos foram atualizados nesta página.';cart=[];renderCart();
-        receipt.scrollIntoView({behavior:'smooth',block:'nearest'});
-      });
-      var resetAll=document.getElementById('demoResetAll');
-      if(resetAll)resetAll.addEventListener('click',function(){cart=[];salesCount=18;salesTotal=1284.5;document.getElementById('demoReceipt').hidden=true;document.getElementById('demoFeedback').textContent='Demonstração reiniciada.';if(search)search.value='';document.querySelectorAll('#demoCatalog .demo-item').forEach(function(b){b.hidden=false;});renderCart();showTab('painel');});
-      renderCart();
+      document.querySelectorAll('[data-demo-business]').forEach(function(b){b.addEventListener('click',function(){buildBusiness(b.getAttribute('data-demo-business'));showTab('painel');});});
+      search=document.getElementById('demoSearch');if(search)search.addEventListener('input',function(){var q=search.value.toLocaleLowerCase('pt-BR');document.querySelectorAll('#demoCatalog .demo-item').forEach(function(b){b.hidden=!b.getAttribute('data-demo-product').toLocaleLowerCase('pt-BR').includes(q);});});
+      var reset=document.getElementById('demoReset');if(reset)reset.addEventListener('click',function(){cart=[];document.getElementById('demoReceipt').hidden=true;document.getElementById('demoFeedback').textContent='Carrinho limpo. Nenhuma operação real foi registrada.';renderCart();});
+      var finish=document.getElementById('demoFinish');if(finish)finish.addEventListener('click',function(){if(!cart.length){document.getElementById('demoFeedback').textContent='Adicione pelo menos um item antes de finalizar a simulação.';return;}var total=cart.reduce(function(sum,item){return sum+item.price*item.qty;},0),items=cart.reduce(function(sum,item){return sum+item.qty;},0),payment=document.getElementById('demoPayment').value,customer=document.getElementById('demoCustomer').value,receipt=document.getElementById('demoReceipt');receipt.innerHTML='<strong>✓ Simulação concluída!</strong><span>'+items+' item(ns) · '+money(total)+' · Pagamento: '+payment+' · Cliente: '+customer+'.</span><br><span>Ramo: '+businesses[currentBusiness].label+'. Nenhuma transação real foi realizada.</span>';receipt.hidden=false;salesCount++;salesTotal+=total;document.getElementById('demoFeedback').textContent='Simulação concluída. Indicadores ilustrativos atualizados nesta página.';cart=[];renderCart();receipt.scrollIntoView({behavior:'smooth',block:'nearest'});});
+      var resetAll=document.getElementById('demoResetAll');if(resetAll)resetAll.addEventListener('click',function(){salesCount=18;salesTotal=1284.5;buildBusiness('marmitaria');showTab('painel');});
+      buildBusiness('marmitaria');
     })();
-
     window.nexoToggleChat = function () {
       var panel = document.getElementById('nexoChat');
       var launch = document.getElementById('chatLaunch');
