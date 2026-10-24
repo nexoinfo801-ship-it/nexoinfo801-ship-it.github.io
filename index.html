@@ -723,6 +723,8 @@
         ].join('\n');
         window.open('https://wa.me/5514998356762?text='+encodeURIComponent(message),'_blank','noopener,noreferrer');
       });
+      var year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
     })();
   </script>
 
