@@ -165,7 +165,7 @@
     .chat-choices{padding:0 14px 14px;display:flex;flex-wrap:wrap;gap:8px}
     .chat-choice{border:1px solid #b7d4f5;background:#fff;color:#06c;padding:9px 12px;border-radius:999px;font-size:13px;cursor:pointer}
     .chat-choice:focus-visible,.chat-launch:focus-visible,.chat-close:focus-visible{outline:3px solid #8abfff;outline-offset:3px}
-    .chat-disclaimer{padding:9px 14px 12px;color:#6e6e73;font-size:11px;border-top:1px solid #eee}
+    .chat-composer{display:flex;gap:8px;padding:10px 12px;border-top:1px solid #eee;background:#fff}.chat-input{min-width:0;flex:1;border:1px solid #d2d2d7;border-radius:13px;padding:11px 12px;font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;outline:none}.chat-input:focus{border-color:#06c;box-shadow:0 0 0 3px rgba(0,102,204,.12)}.chat-send{border:0;border-radius:13px;background:#06c;color:#fff;padding:0 14px;font-weight:650;cursor:pointer}.chat-disclaimer{padding:9px 14px 12px;color:#6e6e73;font-size:11px;border-top:1px solid #eee}
     @media(max-width:480px){.chat-launch{right:14px;bottom:14px}.chat-panel{right:14px;bottom:76px}}
   </style>
   <button class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
@@ -176,6 +176,7 @@
     </div>
     <div class="chat-log" id="chatLog" aria-live="polite"></div>
     <div class="chat-choices" id="chatChoices"></div>
+    <form class="chat-composer" id="chatForm"><input class="chat-input" id="chatInput" type="text" maxlength="500" placeholder="Escreva sua dúvida..." aria-label="Escreva sua dúvida"><button class="chat-send" type="submit">Enviar</button></form>
     <div class="chat-disclaimer">Atendimento inicial demonstrativo. Para confirmar recursos, preços e condições, fale com a equipe NEXO.</div>
   </section>
   
@@ -243,6 +244,38 @@
         window.open('https://wa.me/5514998356762?text='+encodeURIComponent(text),'_blank','noopener,noreferrer');
       }
     };
+
+    window.nexoChatAnswerText = function(raw) {
+      var q = raw.toLocaleLowerCase('pt-BR');
+      window.nexoChatMessage(raw,'user');
+      var answer = '';
+      if (/preço|preco|valor|custa|mensalidade|plano|oferta/.test(q)) {
+        answer='No site, a oferta de lançamento é de R$ 49,90 por mês para os primeiros 10 clientes, durante 12 meses, conforme contrato. O valor mensal de referência após a oferta é R$ 149,90. A equipe precisa confirmar o plano e as condições.';
+      } else if (/demonstra|demonstrar|ver o sistema|conhecer|apresenta/.test(q)) {
+        answer='Podemos encaminhar você à equipe NEXO para combinar uma demonstração e confirmar quais recursos atendem ao seu negócio.';
+      } else if (/trocar|outro sistema|já tenho|ja tenho|uso sistema|concorrente/.test(q)) {
+        answer='Trocar de sistema só faz sentido se houver valor real. Compare recursos, atendimento, custos e necessidades. A equipe pode apresentar o NEXO para você avaliar, sem precisar decidir agora.';
+      } else if (/recurso|funcionalidade|faz|tem como|integra|estoque|financeiro|venda|pdv/.test(q)) {
+        answer='Quero evitar te passar informação errada: os recursos dependem da configuração e do plano. A equipe NEXO pode confirmar o que está disponível e mostrar na demonstração.';
+      } else if (/olá|ola|oi|bom dia|boa tarde|boa noite/.test(q)) {
+        answer='Olá! 😊 Para te orientar melhor, me conte que tipo de negócio você tem e o que gostaria de melhorar.';
+      } else {
+        answer='Ainda não tenho informação confirmada para responder isso com segurança. Posso encaminhar sua dúvida à equipe NEXO pelo WhatsApp, junto com a mensagem que você escreveu.';
+      }
+      window.nexoChatMessage(answer,'bot');
+      window.nexoChatChoices([['Falar com a equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]);
+      window.nexoLastQuestion = raw;
+    };
+    (function(){
+      var form=document.getElementById('chatForm'), input=document.getElementById('chatInput');
+      if(form && input) form.addEventListener('submit',function(event){
+        event.preventDefault();
+        var value=input.value.trim();
+        if(!value) return;
+        input.value='';
+        window.nexoChatAnswerText(value);
+      });
+    })();
   </script>
 
 </body>
