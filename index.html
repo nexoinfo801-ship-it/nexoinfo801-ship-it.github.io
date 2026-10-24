@@ -408,6 +408,10 @@
     window.nexoChatAct = function(label,value) {
       window.nexoChatMessage(label,'user');
       if(value==='segmento'){
+        window.nexoSegmento='';
+        window.nexoInteresse='';
+        window.nexoSistema='';
+        window.nexoLastQuestion='';
         window.nexoChatMessage('Que tipo de negócio você tem?','bot');
         window.nexoChatChoices([['Mercado ou conveniência','seg:Mercado ou conveniência'],['Bar, café ou marmitaria','seg:Bar, café ou marmitaria'],['Loja ou comércio','seg:Loja ou comércio'],['Oficina ou assistência','seg:Oficina ou assistência'],['Outro negócio','seg:Outro negócio']]); return;
       }
@@ -435,7 +439,7 @@
         window.nexoChatChoices([['Falar com a equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]); return;
       }
       if(value==='whatsapp'){
-        var text='Olá! Vim pelo site do NEXO ERP PDV e conversei com a Cleópatra.\nTipo de negócio: '+(window.nexoSegmento||'Não informado')+'\nPrincipal interesse: '+(window.nexoInteresse||'Não informado')+'\nSistema atual: '+(window.nexoSistema||'Não informado')+'\nMinha dúvida ou mensagem: '+(window.nexoLastQuestion||'Quero conhecer melhor a solução.')+'\nQuero conhecer melhor a solução.';
+        var text='Olá! Vim pelo site do NEXO ERP PDV e conversei com a Cleópatra.\nTipo de negócio: '+(window.nexoSegmento||'Não informado')+'\nPrincipal interesse: '+(window.nexoInteresse||'Não informado')+'\nSistema atual: '+(window.nexoSistema||'Não informado')+'\nMinha dúvida ou mensagem: '+(window.nexoLastQuestion||'Quero conhecer melhor a solução.');
         window.open('https://wa.me/5514998356762?text='+encodeURIComponent(text),'_blank','noopener,noreferrer');
       }
     };
