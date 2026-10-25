@@ -863,6 +863,24 @@
     @media(max-width:600px){section{padding-block:48px}.hero{padding-block:58px 48px}.wrap{width:min(100% - 32px,1100px)}.section-head p{font-size:15px}}
     @media(hover:none){.card:hover,.button:hover{transform:none;box-shadow:inherit}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+    /* Ajustes finais de toque para a demonstração em celulares */
+    @media(max-width:600px){
+      .demo-reset-all{min-height:44px;padding:10px 12px}
+      .demo-item{min-height:68px;padding:11px;gap:7px}
+      .demo-qty{gap:10px}
+      .demo-qty button{width:32px;height:32px;font-size:16px}
+      .demo-order select{min-height:44px;font-size:14px}
+      .demo-search-wrap input{min-height:42px;font-size:16px}
+      .demo-finish,.demo-clear{min-height:46px;font-size:13px}
+      .demo-workspace{overflow-wrap:anywhere}
+    }
+    @media(max-width:360px){
+      .demo-appcontext{align-items:flex-start}
+      .demo-appcontext .demo-tag{white-space:normal}
+      .demo-kpi strong{font-size:18px}
+      .demo-item{grid-template-columns:30px minmax(0,1fr);padding:9px}
+      .demo-item-icon{width:29px;height:29px}
+    }
 </style>
   <button type="button" class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
   <section class="chat-panel" id="nexoChat" role="dialog" aria-labelledby="chatTitle" aria-describedby="chatDisclaimer" aria-modal="false">
