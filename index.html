@@ -476,46 +476,77 @@
       <div class="wrap">
         <div class="section-head">
           <div class="eyebrow">Planos e escala</div>
-          <h2>Um modelo que acompanha o tamanho da operação.</h2>
-          <p>O ponto de partida é R$ 49,90 por mês para 1 terminal. Para operações maiores, esta é uma referência progressiva de investimento por volume, com condições finais confirmadas pela equipe NEXO.</p>
+          <h2>Uma estrutura de preço que acompanha o seu negócio.</h2>
+          <p>Comece com um terminal e explore uma estimativa para operações maiores. A proposta final depende da avaliação técnica e comercial da equipe NEXO.</p>
         </div>
+
         <div class="pricing-cards">
           <article class="pricing-card">
+            <div class="pricing-card-kicker">Para começar</div>
             <h3>NEXO Essencial</h3>
-            <strong>R$ 49,90/mês</strong>
+            <strong>R$ 49,90<span>/mês</span></strong>
             <p>Referência de entrada para 1 terminal. Recursos, prazo e condições são confirmados no contrato.</p>
           </article>
-          <article class="pricing-card">
+          <article class="pricing-card pricing-card-featured">
+            <div class="pricing-card-kicker">Cresça com controle</div>
             <h3>NEXO Multi-Loja</h3>
             <strong>Por volume</strong>
-            <p>Modelo progressivo para operações com vários terminais, sujeito à avaliação da estrutura necessária.</p>
+            <p>Estimativa progressiva para operações com múltiplos terminais, sujeita à validação da estrutura necessária.</p>
           </article>
           <article class="pricing-card">
+            <div class="pricing-card-kicker">Operações maiores</div>
             <h3>NEXO Enterprise</h3>
-            <strong>101 a 1.000 terminais</strong>
-            <p>Proposta personalizada após avaliação de implantação, suporte, infraestrutura e necessidades da operação.</p>
+            <strong>Até 1.000 terminais</strong>
+            <p>Atendimento consultivo para avaliar implantação, infraestrutura, suporte e requisitos operacionais.</p>
           </article>
         </div>
-        <h3 style="margin:28px 0 12px">Referência mensal por quantidade de terminais</h3>
-        <div class="pricing-table-wrap">
-          <table class="pricing-table">
-            <thead><tr><th>Terminais</th><th>Mensalidade estimada</th><th>Média por terminal</th></tr></thead>
-            <tbody>
-              <tr><td>1</td><td>R$ 49,90</td><td>R$ 49,90</td></tr>
-              <tr><td>5</td><td>R$ 229,50</td><td>R$ 45,90</td></tr>
-              <tr><td>10</td><td>R$ 429,00</td><td>R$ 42,90</td></tr>
-              <tr><td>20</td><td>R$ 828,00</td><td>R$ 41,40</td></tr>
-              <tr><td>50</td><td>R$ 1.875,00</td><td>R$ 37,50</td></tr>
-              <tr><td>100</td><td>R$ 3.370,00</td><td>R$ 33,70</td></tr>
-              <tr><td>250</td><td>R$ 7.105,00</td><td>R$ 28,42</td></tr>
-              <tr><td>500</td><td>R$ 12.080,00</td><td>R$ 24,16</td></tr>
-              <tr><td>1.000</td><td>Sob consulta</td><td>Proposta personalizada</td></tr>
-            </tbody>
-          </table>
+
+        <div class="pricing-calculator" aria-labelledby="pricingCalculatorTitle">
+          <div class="calculator-copy">
+            <div class="eyebrow">Simulador de investimento</div>
+            <h3 id="pricingCalculatorTitle">Quantos terminais sua operação precisa?</h3>
+            <p>Altere a quantidade e veja uma estimativa mensal calculada por faixas progressivas. A simulação não envia dados nem cria uma contratação.</p>
+            <label for="terminalCount">Quantidade de terminais</label>
+            <div class="terminal-control">
+              <button type="button" id="terminalMinus" aria-label="Diminuir quantidade de terminais">−</button>
+              <input id="terminalCount" name="terminalCount" type="number" min="1" max="1000" step="1" value="1" inputmode="numeric" aria-describedby="terminalHelp">
+              <button type="button" id="terminalPlus" aria-label="Aumentar quantidade de terminais">+</button>
+            </div>
+            <input id="terminalRange" class="terminal-range" type="range" min="1" max="1000" value="1" aria-label="Ajustar quantidade de terminais">
+            <div class="range-labels"><span>1 terminal</span><span>1.000 terminais</span></div>
+            <p id="terminalHelp" class="calculator-help">Para 101 terminais ou mais, o valor é apenas uma referência matemática e requer proposta personalizada.</p>
+          </div>
+          <div class="calculator-result" aria-live="polite" aria-atomic="true">
+            <span class="result-label">Estimativa mensal</span>
+            <strong id="terminalTotal">R$ 49,90</strong>
+            <div class="result-divider"></div>
+            <div class="result-detail"><span>Terminais selecionados</span><b id="terminalCountLabel">1</b></div>
+            <div class="result-detail"><span>Média por terminal</span><b id="terminalAverage">R$ 49,90</b></div>
+            <p id="terminalQuoteNote" class="result-disclaimer">Valor de referência para 1 terminal. Consulte as condições do plano.</p>
+            <a class="button" id="terminalQuoteButton" href="https://wa.me/5514998356762?text=Ol%C3%A1%21%20Quero%20confirmar%20as%20condi%C3%A7%C3%B5es%20do%20NEXO%20ERP%20PDV%20para%201%20terminal." target="_blank" rel="noopener noreferrer">Solicitar proposta ↗</a>
+          </div>
         </div>
-        <p class="pricing-note">Importante: os valores para múltiplos terminais são uma referência comercial progressiva, não uma confirmação automática de compatibilidade, multi-loja, estoque compartilhado, sincronização ou recursos empresariais. A mensalidade final, o escopo, a implantação, o suporte e os requisitos técnicos devem ser avaliados e formalizados antes da contratação. Tributos, equipamentos e serviços adicionais podem alterar o investimento.</p>
-        <div class="actions" style="justify-content:center;margin-top:24px">
-          <a class="button" href="https://wa.me/5514998356762?text=Ol%C3%A1%21%20Quero%20receber%20uma%20proposta%20do%20NEXO%20ERP%20PDV%20para%20a%20quantidade%20de%20terminais%20da%20minha%20opera%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">Solicitar proposta por volume ↗</a>
+
+        <details class="pricing-details">
+          <summary>Entenda as faixas usadas na estimativa</summary>
+          <div class="pricing-tier-grid">
+            <div><span>1º terminal</span><strong>R$ 49,90</strong></div>
+            <div><span>2 a 5</span><strong>R$ 44,90 por terminal</strong></div>
+            <div><span>6 a 20</span><strong>R$ 39,90 por terminal</strong></div>
+            <div><span>21 a 50</span><strong>R$ 34,90 por terminal</strong></div>
+            <div><span>51 a 100</span><strong>R$ 29,90 por terminal</strong></div>
+            <div><span>101 a 250</span><strong>R$ 24,90 por terminal</strong></div>
+            <div><span>251 a 500</span><strong>R$ 19,90 por terminal</strong></div>
+            <div><span>501 a 1.000</span><strong>R$ 14,90 por terminal</strong></div>
+          </div>
+        </details>
+
+        <p class="pricing-note">Transparência: as faixas acima são uma referência comercial em avaliação, não uma confirmação automática de compatibilidade, multi-loja, estoque compartilhado, sincronização ou recursos empresariais. Antes da contratação, a equipe confirma por escrito o escopo, a mensalidade, implantação, suporte e requisitos técnicos. Tributos, equipamentos e serviços adicionais podem alterar o investimento.</p>
+      </div>
+    </section>
+
+    er noreferrer">Conversar sobre a oferta <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
       </div>
     </section>
