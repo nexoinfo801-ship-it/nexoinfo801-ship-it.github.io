@@ -1077,28 +1077,41 @@
     };
 
     window.nexoChatAnswerText = function(raw) {
-      var q = raw.toLocaleLowerCase('pt-BR');
+      var q = raw.toLocaleLowerCase('pt-BR').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'');
       window.nexoChatMessage(raw,'user');
+      window.nexoLastQuestion = raw;
       var answer = '';
-      if (/preço|preco|valor|custa|mensalidade|plano|oferta/.test(q)) {
-        answer='No site, a oferta de lançamento é de R$ 49,90 por mês para os primeiros 10 clientes, durante 12 meses, conforme contrato. O valor mensal de referência após a oferta é R$ 149,90. A equipe precisa confirmar o plano e as condições.';
-      } else if (/demonstra|demonstrar|ver o sistema|conhecer|apresenta/.test(q)) {
-        answer='Podemos encaminhar você à equipe NEXO para combinar uma demonstração e confirmar quais recursos atendem ao seu negócio.';
-      } else if (/golpe|confi[aá]vel|confian[cç]a|hist[oó]ria|quanto tempo.*mercado|tempo.*mercado|de onde.*(veio|vieram|s[aã]o)|origem|cnpj|raz[aã]o social|empresa.*(s[eé]ria|leg[ií]tima)|fraude/.test(q)) {
-        answer='O NEXO ERP PDV é uma iniciativa liderada por Everton Junior de Jesus Pires. Há um registro público da Câmara Municipal de Avaré, de 2016, que o menciona em pedido deferido para atividade de loja de equipamentos de informática. O comprovante cadastral informado para a empresa individual atual indica constituição em 15/06/2020 e situação cadastral ativa na data do documento consultado. São registros diferentes: o documento de 2016 é evidência de atividade relacionada à informática naquele período, mas não comprova funcionamento empresarial contínuo desde então nem a data de criação do produto NEXO. Consulte o Semanário Oficial e a Receita Federal pelos links da seção Nossa história. Antes de contratar, peça demonstração, proposta formal, dados do fornecedor e condições de suporte.';
-      } else if (/trocar|outro sistema|já tenho|ja tenho|uso sistema|concorrente/.test(q)) {
-        answer='Trocar de sistema só faz sentido se houver valor real. Compare recursos, atendimento, custos e necessidades. A equipe pode apresentar o NEXO para você avaliar, sem precisar decidir agora.';
-      } else if (/recurso|funcionalidade|faz|tem como|integra|estoque|financeiro|venda|pdv/.test(q)) {
-        answer='Quero evitar te passar informação errada: os recursos dependem da configuração e do plano. A equipe NEXO pode confirmar o que está disponível e mostrar na demonstração.';
-      } else if (/olá|ola|oi|bom dia|boa tarde|boa noite/.test(q)) {
-        answer='Olá! 😊 Para te orientar melhor, me conte que tipo de negócio você tem e o que gostaria de melhorar.';
+      if (/\\b(preco|valor|custa|mensalidade|plano|oferta|quanto paga|quanto custa)\\b/.test(q)) {
+        answer='A oferta publicada é de R$ 49,90 por mês para os primeiros 10 clientes durante 12 meses, conforme contrato. O valor mensal de referência após a oferta é R$ 149,90. A equipe precisa confirmar disponibilidade, plano e condições por escrito.';
+      } else if (/\\b(demonstracao|demonstrar|ver o sistema|conhecer|apresentacao|mostrar|teste|testar)\\b/.test(q)) {
+        answer='Posso encaminhar você à equipe NEXO para combinar uma demonstração do sistema real. Assim, vocês podem conferir os recursos na prática e validar se atendem ao seu negócio.';
+      } else if (/\\b(suporte|atendimento|ajuda tecnica|assistencia|pos venda|horario de atendimento)\\b/.test(q)) {
+        answer='O atendimento e as condições de suporte precisam ser confirmados diretamente com a equipe, incluindo canais, horários, prazo de resposta e o que está incluído no plano. É melhor deixar isso claro antes de contratar.';
+      } else if (/\\b(implantacao|instalacao|configurar|configuracao|treinamento|treinar|migrar|importar dados)\\b/.test(q)) {
+        answer='A implantação pode envolver configuração, treinamento e eventual migração de dados. Não vou presumir que tudo esteja incluído: peça à equipe a lista do que será feito, os prazos, os custos e as responsabilidades de cada lado.';
+      } else if (/\\b(offline|sem internet|internet cair|sem conexao|funciona sem internet|fora da internet)\\b/.test(q)) {
+        answer='Não tenho uma confirmação técnica suficiente para garantir funcionamento sem internet ou sincronização offline no seu cenário. A equipe precisa demonstrar esse comportamento e explicar o que acontece quando a conexão cai antes de você depender disso na operação.';
+      } else if (/\\b(celular|iphone|ipad|android|computador|notebook|tablet|navegador|web)\\b/.test(q)) {
+        answer='A compatibilidade deve ser confirmada para o aparelho, navegador e rotina que você pretende usar. Informe à equipe quais dispositivos usa e peça uma demonstração neles antes de fechar.';
+      } else if (/\\b(seguranca|seguro|dados|privacidade|backup|copia de seguranca|lgpd|perder dados)\\b/.test(q)) {
+        answer='Para avaliar a segurança, peça à equipe detalhes sobre backups, recuperação de dados, permissões de acesso, armazenamento e proteção das informações. Não seria responsável prometer esses controles sem confirmação técnica.';
+      } else if (/\\b(recurso|funcionalidade|faz|tem como|integra|estoque|financeiro|venda|pdv|nota fiscal|fiscal|relatorio|relatorios|comanda|ordem de servico|orcamento)\\b/.test(q)) {
+        answer='Quero evitar te passar informação errada: recursos, integrações e funções fiscais dependem do produto, da configuração e do plano. A equipe NEXO pode confirmar cada item e mostrar o fluxo na demonstração.';
+      } else if (/\\b(golpe|confiavel|confianca|historia|origem|cnpj|razao social|fraude|empresa seria|empresa legitima|tempo de mercado|quanto tempo no mercado)\\b/.test(q)) {
+        answer='O site apresenta a história da empresa e links para consultar documentos públicos. É importante distinguir os registros históricos da comprovação de atividade contínua e da data de criação do produto NEXO. Antes de contratar, confira os dados do fornecedor, solicite proposta formal e confirme por escrito suporte, preço e condições.';
+      } else if (/\\b(trocar|outro sistema|ja tenho|uso sistema|concorrente|mudar de sistema)\\b/.test(q)) {
+        answer='Trocar de sistema só faz sentido se houver valor real. Compare recursos essenciais, custos totais, suporte, implantação e migração dos dados. A equipe pode apresentar o NEXO para você avaliar sem compromisso de decidir na hora.';
+      } else if (/\\b(ola|oi|bom dia|boa tarde|boa noite|tudo bem)\\b/.test(q)) {
+        answer='Olá! 😊 Para te orientar melhor, me conte que tipo de negócio você tem e o que gostaria de melhorar. Posso encaminhar seu contexto à equipe NEXO.';
+      } else if (/\\b(quero comprar|contratar|assinar|falar com vendedor|falar com alguem|contato|whatsapp|comercial|vendedor)\\b/.test(q)) {
+        answer='Posso encaminhar sua mensagem à equipe comercial pelo WhatsApp. A mensagem levará também a dúvida que você acabou de escrever para evitar que você precise repetir tudo.';
       } else {
-        answer='Ainda não tenho informação confirmada para responder isso com segurança. Posso encaminhar sua dúvida à equipe NEXO pelo WhatsApp, junto com a mensagem que você escreveu.';
+        answer='Ainda não tenho informação confirmada para responder isso com segurança. Posso encaminhar sua pergunta exatamente como você escreveu à equipe NEXO pelo WhatsApp.';
       }
       window.nexoChatMessage(answer,'bot');
-      window.nexoChatChoices([['Falar com a equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]);
-      window.nexoLastQuestion = raw;
+      window.nexoChatChoices([['Falar com a equipe no WhatsApp','whatsapp'],['Quero agendar uma demonstração','demo'],['Começar novamente','segmento']]);
     };
+
     (function(){
       var form=document.getElementById('chatForm'), input=document.getElementById('chatInput');
       if(form && input) form.addEventListener('submit',function(event){
