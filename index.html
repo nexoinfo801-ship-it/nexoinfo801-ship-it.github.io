@@ -593,6 +593,36 @@
     @media(max-width:900px){.hero{padding:60px 0}.hero-layout{grid-template-columns:minmax(0,1fr);gap:28px}.hero-copy{text-align:center}.hero .eyebrow{justify-content:center}.hero h1,.hero .lead,.hero .note{margin-left:auto;margin-right:auto}.hero .actions{justify-content:center}.hero-visual{width:min(100%,570px);margin:0 auto}.visual-window{transform:none}}
     @media(max-width:600px){.hero{padding:48px 0 42px}.hero-layout{gap:20px}.hero h1{font-size:clamp(39px,11vw,54px);margin:20px auto 16px}.hero .lead{font-size:16px;line-height:1.55;margin-bottom:22px}.hero .actions{display:grid;grid-template-columns:1fr;width:100%;max-width:360px;margin-inline:auto}.hero .actions .button{width:100%;min-height:48px}.hero .note{font-size:12px}.hero-visual{padding:10px 0 0}.hero-visual:before{inset:0 -8px 22px 8px;border-radius:25px}.visual-topbar{padding:13px}.visual-body{padding:15px}.visual-metric{padding:12px}.visual-chart{height:82px;gap:7px}.visual-caption{font-size:9px}}
     @media(prefers-reduced-motion:reduce){.hero .button{transition:none}.hero .button:hover{transform:none}}
+    /* Reorganização visual da demonstração: seletor em cartões e painel com hierarquia mais clara. */
+    .demo-section{background:linear-gradient(180deg,#f7f8fa 0%,#eef3f9 100%)}
+    .demo-section .section-head h2{max-width:720px;margin:10px auto 14px}
+    .demo-section .section-head>p:not(.demo-data-note){max-width:650px;margin:0 auto;color:#626b79}
+    .demo-data-note{max-width:760px;margin:20px auto 28px;padding:14px 17px;border:1px solid #dfe7f1;border-radius:14px;background:rgba(255,255,255,.85);text-align:left;color:#5f6877;line-height:1.55}
+    .demo-business-picker{margin:0 auto 24px;padding:24px;background:rgba(255,255,255,.88);border:1px solid #e2e7ee;border-radius:24px;box-shadow:0 8px 28px rgba(24,50,84,.045)}
+    .demo-picker-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .demo-picker-heading .eyebrow{font-size:10px;letter-spacing:.1em}
+    .demo-picker-heading h3{margin:7px 0 4px;font-size:22px;letter-spacing:-.035em}
+    .demo-picker-heading p{margin:0;color:#727b89;font-size:14px}
+    .demo-picker-count{flex:0 0 auto;padding:7px 10px;border:1px solid #e7ebf1;border-radius:999px;color:#667184;background:#f8fafc;font-size:11px;font-weight:700}
+    .demo-business-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+    .demo-business-choice{min-width:0;min-height:112px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;padding:14px;border:1px solid #e2e7ef;border-radius:15px;background:#fff;color:#252a33;text-align:left;cursor:pointer;transition:border-color .18s ease,background .18s ease,box-shadow .18s ease,transform .18s ease}
+    .demo-business-choice>span{display:grid;place-items:center;width:32px;height:32px;margin-bottom:4px;border-radius:10px;background:#f0f5fb;font-size:17px}
+    .demo-business-choice strong{font-size:13px;line-height:1.3}
+    .demo-business-choice small{color:#737d8c;font-size:11px;line-height:1.35}
+    .demo-business-choice:hover{border-color:#9cc8f7;transform:translateY(-1px)}
+    .demo-business-choice.active{border-color:#0671d8;background:#f3f8ff;box-shadow:inset 0 0 0 1px #0671d8,0 5px 15px rgba(0,102,204,.07)}
+    .demo-business-choice.active>span{background:#dcecff}
+    .demo-business-choice:focus-visible{outline:3px solid #7eb8f5;outline-offset:2px}
+    .demo-app{border:1px solid #dfe5ed;border-radius:22px;box-shadow:0 18px 52px rgba(22,39,69,.09);background:#fff}
+    .demo-appbar{padding:15px 20px;gap:14px}
+    .demo-appbody{background:#fff}
+    .demo-sidebar{background:#f8fafc}
+    .demo-nav.active{background:#e8f2ff;color:#075db6}
+    .demo-kpi,.demo-chart-card,.demo-panel-card{box-shadow:none}
+    @media(max-width:900px){.demo-business-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.demo-business-picker{padding:20px}.demo-appbar{flex-wrap:wrap}.demo-appcontext{flex-wrap:wrap}}
+    @media(max-width:600px){.demo-business-picker{padding:16px;border-radius:18px;margin-bottom:18px}.demo-picker-heading{align-items:flex-start}.demo-picker-heading h3{font-size:19px}.demo-picker-heading p{font-size:12px}.demo-picker-count{font-size:10px;padding:6px 8px}.demo-business-grid{gap:8px}.demo-business-choice{min-height:104px;padding:11px;border-radius:13px}.demo-business-choice strong{font-size:12px}.demo-business-choice small{font-size:10px}.demo-app{border-radius:17px}.demo-appbar{padding:12px}.demo-appcontext{font-size:10px;gap:6px}.demo-reset-all{font-size:11px;padding:8px 10px}.demo-data-note{font-size:12px;padding:12px}}
+    @media(max-width:360px){.demo-business-grid{grid-template-columns:1fr}.demo-business-choice{min-height:0;display:grid;grid-template-columns:32px minmax(0,1fr);align-items:center;column-gap:10px}.demo-business-choice>span{grid-row:span 2;margin:0}.demo-business-choice small{grid-column:2}}
+    @media(prefers-reduced-motion:reduce){.demo-business-choice{transition:none}.demo-business-choice:hover{transform:none}}
   </style>
   <button type="button" class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
   <section class="chat-panel" id="nexoChat" role="dialog" aria-labelledby="chatTitle" aria-describedby="chatDisclaimer" aria-modal="false">
