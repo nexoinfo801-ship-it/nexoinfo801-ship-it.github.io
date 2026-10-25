@@ -705,7 +705,26 @@
     @media(max-width:760px){nav{align-items:center;min-height:62px}.navlinks{gap:8px}.navlinks .hide-mobile{display:none}.navlinks a:not(.button){font-size:12px}.navlinks .button{padding:9px 12px;font-size:12px}}
     @media(max-width:420px){.brand{font-size:13px;gap:5px;letter-spacing:.07em}.brand span{font-size:10px}.navlinks{gap:6px}.navlinks .button{padding:8px 10px;font-size:11px}.navlinks a[href="#oferta"]{font-size:11px}}
     @media(max-width:340px){.navlinks a[href="#oferta"]{display:none}}
-  </style>
+  
+    /* Sistema visual global: ritmo, estados de interação e acessibilidade consistentes. */
+    :root{--nexo-radius:20px;--nexo-radius-lg:28px;--nexo-shadow:0 10px 30px rgba(25,45,75,.045);--nexo-focus:0 0 0 4px rgba(0,102,204,.16)}
+    section{padding-block:clamp(52px,7vw,82px);scroll-margin-top:82px}
+    .hero{scroll-margin-top:70px}
+    .section-head{margin-bottom:clamp(26px,4vw,38px)}
+    .section-head p{line-height:1.7}
+    .button{min-height:46px;gap:8px;transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease}
+    .button:hover{background:#0059b3;box-shadow:0 5px 14px rgba(0,102,204,.16);transform:translateY(-1px)}
+    .button.secondary:hover{background:#edf5ff;border-color:#8dbcf0;box-shadow:none}
+    .button:focus-visible,.demo-primary:focus-visible,.demo-item:focus-visible,.demo-nav:focus-visible,.demo-qty button:focus-visible,.demo-clear:focus-visible,.chat-choice:focus-visible,#chatLaunch:focus-visible,#chatClose:focus-visible,.diagnostic-field input:focus-visible,.diagnostic-field select:focus-visible{outline:3px solid #80b8ff;outline-offset:3px}
+    .card{transition:border-color .18s ease,box-shadow .18s ease}
+    .card:hover{border-color:#d7e4f4;box-shadow:var(--nexo-shadow)}
+    .skip-link{position:fixed;left:16px;top:12px;z-index:1000;transform:translateY(-160%);padding:11px 16px;border-radius:10px;background:#1d1d1f;color:#fff;font-weight:700;text-decoration:none;box-shadow:0 5px 20px rgba(0,0,0,.18)}
+    .skip-link:focus{transform:translateY(0);outline:3px solid #80b8ff;outline-offset:3px}
+    input,select,button,summary{touch-action:manipulation}
+    @media(max-width:600px){section{padding-block:48px}.hero{padding-block:58px 48px}.wrap{width:min(100% - 32px,1100px)}.section-head p{font-size:15px}}
+    @media(hover:none){.card:hover,.button:hover{transform:none;box-shadow:inherit}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
   <button type="button" class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
   <section class="chat-panel" id="nexoChat" role="dialog" aria-labelledby="chatTitle" aria-describedby="chatDisclaimer" aria-modal="false">
     <div class="chat-head">
