@@ -502,6 +502,35 @@
     @media(max-width:760px){nav{gap:10px}.navlinks{gap:10px;flex-wrap:wrap;justify-content:flex-end}.navlinks .button{padding:10px 13px;font-size:13px}.brand{font-size:13px;letter-spacing:.08em}}
     @media(max-width:420px){.wrap{width:calc(100% - 24px)}.navlinks{gap:7px}.navlinks>a[href="#oferta"]{font-size:13px}.navlinks .button{padding:9px 11px}.diagnostic-actions .button{width:100%}.demo-appbar{flex-wrap:wrap}.demo-appbrand{min-width:0}.demo-pagehead{flex-direction:column}.demo-date{white-space:normal}}
 
+    /* Refinamento final para telas pequenas: mais respiro, alvos de toque maiores e sem overflow. */
+    @media (max-width: 600px) {
+      .hero { padding: 62px 0 52px; }
+      h1 { font-size: clamp(36px, 10vw, 52px); letter-spacing: -.045em; }
+      .lead { font-size: 17px; }
+      .hero .actions { display: grid; grid-template-columns: 1fr; width: 100%; max-width: 360px; margin-inline: auto; }
+      .hero .actions .button { width: 100%; min-height: 46px; }
+      section { padding: 48px 0; }
+      .section-head { margin-bottom: 26px; }
+      .card { padding: 21px; border-radius: 18px; }
+      .offer { gap: 22px; border-radius: 22px; }
+      .pricebox { padding: 22px 18px; }
+      .demo-layout { grid-template-columns: minmax(0, 1fr); }
+      .demo-tabs { flex-direction: row; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); padding: 10px; }
+      .demo-tab { flex: 0 0 auto; white-space: nowrap; }
+      .demo-content { padding: 16px; }
+      .chat-panel { max-width: calc(100vw - 24px); }
+      input, select, textarea { max-width: 100%; }
+    }
+    @media (max-width: 360px) {
+      .brand { letter-spacing: .04em; }
+      .navlinks { gap: 6px; }
+      .navlinks a { font-size: 12px; }
+      .navlinks .button { padding: 8px 10px; font-size: 12px; }
+      .demo-stats { grid-template-columns: minmax(0, 1fr); }
+      .chat-composer { gap: 6px; padding-inline: 8px; }
+      .chat-send { padding-inline: 10px; }
+    }
+
   </style>
   <button type="button" class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
   <section class="chat-panel" id="nexoChat" role="dialog" aria-labelledby="chatTitle" aria-describedby="chatDisclaimer" aria-modal="false">
