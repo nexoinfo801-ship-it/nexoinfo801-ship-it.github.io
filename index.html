@@ -674,6 +674,25 @@
     #historia-nexo>.wrap>.fineprint[style*="text-align:center"]{max-width:780px;margin:18px auto 0!important;color:#78818e;font-size:11px;line-height:1.65}
     @media(max-width:800px){#historia-nexo>.wrap>.grid:first-of-type{grid-template-columns:1fr}#historia-nexo>.wrap>.grid:first-of-type .card{padding:22px}#historia-nexo>.wrap>.grid:last-of-type{grid-template-columns:1fr}}
     @media(max-width:600px){#historia-nexo>.wrap>.section-head:first-child{text-align:left;margin-bottom:24px}#historia-nexo>.wrap>.section-head:first-child p{font-size:15px}#historia-nexo>.wrap>.section-head[style*="margin-top:34px"]{margin-top:42px!important;padding-top:26px}}
+    /* FAQ: leitura confortável e interação evidente, sem aparência de lista padrão do navegador. */
+    #perguntas{background:#f7f8fa}
+    #perguntas .section-head{max-width:760px;margin:0 auto 30px}
+    #perguntas .section-head h2{font-size:clamp(32px,4vw,44px);letter-spacing:-.05em}
+    .faq-list{max-width:850px;margin:0 auto;display:grid;gap:10px}
+    .faq-item{border:1px solid #e3e8ef;border-radius:15px;background:#fff;overflow:hidden;box-shadow:0 3px 12px rgba(30,50,80,.025);transition:border-color .15s ease,box-shadow .15s ease}
+    .faq-item[open]{border-color:#b9d5f5;box-shadow:0 7px 22px rgba(28,80,140,.06)}
+    .faq-item summary{position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:19px 22px;list-style:none;cursor:pointer;color:#202733;font-size:15px;font-weight:700;line-height:1.45}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary:after{content:"+";flex:0 0 auto;display:grid;place-items:center;width:27px;height:27px;border:1px solid #e2e7ee;border-radius:50%;color:#1769bd;background:#f7faff;font-size:20px;font-weight:400;line-height:1;transition:transform .15s ease,background .15s ease}
+    .faq-item[open] summary:after{content:"−";background:#eaf3ff;transform:rotate(180deg)}
+    .faq-item summary:focus-visible{outline:3px solid #7eb8f5;outline-offset:-4px;border-radius:12px}
+    .faq-item p{padding:0 22px 21px;margin:0;color:#5e6877;font-size:14px;line-height:1.75;max-width:780px}
+    .faq-cta{max-width:850px;margin:24px auto 0;padding:18px 20px;border:1px solid #e0e8f2;border-radius:15px;background:#fff;color:#596576;font-size:14px;line-height:1.6}
+    .faq-cta a{font-weight:700;text-underline-offset:3px}
+    #diagnostico{background:linear-gradient(180deg,#fff 0%,#f7f9fc 100%)}
+    #diagnostico .section-head p{max-width:650px;margin-inline:auto;line-height:1.7}
+    @media(max-width:600px){.faq-item summary{padding:16px;font-size:14px;gap:12px}.faq-item p{padding:0 16px 18px;font-size:13px}.faq-cta{padding:15px;font-size:13px}}
+    @media(prefers-reduced-motion:reduce){.faq-item,.faq-item summary:after{transition:none}}
   </style>
   <button type="button" class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
   <section class="chat-panel" id="nexoChat" role="dialog" aria-labelledby="chatTitle" aria-describedby="chatDisclaimer" aria-modal="false">
