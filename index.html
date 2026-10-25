@@ -250,6 +250,15 @@
     #contato .contact .button.secondary:hover{background:rgba(255,255,255,.12)}
     @media(max-width:760px){#historia-nexo .grid:first-of-type .card{padding:23px}#historia-nexo .section-head[style*="margin-top:34px"]{margin-top:25px!important}}
 
+    .footer-row{align-items:center;gap:18px}
+    .footer-brand,.footer-contact{display:flex;flex-direction:column;gap:4px}
+    .footer-brand strong{color:#30343b;font-size:14px;letter-spacing:.02em}
+    .footer-brand span,.footer-contact a,.footer-copyright{font-size:12px;color:#737b87}
+    .footer-contact a{text-decoration:none}
+    .footer-contact a:hover{color:var(--blue);text-decoration:underline}
+    .footer-contact{gap:6px}
+    @media(max-width:620px){.footer-row{align-items:flex-start;flex-direction:column}.footer-copyright{margin-top:5px}}
+
 </style>
 </head>
 <body>
@@ -430,7 +439,7 @@
             <div class="price">R$ 49,90 <small>/ mês</small></div>
             <p>Durante 12 meses, conforme contrato.</p>
             <p>Preço mensal de referência após a oferta: <strong>R$ 149,90</strong>, sujeito às condições do plano e do contrato.</p>
-            <a class="button" href="#contato">Quero conhecer o NEXO <span aria-hidden="true">↗</span></a>
+            <a class="button" href="https://wa.me/5514998356762?text=Ol%C3%A1%21%20Tenho%20interesse%20na%20condi%C3%A7%C3%A3o%20de%20lan%C3%A7amento%20do%20NEXO%20ERP%20PDV.%20Gostaria%20de%20confirmar%20disponibilidade%2C%20recursos%20inclu%C3%ADdos%20e%20condi%C3%A7%C3%B5es%20do%20contrato." target="_blank" rel="noopener noreferrer">Conversar sobre a oferta <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
@@ -611,8 +620,15 @@
 
   <footer>
     <div class="wrap footer-row">
-      <span><strong>NEXO ERP PDV</strong></span>
-      <span>© <span id="year">2026</span> NEXO. Todos os direitos reservados.</span>
+      <div class="footer-brand">
+        <strong>NEXO ERP PDV</strong>
+        <span>NEXO Playloud Informática e Automação</span>
+      </div>
+      <div class="footer-contact">
+        <a href="mailto:nexoinfo801@gmail.com">nexoinfo801@gmail.com</a>
+        <a href="https://wa.me/5514998356762?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20NEXO%20ERP%20PDV." target="_blank" rel="noopener noreferrer">WhatsApp da equipe ↗</a>
+      </div>
+      <span class="footer-copyright">© <span id="year">2026</span> NEXO. Todos os direitos reservados.</span>
     </div>
   </footer>
 
