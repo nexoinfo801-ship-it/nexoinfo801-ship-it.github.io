@@ -999,6 +999,19 @@
     window.nexoChatAct = function(label,value) {
       window.nexoChatMessage(label,'user');
       if(value==='segmento'){
+        if(label==='Começar novamente'){
+          var chatLog=document.getElementById('chatLog');
+          var chatChoices=document.getElementById('chatChoices');
+          if(chatLog) chatLog.replaceChildren();
+          if(chatChoices) chatChoices.replaceChildren();
+          window.nexoSegmento='';
+          window.nexoInteresse='';
+          window.nexoSistema='';
+          window.nexoLastQuestion='';
+          window.nexoChatMessage('Vamos começar uma nova conversa. Sou a Cleópatra, assistente virtual do NEXO ERP PDV. Posso ajudar a entender sua necessidade e encaminhar você à equipe.','bot');
+          window.nexoChatChoices([['Quero conhecer o NEXO','segmento'],['Dúvidas sobre valores','valores'],['História e confiança','confianca'],['Já uso outro sistema','troca']]);
+          return;
+        }
         window.nexoSegmento='';
         window.nexoInteresse='';
         window.nexoSistema='';
