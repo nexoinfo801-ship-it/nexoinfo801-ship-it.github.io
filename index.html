@@ -545,7 +545,7 @@
         <div class="section-head">
           <div class="eyebrow">Atendimento personalizado</div>
           <h2>Conte um pouco sobre seu negócio.</h2>
-          <p>Responda algumas perguntas rápidas. O site prepara uma mensagem com seu contexto para você revisar antes de abrir o WhatsApp da equipe NEXO.</p>
+          <p>Escolha seu tipo de negócio e a prioridade principal. Cidade e sistema atual ajudam a equipe, mas são opcionais. O site prepara uma mensagem para você revisar no WhatsApp.</p>
         </div>
         <form class="diagnostic-card" id="diagnosticForm" aria-label="Formulário para conhecer o negócio e solicitar atendimento NEXO">
           <div class="diagnostic-grid">
@@ -555,7 +555,7 @@
             </div>
             <div class="diagnostic-field">
               <label for="leadCity">Cidade</label>
-              <input id="leadCity" name="city" autocomplete="address-level2" maxlength="80" placeholder="Ex.: Avaré - SP" required>
+              <input id="leadCity" name="city" autocomplete="address-level2" maxlength="80" placeholder="Ex.: Avaré - SP">
             </div>
             <div class="diagnostic-field">
               <label for="leadBusiness">Tipo de negócio</label>
@@ -578,7 +578,7 @@
             </div>
             <div class="diagnostic-field">
               <label for="leadSystem">Usa algum sistema hoje?</label>
-              <select id="leadSystem" name="system" required>
+              <select id="leadSystem" name="system">
                 <option value="">Selecione uma opção</option>
                 <option>Sim, uso um sistema</option>
                 <option>Uso planilhas ou controles manuais</option>
@@ -604,6 +604,7 @@
             <a class="button secondary" href="#demoNexo">Ver demonstração ilustrativa</a>
           </div>
           <p class="diagnostic-privacy">Privacidade: este formulário não envia nem salva os dados em um servidor. Ao continuar, os campos preenchidos são incluídos na mensagem do WhatsApp para você revisar antes de enviar. Evite informar dados confidenciais.</p>
+          <p id="whatsappFallback" class="diagnostic-privacy" role="status" aria-live="polite" hidden>Se o WhatsApp não abrir automaticamente, <a id="whatsappFallbackLink" href="https://wa.me/5514998356762" target="_blank" rel="noopener noreferrer">abra a mensagem preparada por este link</a>.</p>
         </form>
       </div>
     </section>
@@ -1146,7 +1147,7 @@
           'Principal prioridade: '+get('leadNeed'),
           'Gostaria de conhecer os recursos e confirmar uma demonstração e as condições adequadas.'
         ].join('\n');
-        window.open('https://wa.me/5514998356762?text='+encodeURIComponent(message),'_blank','noopener,noreferrer');
+        var whatsappUrl='https://wa.me/5514998356762?text='+encodeURIComponent(message);\n        var fallback=document.getElementById('whatsappFallback');\n        var fallbackLink=document.getElementById('whatsappFallbackLink');\n        if(fallbackLink) fallbackLink.href=whatsappUrl;\n        if(fallback) fallback.hidden=false;\n        var opened=window.open(whatsappUrl,'_blank','noopener,noreferrer');\n        if(!opened && fallback) fallback.textContent='O navegador bloqueou a abertura automática. Use o link abaixo para abrir a mensagem preparada.';
       });
       var year = document.getElementById('year');
       if (year) year.textContent = new Date().getFullYear();
