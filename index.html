@@ -693,6 +693,18 @@
     #diagnostico .section-head p{max-width:650px;margin-inline:auto;line-height:1.7}
     @media(max-width:600px){.faq-item summary{padding:16px;font-size:14px;gap:12px}.faq-item p{padding:0 16px 18px;font-size:13px}.faq-cta{padding:15px;font-size:13px}}
     @media(prefers-reduced-motion:reduce){.faq-item,.faq-item summary:after{transition:none}}
+    /* Navegação final: reduz ruído em telas pequenas sem esconder o caminho comercial. */
+    header{background:rgba(255,255,255,.88);border-bottom-color:rgba(24,39,60,.08)}
+    nav{min-height:70px}
+    .brand{display:inline-flex;align-items:baseline;gap:7px;white-space:nowrap;letter-spacing:.1em}
+    .brand span{font-size:12px}
+    .navlinks{gap:clamp(10px,1.7vw,22px)}
+    .navlinks a:not(.button){white-space:nowrap}
+    .navlinks .button{min-height:40px;padding:10px 16px;font-size:13px;white-space:nowrap}
+    .navlinks a:focus-visible,.brand:focus-visible{outline:3px solid #7eb8f5;outline-offset:4px;border-radius:8px}
+    @media(max-width:760px){nav{align-items:center;min-height:62px}.navlinks{gap:8px}.navlinks .hide-mobile{display:none}.navlinks a:not(.button){font-size:12px}.navlinks .button{padding:9px 12px;font-size:12px}}
+    @media(max-width:420px){.brand{font-size:13px;gap:5px;letter-spacing:.07em}.brand span{font-size:10px}.navlinks{gap:6px}.navlinks .button{padding:8px 10px;font-size:11px}.navlinks a[href="#oferta"]{font-size:11px}}
+    @media(max-width:340px){.navlinks a[href="#oferta"]{display:none}}
   </style>
   <button type="button" class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
   <section class="chat-panel" id="nexoChat" role="dialog" aria-labelledby="chatTitle" aria-describedby="chatDisclaimer" aria-modal="false">
