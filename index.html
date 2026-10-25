@@ -623,6 +623,35 @@
     @media(max-width:600px){.demo-business-picker{padding:16px;border-radius:18px;margin-bottom:18px}.demo-picker-heading{align-items:flex-start}.demo-picker-heading h3{font-size:19px}.demo-picker-heading p{font-size:12px}.demo-picker-count{font-size:10px;padding:6px 8px}.demo-business-grid{gap:8px}.demo-business-choice{min-height:104px;padding:11px;border-radius:13px}.demo-business-choice strong{font-size:12px}.demo-business-choice small{font-size:10px}.demo-app{border-radius:17px}.demo-appbar{padding:12px}.demo-appcontext{font-size:10px;gap:6px}.demo-reset-all{font-size:11px;padding:8px 10px}.demo-data-note{font-size:12px;padding:12px}}
     @media(max-width:360px){.demo-business-grid{grid-template-columns:1fr}.demo-business-choice{min-height:0;display:grid;grid-template-columns:32px minmax(0,1fr);align-items:center;column-gap:10px}.demo-business-choice>span{grid-row:span 2;margin:0}.demo-business-choice small{grid-column:2}}
     @media(prefers-reduced-motion:reduce){.demo-business-choice{transition:none}.demo-business-choice:hover{transform:none}}
+    /* Acabamento comercial: oferta e formulário com contraste e hierarquia consistentes. */
+    #oferta{background:linear-gradient(180deg,#f5f5f7 0%,#eef3f9 100%)}
+    #oferta .offer{position:relative;overflow:hidden;border:1px solid #e2e8f0;border-radius:30px;padding:clamp(26px,5vw,54px);gap:clamp(28px,5vw,58px);box-shadow:0 20px 55px rgba(30,54,88,.07)}
+    #oferta .offer:before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#06c,#7ab9ff,#b8d9ff)}
+    #oferta .offer>div:first-child{max-width:540px}
+    #oferta .offer h2{font-size:clamp(31px,4vw,45px);line-height:1.08;letter-spacing:-.045em;margin:14px 0}
+    #oferta .offer ul{padding-left:21px;color:#424b59;line-height:1.8}
+    #oferta .offer li{padding-left:3px;margin:5px 0}
+    #oferta .pricebox{background:linear-gradient(155deg,#f7faff,#edf5ff);border:1px solid #dce9f8;border-radius:24px;padding:clamp(22px,3vw,34px)}
+    #oferta .price-label{display:inline-block;padding:7px 10px;border-radius:999px;background:#e1f3e9;color:#176b41;font-size:10px;letter-spacing:.06em}
+    #oferta .price{margin:17px 0 10px;font-size:clamp(42px,5vw,60px);color:#12365f}
+    #oferta .price small{font-size:15px;font-weight:600;letter-spacing:0;color:#69778a}
+    #oferta .pricebox p{font-size:13px;line-height:1.6;color:#5f6c7d}
+    #oferta .pricebox p strong{color:#26384e}
+    #oferta .pricebox .button{width:100%;margin-top:10px;min-height:48px}
+    #diagnostico{background:#fff}
+    #diagnostico .section-head h2{max-width:650px;margin:10px auto 14px}
+    .diagnostic-card{max-width:860px;margin:0 auto;padding:clamp(20px,4vw,38px);border:1px solid #e2e7ee;border-radius:26px;background:linear-gradient(145deg,#fff,#fbfcfe);box-shadow:0 16px 48px rgba(28,48,76,.06)}
+    .diagnostic-grid{gap:18px}
+    .diagnostic-field label{display:block;margin-bottom:8px;color:#303947;font-size:13px;font-weight:700}
+    .diagnostic-field input,.diagnostic-field select{width:100%;min-height:48px;border:1px solid #d8dee8;border-radius:12px;padding:12px 14px;background:#fff;color:#202733;font:inherit;font-size:14px;transition:border-color .15s ease,box-shadow .15s ease}
+    .diagnostic-field input::placeholder{color:#9aa3b0}
+    .diagnostic-field input:focus,.diagnostic-field select:focus{outline:none;border-color:#2680df;box-shadow:0 0 0 4px rgba(0,102,204,.1)}
+    .diagnostic-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+    .diagnostic-actions .button{min-height:48px}
+    .diagnostic-privacy{margin:18px 0 0;padding-top:15px;border-top:1px solid #edf0f4;color:#737d8c;font-size:12px;line-height:1.6}
+    #contato .contact{border-radius:28px;box-shadow:0 20px 55px rgba(0,0,0,.12)}
+    @media(max-width:760px){#oferta .offer{grid-template-columns:1fr;gap:22px}#oferta .pricebox{max-width:none}.diagnostic-card{border-radius:20px}.diagnostic-actions{display:grid;grid-template-columns:1fr}.diagnostic-actions .button{width:100%}}
+    @media(prefers-reduced-motion:reduce){.diagnostic-field input,.diagnostic-field select{transition:none}}
   </style>
   <button type="button" class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
   <section class="chat-panel" id="nexoChat" role="dialog" aria-labelledby="chatTitle" aria-describedby="chatDisclaimer" aria-modal="false">
