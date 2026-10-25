@@ -1058,6 +1058,10 @@
         window.nexoChatMessage('Obrigado! A equipe pode mostrar o NEXO considerando sua realidade. Os recursos e condições devem ser confirmados com a equipe.','bot');
         window.nexoChatChoices([['Falar com a equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]); return;
       }
+      if(value==='demo'){
+        window.nexoChatMessage('Para agendar uma demonstração do sistema real, fale com a equipe pelo WhatsApp. Informe seu tipo de negócio e peça para ver as rotinas que mais importam para você.','bot');
+        window.nexoChatChoices([['Falar com a equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]); return;
+      }
       if(value==='valores'){
         window.nexoChatMessage('A oferta publicada é de R$ 49,90 por mês para os primeiros 10 clientes durante 12 meses, conforme contrato. O preço mensal de referência após a oferta é R$ 149,90. Confirme plano e condições com a equipe.','bot');
         window.nexoChatChoices([['Falar com a equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]); return;
