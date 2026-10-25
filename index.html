@@ -80,21 +80,45 @@
     .price small{font-size:17px;font-weight:500;letter-spacing:0;color:var(--muted)}
     .pricebox p{font-size:14px;color:var(--muted)}
     .fineprint{font-size:13px;color:var(--muted)}
-    .pricing-section{padding:clamp(54px,8vw,88px) 0;background:#fff}
-    .pricing-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:#fff}
-    .pricing-table{width:100%;border-collapse:collapse;min-width:620px;font-size:14px}
-    .pricing-table th,.pricing-table td{padding:15px 18px;text-align:left;border-bottom:1px solid var(--line)}
-    .pricing-table th{background:#f5f5f7;color:#424245;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
-    .pricing-table tr:last-child td{border-bottom:0}
-    .pricing-table td:last-child{font-weight:750;white-space:nowrap}
-    .pricing-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:24px 0}
-    .pricing-card{border:1px solid var(--line);border-radius:18px;padding:22px;background:#fff}
-    .pricing-card h3{margin:0 0 8px}
-    .pricing-card p{margin:0;color:var(--muted);font-size:14px}
-    .pricing-card strong{display:block;font-size:24px;letter-spacing:-.04em;margin:10px 0}
-    .pricing-note{margin-top:18px;padding:16px 18px;border-radius:14px;background:#f5f5f7;color:#555;font-size:13px}
-    @media(max-width:760px){.pricing-cards{grid-template-columns:1fr}.pricing-table th,.pricing-table td{padding:13px 14px}}
-
+    .pricing-section{padding:clamp(58px,8vw,100px) 0;background:linear-gradient(180deg,#f5f7fb 0%,#fff 42%,#f5f5f7 100%)}
+    .pricing-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:30px 0}
+    .pricing-card{position:relative;overflow:hidden;border:1px solid #e2e6ed;border-radius:22px;padding:26px;background:rgba(255,255,255,.92);box-shadow:0 8px 28px rgba(24,39,75,.045)}
+    .pricing-card-featured{border-color:#b9d4f3;box-shadow:0 14px 38px rgba(0,86,179,.09)}
+    .pricing-card-kicker{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#53708e;margin-bottom:12px}
+    .pricing-card h3{margin:0 0 8px;font-size:20px}
+    .pricing-card strong{display:block;font-size:clamp(23px,2.2vw,30px);letter-spacing:-.045em;margin:12px 0;color:#182a40}
+    .pricing-card strong span{font-size:13px;letter-spacing:0;font-weight:500;color:var(--muted);margin-left:4px}
+    .pricing-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+    .pricing-calculator{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:clamp(24px,5vw,60px);align-items:center;padding:clamp(24px,5vw,48px);border:1px solid #dfe6ef;border-radius:28px;background:rgba(255,255,255,.96);box-shadow:0 20px 60px rgba(28,53,88,.08)}
+    .calculator-copy h3{font-size:clamp(25px,3vw,34px);line-height:1.18;letter-spacing:-.04em;margin:10px 0 12px}
+    .calculator-copy>p{color:var(--muted);font-size:15px;max-width:520px}
+    .calculator-copy label{display:block;font-weight:750;font-size:13px;margin:24px 0 9px}
+    .terminal-control{display:grid;grid-template-columns:48px minmax(80px,140px) 48px;align-items:center;gap:10px}
+    .terminal-control button{height:46px;width:48px;border:1px solid #d7e0eb;border-radius:13px;background:#f5f8fc;color:#1b426b;font-size:25px;cursor:pointer}
+    .terminal-control button:hover{background:#eaf3ff}
+    .terminal-control input{width:100%;height:46px;border:1px solid #cfd9e6;border-radius:13px;text-align:center;font:inherit;font-size:20px;font-weight:800;color:#1d1d1f;background:#fff}
+    .terminal-control input:focus-visible,.terminal-control button:focus-visible,.terminal-range:focus-visible,.pricing-details summary:focus-visible{outline:3px solid rgba(0,102,204,.3);outline-offset:3px}
+    .terminal-range{display:block;width:100%;max-width:340px;margin:18px 0 0;accent-color:#06c;cursor:pointer}
+    .range-labels{display:flex;justify-content:space-between;max-width:340px;color:#777;font-size:11px}
+    .calculator-help{font-size:12px!important;line-height:1.55;margin-top:16px}
+    .calculator-result{padding:28px;border-radius:22px;background:linear-gradient(155deg,#f5f9ff,#eaf2fc);border:1px solid #dce8f7}
+    .result-label{display:block;color:#53677e;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .calculator-result>strong{display:block;color:#142b45;font-size:clamp(34px,4vw,48px);line-height:1.12;letter-spacing:-.055em;margin:12px 0 18px;overflow-wrap:anywhere}
+    .result-divider{height:1px;background:#d7e3f1;margin:20px 0}
+    .result-detail{display:flex;justify-content:space-between;gap:12px;margin:12px 0;font-size:13px;color:#526174}
+    .result-detail b{color:#1d1d1f;text-align:right}
+    .result-disclaimer{font-size:12px;color:#596a7e;line-height:1.55;margin:18px 0}
+    .calculator-result .button{display:flex;justify-content:center;width:100%;margin-top:18px}
+    .pricing-details{margin:22px 0;border:1px solid #e1e5eb;border-radius:18px;background:rgba(255,255,255,.85);overflow:hidden}
+    .pricing-details summary{padding:18px 20px;cursor:pointer;font-size:14px;font-weight:750}
+    .pricing-tier-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:0 18px 18px}
+    .pricing-tier-grid>div{padding:14px;border-radius:13px;background:#f5f7fa}
+    .pricing-tier-grid span{display:block;color:var(--muted);font-size:12px;margin-bottom:7px}
+    .pricing-tier-grid strong{font-size:13px;color:#273b52}
+    .pricing-note{margin-top:18px;padding:16px 18px;border-radius:14px;background:#eceff3;color:#59616d;font-size:12px;line-height:1.65}
+    @media(max-width:850px){.pricing-cards{grid-template-columns:1fr}.pricing-calculator{grid-template-columns:1fr}.pricing-tier-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:480px){.pricing-calculator{padding:21px;border-radius:22px}.calculator-result{padding:22px}.pricing-tier-grid{grid-template-columns:1fr 1fr;gap:8px}.pricing-tier-grid>div{padding:11px}.pricing-tier-grid strong{font-size:12px}}
+    
     .contact{background:#1d1d1f;color:#fff;border-radius:28px;padding:clamp(30px,5vw,55px);text-align:center}
     .contact p{color:#c6c6ca;max-width:650px;margin:0 auto 24px;font-size:17px}
     footer{padding:28px 0 38px;color:var(--muted);font-size:13px}
@@ -424,38 +448,80 @@
                 <div class="demo-footnote">Os dados acima são fictícios. No sistema real, confirme com a equipe quais cadastros e controles estão disponíveis no plano contratado.</div>
               </div>
               <div class="demo-pane" id="demoPane-relatorio" role="tabpanel" aria-labelledby="demoTab-relatorio" tabindex="0" data-demo-pane="relatorio">
-                <div class="demo-pagehead"><div><div class="demo-breadcrumb">Gestão / Resumo de vendas</div><h3 id="demoReportTitle">Resumo de vendas</h3><p id="demoReportIntro">Veja como informações podem ser apresentadas para apoiar decisões.</p></div><span class="demo-tag">ILUSTRATIVO</span></div>
-                <div class="demo-report-highlight"><span>Faturamento ilustrativo do dia</span><strong id="demoReportTotal">R$ 1.284,50</strong><small>Parte de uma base fictícia e soma as vendas de teste finalizadas nesta sessão. Trocar de ramo ou reiniciar a demo restaura os valores iniciais.</small></div>
-                <div class="demo-table-wrap"><table class="demo-table"><thead><tr><th>INDICADOR</th><th>VALOR DE EXEMPLO</th><th>O QUE MOSTRA</th></tr></thead><tbody><tr><td>Vendas</td><td id="demoReportCount">18</td><td>Quantidade ilustrativa de operações</td></tr><tr><td>Ticket médio</td><td id="demoTicket">R$ 71,36</td><td>Valor médio por venda, calculado na simulação</td></tr><tr><td>Produtos cadastrados</td><td>128</td><td>Tamanho fictício do catálogo</td></tr></tbody></table></div>
-                <button class="demo-primary" type="button" data-demo-go="pdv">Fazer uma venda de teste →</button>
-              </div>
-            </div>
-          </div>
-          <div class="demo-appfoot"><span>ⓘ Demonstração guiada • Os dados são fictícios e ficam apenas nesta página.</span><span>Não é o ambiente de produção do NEXO.</span></div>
+                <div class="demo-pagehead"><div><div class="demo-breadcrumb">Gestão / Resumo de vendas</div><h3 id="demoReportTitle">Resumo de vendas</h3><p id="demoReportIntro">Veja como informações podem ser apresentadas para apoiar dec<section id="precos" class="pricing-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Planos e escala</div>
+          <h2>Uma estrutura de preço que acompanha o seu negócio.</h2>
+          <p>Comece com um terminal e explore uma estimativa para operações maiores. A proposta final depende da avaliação técnica e comercial da equipe NEXO.</p>
         </div>
-        <div class="demo-below"><div><span class="eyebrow">Seu negócio é diferente</span><h3>Veja o NEXO aplicado à sua realidade.</h3><p>A equipe pode apresentar o sistema real e confirmar os recursos disponíveis para sua operação e seu plano.</p></div><a class="button" id="demoWhatsAppCta" href="https://wa.me/5514998356762?text=Ol%C3%A1%21%20Experimentei%20a%20demonstra%C3%A7%C3%A3o%20do%20NEXO%20ERP%20PDV%20e%20quero%20ver%20o%20sistema%20real." target="_blank" rel="noopener noreferrer">Agendar demonstração real ↗</a></div>
+
+        <div class="pricing-cards">
+          <article class="pricing-card">
+            <div class="pricing-card-kicker">Para começar</div>
+            <h3>NEXO Essencial</h3>
+            <strong>R$ 49,90<span>/mês</span></strong>
+            <p>Referência de entrada para 1 terminal. Recursos, prazo e condições são confirmados no contrato.</p>
+          </article>
+          <article class="pricing-card pricing-card-featured">
+            <div class="pricing-card-kicker">Cresça com controle</div>
+            <h3>NEXO Multi-Loja</h3>
+            <strong>Por volume</strong>
+            <p>Estimativa progressiva para operações com múltiplos terminais, sujeita à validação da estrutura necessária.</p>
+          </article>
+          <article class="pricing-card">
+            <div class="pricing-card-kicker">Operações maiores</div>
+            <h3>NEXO Enterprise</h3>
+            <strong>Até 1.000 terminais</strong>
+            <p>Atendimento consultivo para avaliar implantação, infraestrutura, suporte e requisitos operacionais.</p>
+          </article>
+        </div>
+
+        <div class="pricing-calculator" aria-labelledby="pricingCalculatorTitle">
+          <div class="calculator-copy">
+            <div class="eyebrow">Simulador de investimento</div>
+            <h3 id="pricingCalculatorTitle">Quantos terminais sua operação precisa?</h3>
+            <p>Altere a quantidade e veja uma estimativa mensal calculada por faixas progressivas. A simulação não envia dados nem cria uma contratação.</p>
+            <label for="terminalCount">Quantidade de terminais</label>
+            <div class="terminal-control">
+              <button type="button" id="terminalMinus" aria-label="Diminuir quantidade de terminais">−</button>
+              <input id="terminalCount" name="terminalCount" type="number" min="1" max="1000" step="1" value="1" inputmode="numeric" aria-describedby="terminalHelp">
+              <button type="button" id="terminalPlus" aria-label="Aumentar quantidade de terminais">+</button>
+            </div>
+            <input id="terminalRange" class="terminal-range" type="range" min="1" max="1000" value="1" aria-label="Ajustar quantidade de terminais">
+            <div class="range-labels"><span>1 terminal</span><span>1.000 terminais</span></div>
+            <p id="terminalHelp" class="calculator-help">Para 101 terminais ou mais, o valor é apenas uma referência matemática e requer proposta personalizada.</p>
+          </div>
+          <div class="calculator-result" aria-live="polite" aria-atomic="true">
+            <span class="result-label">Estimativa mensal</span>
+            <strong id="terminalTotal">R$ 49,90</strong>
+            <div class="result-divider"></div>
+            <div class="result-detail"><span>Terminais selecionados</span><b id="terminalCountLabel">1</b></div>
+            <div class="result-detail"><span>Média por terminal</span><b id="terminalAverage">R$ 49,90</b></div>
+            <p id="terminalQuoteNote" class="result-disclaimer">Valor de referência para 1 terminal. Consulte as condições do plano.</p>
+            <a class="button" id="terminalQuoteButton" href="https://wa.me/5514998356762?text=Ol%C3%A1%21%20Quero%20confirmar%20as%20condi%C3%A7%C3%B5es%20do%20NEXO%20ERP%20PDV%20para%201%20terminal." target="_blank" rel="noopener noreferrer">Solicitar proposta ↗</a>
+          </div>
+        </div>
+
+        <details class="pricing-details">
+          <summary>Entenda as faixas usadas na estimativa</summary>
+          <div class="pricing-tier-grid">
+            <div><span>1º terminal</span><strong>R$ 49,90</strong></div>
+            <div><span>2 a 5</span><strong>R$ 44,90 por terminal</strong></div>
+            <div><span>6 a 20</span><strong>R$ 39,90 por terminal</strong></div>
+            <div><span>21 a 50</span><strong>R$ 34,90 por terminal</strong></div>
+            <div><span>51 a 100</span><strong>R$ 29,90 por terminal</strong></div>
+            <div><span>101 a 250</span><strong>R$ 24,90 por terminal</strong></div>
+            <div><span>251 a 500</span><strong>R$ 19,90 por terminal</strong></div>
+            <div><span>501 a 1.000</span><strong>R$ 14,90 por terminal</strong></div>
+          </div>
+        </details>
+
+        <p class="pricing-note">Transparência: as faixas acima são uma referência comercial em avaliação, não uma confirmação automática de compatibilidade, multi-loja, estoque compartilhado, sincronização ou recursos empresariais. Antes da contratação, a equipe confirma por escrito o escopo, a mensalidade, implantação, suporte e requisitos técnicos. Tributos, equipamentos e serviços adicionais podem alterar o investimento.</p>
       </div>
     </section>
 
-        <section id="oferta" class="offer-section">
-      <div class="wrap">
-        <div class="offer">
-          <div>
-            <div class="eyebrow">Condição especial de lançamento</div>
-            <h2>Seu próximo passo começa com uma boa conversa.</h2>
-            <p class="offer-intro">Uma condição de entrada para os primeiros 10 clientes conhecerem o NEXO e avaliarem, com nossa equipe, como a solução se encaixa na rotina do negócio.</p>
-            <ul>
-              <li>Oferta limitada aos primeiros 10 clientes.</li>
-              <li>Período contratual de 12 meses.</li>
-              <li>Condições e escopo confirmados antes da contratação.</li>
-            </ul>
-          </div>
-          <div class="pricebox">
-            <div class="price-label">Condição para os primeiros 10 clientes</div>
-            <div class="price">R$ 49,90 <small>/ mês</small></div>
-            <p>Durante 12 meses, conforme contrato.</p>
-            <p>Preço mensal de referência após a oferta: <strong>R$ 149,90</strong>, sujeito às condições do plano e do contrato.</p>
-            <a class="button" href="https://wa.me/5514998356762?text=Ol%C3%A1%21%20Tenho%20interesse%20na%20condi%C3%A7%C3%A3o%20de%20lan%C3%A7amento%20do%20NEXO%20ERP%20PDV.%20Gostaria%20de%20confirmar%20disponibilidade%2C%20recursos%20inclu%C3%ADdos%20e%20condi%C3%A7%C3%B5es%20do%20contrato." target="_blank" rel="noopener noreferrer">Conversar sobre a oferta <span aria-hidden="true">↗</span></a>
+    er noreferrer">Conversar sobre a oferta <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
@@ -1193,6 +1259,61 @@
       });
     })();
 
+  </script>
+  <script>
+    (function(){
+      var countInput=document.getElementById('terminalCount');
+      var range=document.getElementById('terminalRange');
+      var minus=document.getElementById('terminalMinus');
+      var plus=document.getElementById('terminalPlus');
+      var totalNode=document.getElementById('terminalTotal');
+      var countNode=document.getElementById('terminalCountLabel');
+      var averageNode=document.getElementById('terminalAverage');
+      var noteNode=document.getElementById('terminalQuoteNote');
+      var quoteButton=document.getElementById('terminalQuoteButton');
+      if(!countInput||!range||!totalNode||!quoteButton) return;
+      var brl=new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'});
+      function calculate(count){
+        var total=0;
+        for(var i=1;i<=count;i++){
+          if(i===1) total+=49.90;
+          else if(i<=5) total+=44.90;
+          else if(i<=20) total+=39.90;
+          else if(i<=50) total+=34.90;
+          else if(i<=100) total+=29.90;
+          else if(i<=250) total+=24.90;
+          else if(i<=500) total+=19.90;
+          else total+=14.90;
+        }
+        return Math.round(total*100)/100;
+      }
+      function update(raw){
+        var n=Number.parseInt(raw,10);
+        if(!Number.isFinite(n)) n=1;
+        n=Math.max(1,Math.min(1000,n));
+        countInput.value=String(n);
+        range.value=String(n);
+        var total=calculate(n);
+        totalNode.textContent=brl.format(total);
+        countNode.textContent=n.toLocaleString('pt-BR');
+        averageNode.textContent=brl.format(total/n);
+        if(n>=101){
+          noteNode.textContent='Estimativa matemática não vinculante. Operações a partir de 101 terminais precisam de proposta personalizada e validação técnica.';
+        } else if(n>1){
+          noteNode.textContent='Estimativa de referência por faixas progressivas. O valor final e o escopo dependem da confirmação da equipe NEXO.';
+        } else {
+          noteNode.textContent='Valor de referência para 1 terminal. Consulte as condições do plano.';
+        }
+        var message='Olá! Quero avaliar uma proposta do NEXO ERP PDV para '+n+' terminal(is). A simulação indicou '+brl.format(total)+' por mês como referência, não como preço final contratado. Gostaria de confirmar escopo, recursos, suporte e condições.';
+        quoteButton.href='https://wa.me/5514998356762?text='+encodeURIComponent(message);
+      }
+      countInput.addEventListener('input',function(){ if(countInput.value!=='') update(countInput.value); });
+      countInput.addEventListener('change',function(){update(countInput.value);});
+      range.addEventListener('input',function(){update(range.value);});
+      minus.addEventListener('click',function(){update(Number(countInput.value||1)-1);});
+      plus.addEventListener('click',function(){update(Number(countInput.value||1)+1);});
+      update(1);
+    })();
   </script>
   <script>
     (function(){
