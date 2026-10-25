@@ -80,6 +80,21 @@
     .price small{font-size:17px;font-weight:500;letter-spacing:0;color:var(--muted)}
     .pricebox p{font-size:14px;color:var(--muted)}
     .fineprint{font-size:13px;color:var(--muted)}
+    .pricing-section{padding:clamp(54px,8vw,88px) 0;background:#fff}
+    .pricing-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:#fff}
+    .pricing-table{width:100%;border-collapse:collapse;min-width:620px;font-size:14px}
+    .pricing-table th,.pricing-table td{padding:15px 18px;text-align:left;border-bottom:1px solid var(--line)}
+    .pricing-table th{background:#f5f5f7;color:#424245;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+    .pricing-table tr:last-child td{border-bottom:0}
+    .pricing-table td:last-child{font-weight:750;white-space:nowrap}
+    .pricing-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:24px 0}
+    .pricing-card{border:1px solid var(--line);border-radius:18px;padding:22px;background:#fff}
+    .pricing-card h3{margin:0 0 8px}
+    .pricing-card p{margin:0;color:var(--muted);font-size:14px}
+    .pricing-card strong{display:block;font-size:24px;letter-spacing:-.04em;margin:10px 0}
+    .pricing-note{margin-top:18px;padding:16px 18px;border-radius:14px;background:#f5f5f7;color:#555;font-size:13px}
+    @media(max-width:760px){.pricing-cards{grid-template-columns:1fr}.pricing-table th,.pricing-table td{padding:13px 14px}}
+
     .contact{background:#1d1d1f;color:#fff;border-radius:28px;padding:clamp(30px,5vw,55px);text-align:center}
     .contact p{color:#c6c6ca;max-width:650px;margin:0 auto 24px;font-size:17px}
     footer{padding:28px 0 38px;color:var(--muted);font-size:13px}
@@ -272,6 +287,7 @@
           <a class="hide-mobile" href="#demoNexo">Experimente</a>
           <a class="hide-mobile" href="#historia-nexo">Nossa história</a>
           <a class="hide-mobile" href="#perguntas">Dúvidas</a>
+          <a class="hide-mobile" href="#precos">Preços</a>
           <a class="hide-mobile" href="#diagnostico">Seu negócio</a>
           <a href="#oferta">Oferta</a>
           <a class="button" href="#contato">Conhecer o NEXO</a>
@@ -441,6 +457,54 @@
             <p>Preço mensal de referência após a oferta: <strong>R$ 149,90</strong>, sujeito às condições do plano e do contrato.</p>
             <a class="button" href="https://wa.me/5514998356762?text=Ol%C3%A1%21%20Tenho%20interesse%20na%20condi%C3%A7%C3%A3o%20de%20lan%C3%A7amento%20do%20NEXO%20ERP%20PDV.%20Gostaria%20de%20confirmar%20disponibilidade%2C%20recursos%20inclu%C3%ADdos%20e%20condi%C3%A7%C3%B5es%20do%20contrato." target="_blank" rel="noopener noreferrer">Conversar sobre a oferta <span aria-hidden="true">↗</span></a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="precos" class="pricing-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Planos e escala</div>
+          <h2>Um modelo que acompanha o tamanho da operação.</h2>
+          <p>O ponto de partida é R$ 49,90 por mês para 1 terminal. Para operações maiores, esta é uma referência progressiva de investimento por volume, com condições finais confirmadas pela equipe NEXO.</p>
+        </div>
+        <div class="pricing-cards">
+          <article class="pricing-card">
+            <h3>NEXO Essencial</h3>
+            <strong>R$ 49,90/mês</strong>
+            <p>Referência de entrada para 1 terminal. Recursos, prazo e condições são confirmados no contrato.</p>
+          </article>
+          <article class="pricing-card">
+            <h3>NEXO Multi-Loja</h3>
+            <strong>Por volume</strong>
+            <p>Modelo progressivo para operações com vários terminais, sujeito à avaliação da estrutura necessária.</p>
+          </article>
+          <article class="pricing-card">
+            <h3>NEXO Enterprise</h3>
+            <strong>101 a 1.000 terminais</strong>
+            <p>Proposta personalizada após avaliação de implantação, suporte, infraestrutura e necessidades da operação.</p>
+          </article>
+        </div>
+        <h3 style="margin:28px 0 12px">Referência mensal por quantidade de terminais</h3>
+        <div class="pricing-table-wrap">
+          <table class="pricing-table">
+            <thead><tr><th>Terminais</th><th>Mensalidade estimada</th><th>Média por terminal</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>R$ 49,90</td><td>R$ 49,90</td></tr>
+              <tr><td>5</td><td>R$ 229,50</td><td>R$ 45,90</td></tr>
+              <tr><td>10</td><td>R$ 429,00</td><td>R$ 42,90</td></tr>
+              <tr><td>20</td><td>R$ 828,00</td><td>R$ 41,40</td></tr>
+              <tr><td>50</td><td>R$ 1.875,00</td><td>R$ 37,50</td></tr>
+              <tr><td>100</td><td>R$ 3.370,00</td><td>R$ 33,70</td></tr>
+              <tr><td>250</td><td>R$ 7.105,00</td><td>R$ 28,42</td></tr>
+              <tr><td>500</td><td>R$ 12.080,00</td><td>R$ 24,16</td></tr>
+              <tr><td>1.000</td><td>Sob consulta</td><td>Proposta personalizada</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="pricing-note">Importante: os valores para múltiplos terminais são uma referência comercial progressiva, não uma confirmação automática de compatibilidade, multi-loja, estoque compartilhado, sincronização ou recursos empresariais. A mensalidade final, o escopo, a implantação, o suporte e os requisitos técnicos devem ser avaliados e formalizados antes da contratação. Tributos, equipamentos e serviços adicionais podem alterar o investimento.</p>
+        <div class="actions" style="justify-content:center;margin-top:24px">
+          <a class="button" href="https://wa.me/5514998356762?text=Ol%C3%A1%21%20Quero%20receber%20uma%20proposta%20do%20NEXO%20ERP%20PDV%20para%20a%20quantidade%20de%20terminais%20da%20minha%20opera%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">Solicitar proposta por volume ↗</a>
         </div>
       </div>
     </section>
