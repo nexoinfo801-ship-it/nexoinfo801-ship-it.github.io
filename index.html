@@ -652,6 +652,28 @@
     #contato .contact{border-radius:28px;box-shadow:0 20px 55px rgba(0,0,0,.12)}
     @media(max-width:760px){#oferta .offer{grid-template-columns:1fr;gap:22px}#oferta .pricebox{max-width:none}.diagnostic-card{border-radius:20px}.diagnostic-actions{display:grid;grid-template-columns:1fr}.diagnostic-actions .button{width:100%}}
     @media(prefers-reduced-motion:reduce){.diagnostic-field input,.diagnostic-field select{transition:none}}
+    /* História do fundador: editorial, humana e sem aparência de texto publicitário genérico. */
+    #historia-nexo{background:linear-gradient(180deg,#fff 0%,#f7f9fc 100%)}
+    #historia-nexo>.wrap>.section-head:first-child{max-width:800px;margin:0 auto 34px;text-align:left}
+    #historia-nexo>.wrap>.section-head:first-child .eyebrow{margin-bottom:12px}
+    #historia-nexo>.wrap>.section-head:first-child h2{max-width:700px;font-size:clamp(32px,4.2vw,48px);line-height:1.08;letter-spacing:-.05em}
+    #historia-nexo>.wrap>.section-head:first-child p{max-width:720px;font-size:17px;line-height:1.75;color:#5e6877}
+    #historia-nexo>.wrap>.grid:first-of-type{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    #historia-nexo>.wrap>.grid:first-of-type .card{padding:25px 23px;border:1px solid #e6eaf0;border-radius:18px;background:rgba(255,255,255,.86);box-shadow:0 7px 22px rgba(30,50,80,.035)}
+    #historia-nexo>.wrap>.grid:first-of-type .icon{display:grid;place-items:center;width:42px;height:42px;margin-bottom:19px;border-radius:13px;background:#edf5ff;font-size:20px}
+    #historia-nexo>.wrap>.grid:first-of-type .card h3{font-size:18px;line-height:1.3;letter-spacing:-.025em;margin-bottom:12px}
+    #historia-nexo>.wrap>.grid:first-of-type .card p{font-size:14px;line-height:1.75;color:#5d6674}
+    #historia-nexo>.wrap>.section-head[style*="margin-top:34px"]{max-width:800px;margin:62px auto 25px!important;padding-top:34px;border-top:1px solid #e2e7ee;text-align:left}
+    #historia-nexo>.wrap>.section-head[style*="margin-top:34px"] h2{font-size:clamp(25px,3vw,34px);letter-spacing:-.04em}
+    #historia-nexo>.wrap>.section-head[style*="margin-top:34px"] p{color:#606a79;font-size:14px;line-height:1.7}
+    #historia-nexo>.wrap>.grid:last-of-type{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    #historia-nexo>.wrap>.grid:last-of-type .card{padding:18px 20px;border:1px solid #e5eaf1;border-radius:15px;background:#fff;box-shadow:none}
+    #historia-nexo>.wrap>.grid:last-of-type .icon{font-size:17px;margin-bottom:10px}
+    #historia-nexo>.wrap>.grid:last-of-type .card h3{font-size:14px}
+    #historia-nexo>.wrap>.grid:last-of-type .card a{font-size:13px;line-height:1.6;text-decoration-thickness:1px;text-underline-offset:3px}
+    #historia-nexo>.wrap>.fineprint[style*="text-align:center"]{max-width:780px;margin:18px auto 0!important;color:#78818e;font-size:11px;line-height:1.65}
+    @media(max-width:800px){#historia-nexo>.wrap>.grid:first-of-type{grid-template-columns:1fr}.#historia-nexo .unused{display:none}#historia-nexo>.wrap>.grid:first-of-type .card{padding:22px}.#historia-nexo>.wrap>.grid:last-of-type{grid-template-columns:1fr}}
+    @media(max-width:600px){#historia-nexo>.wrap>.section-head:first-child{text-align:left;margin-bottom:24px}#historia-nexo>.wrap>.section-head:first-child p{font-size:15px}#historia-nexo>.wrap>.section-head[style*="margin-top:34px"]{margin-top:42px!important;padding-top:26px}}
   </style>
   <button type="button" class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
   <section class="chat-panel" id="nexoChat" role="dialog" aria-labelledby="chatTitle" aria-describedby="chatDisclaimer" aria-modal="false">
