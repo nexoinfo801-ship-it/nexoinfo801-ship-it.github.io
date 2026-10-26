@@ -1010,6 +1010,23 @@
       .demo-item-icon{width:29px;height:29px}
     }
 
+    /* Correção de prioridade de toque em navegadores móveis (Safari/Chrome) */
+    @media (max-width: 760px) {
+      header { position: sticky; z-index: 1000; }
+      main, footer { position: relative; z-index: 2; }
+      main a, main button, main input, main select, main summary,
+      footer a, header a, #chatLaunch, #chatClose, #nexoChat button {
+        position: relative;
+        pointer-events: auto;
+        -webkit-user-select: auto;
+        user-select: auto;
+      }
+      .hero-visual::before, .hero::before, .offer-section .offer::before,
+      #oferta .offer::before { pointer-events: none !important; }
+      .chat-launch { z-index: 2000; }
+      .chat-panel { z-index: 2001; }
+    }
+
     /* Correção crítica de toque e alinhamento móvel */
     html,body{max-width:100%;overflow-x:clip}
     body{min-width:0}
