@@ -1009,6 +1009,34 @@
       .demo-item{grid-template-columns:30px minmax(0,1fr);padding:9px}
       .demo-item-icon{width:29px;height:29px}
     }
+
+    /* Correção crítica de toque e alinhamento móvel */
+    html,body{max-width:100%;overflow-x:clip}
+    body{min-width:0}
+    a,button,input,select,textarea,summary{touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,102,204,.12)}
+    button,a[role="button"],input[type="button"],input[type="submit"]{pointer-events:auto;cursor:pointer}
+    /* Elementos decorativos não podem ficar por cima dos controles */
+    .hero:before,.hero-visual:before,.offer-section .offer:before,#oferta .offer:before{pointer-events:none}
+    @media(max-width:760px){
+      header{z-index:100;position:sticky;top:0}
+      nav{width:100%;min-width:0;flex-wrap:wrap;gap:8px;padding-block:10px}
+      .brand{flex:0 0 auto;max-width:100%}
+      .navlinks{flex:1 1 100%;width:100%;min-width:0;display:flex;flex-wrap:wrap;justify-content:flex-start;gap:8px}
+      .navlinks a{min-height:42px;display:inline-flex;align-items:center;justify-content:center}
+      main,section,.wrap,.grid,.hero-layout,.demo-app,.demo-appbody,.demo-workspace{min-width:0;max-width:100%}
+      .wrap{width:calc(100% - 28px);margin-inline:auto}
+      .grid>*{min-width:0}
+      img,svg,video,canvas,iframe{max-width:100%}
+      .button,button{min-height:44px}
+      .chat-launch{z-index:200;max-width:calc(100vw - 28px);font-size:13px;padding:12px 15px}
+      .chat-panel{z-index:201}
+    }
+    @media(max-width:380px){
+      .navlinks{gap:6px}
+      .navlinks .button{white-space:normal;text-align:center}
+      .hero h1{font-size:clamp(34px,10vw,42px);overflow-wrap:anywhere}
+      .demo-business-picker,.diagnostic-card,#oferta .offer{padding:16px}
+    }
 </style>
   <button type="button" class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
   <section class="chat-panel" id="nexoChat" role="dialog" aria-labelledby="chatTitle" aria-describedby="chatDisclaimer" aria-modal="false">
