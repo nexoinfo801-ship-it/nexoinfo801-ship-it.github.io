@@ -96,6 +96,10 @@ function validateHtml(file, options = {}) {
 validateHtml("index.html", { mainPage: true });
 validateHtml("privacidade.html");
 
+const homeHtml = read("index.html");
+check(/"logo":\s*"https:\/\/nexoinfo801-ship-it\.github\.io\/favicon\.svg"/.test(homeHtml), "index.html: logo da organização ausente nos dados estruturados.");
+check(/"contactPoint":\s*\{[\s\S]*?"contactType":\s*"sales"/.test(homeHtml), "index.html: contato comercial ausente nos dados estruturados.");
+
 const robots = read("robots.txt");
 check(/Sitemap:\s*https:\/\/nexoinfo801-ship-it\.github\.io\/sitemap\.xml/i.test(robots), "robots.txt: referência ao sitemap ausente.");
 
