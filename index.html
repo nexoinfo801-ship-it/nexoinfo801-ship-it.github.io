@@ -217,7 +217,8 @@
     .hero .button.secondary{box-shadow:none;background:rgba(255,255,255,.8);border-color:#c9d8eb}
     .hero .note{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:#596579}
     .hero-visual{min-width:0}
-    .visual-window{border:1px solid rgba(199,211,228,.9);border-radius:25px;background:rgba(255,255,255,.94);box-shadow:0 28px 75px rgba(29,57,94,.14),0 4px 12px rgba(29,57,94,.05);transform:perspective(1200px) rotateY(-2deg);overflow:hidden}    .visual-topbar{padding:16px 19px}
+    .visual-window{border:1px solid rgba(199,211,228,.9);border-radius:25px;background:rgba(255,255,255,.94);box-shadow:0 28px 75px rgba(29,57,94,.14),0 4px 12px rgba(29,57,94,.05);transform:perspective(1200px) rotateY(-2deg);overflow:hidden}
+    .visual-topbar{padding:16px 19px}
     .visual-body{padding:clamp(19px,3vw,29px)}
     .visual-metric{border-radius:15px;border-color:#e7edf5}
     .visual-chart{border-radius:14px;background:linear-gradient(180deg,#f7faff,#fff);padding:14px 14px 0}
@@ -494,7 +495,8 @@
                   <button class="demo-item" type="button" data-demo-product="Suco natural" data-demo-price="7.5" data-demo-icon="🥤"><span class="demo-item-icon">🥤</span><span><strong>Suco natural</strong><small>Disponível: 18</small></span><b>R$ 7,50</b></button>
                   <button class="demo-item" type="button" data-demo-product="Sanduíche" data-demo-price="12" data-demo-icon="🥪"><span class="demo-item-icon">🥪</span><span><strong>Sanduíche</strong><small>Disponível: 9</small></span><b>R$ 12,00</b></button>
                   <button class="demo-item" type="button" data-demo-product="Água mineral" data-demo-price="3.5" data-demo-icon="💧"><span class="demo-item-icon">💧</span><span><strong>Água mineral</strong><small>Disponível: 32</small></span><b>R$ 3,50</b></button>
-                  <button class="demo-item" type="button" data-demo-product="Bolo do dia" data-demo-price="8" data-demo-icon="🍰"><span class="demo-item-icon">🍰</span><span><strong>Bolo do dia</strong><small>Disponível: 7</small></span><b>R$ 8,00</b></button>                  <button class="demo-item" type="button" data-demo-product="Refrigerante" data-demo-price="6" data-demo-icon="🥤"><span class="demo-item-icon">🥤</span><span><strong>Refrigerante</strong><small>Disponível: 15</small></span><b>R$ 6,00</b></button>
+                  <button class="demo-item" type="button" data-demo-product="Bolo do dia" data-demo-price="8" data-demo-icon="🍰"><span class="demo-item-icon">🍰</span><span><strong>Bolo do dia</strong><small>Disponível: 7</small></span><b>R$ 8,00</b></button>
+                  <button class="demo-item" type="button" data-demo-product="Refrigerante" data-demo-price="6" data-demo-icon="🥤"><span class="demo-item-icon">🥤</span><span><strong>Refrigerante</strong><small>Disponível: 15</small></span><b>R$ 6,00</b></button>
                 </div></div>
                 <aside class="demo-order"><div class="demo-order-head"><div><strong id="demoOrderTitle">Venda atual</strong><small id="demoOrderSubtitle">Pedido demonstrativo #0001</small></div><span class="demo-order-icon">▣</span></div><label class="demo-customer-label" for="demoCustomer">Cliente</label><select id="demoCustomer"><option>Consumidor final</option><option>Cliente demonstração</option></select><div class="demo-order-lines" id="demoOrderLines"><div class="demo-empty">Seu carrinho está vazio.<br>Escolha um produto ao lado.</div></div><div class="demo-order-summary"><div><span>Itens</span><b id="demoItemCount">0</b></div><div><span>Subtotal</span><b id="demoSubtotal">R$ 0,00</b></div><div class="demo-grand-total"><span>Total</span><strong id="demoCartTotal">R$ 0,00</strong></div></div><label class="demo-customer-label" for="demoPayment">Forma de pagamento (teste)</label><select id="demoPayment"><option>Dinheiro</option><option>Pix</option><option>Cartão de débito</option><option>Cartão de crédito</option></select><button class="demo-primary demo-finish" id="demoFinish" type="button">Finalizar venda de teste</button><button class="demo-clear" id="demoReset" type="button">Limpar carrinho</button><p class="demo-notice" id="demoFeedback" aria-live="polite">Nenhuma venda real será registrada.</p></aside></div>
                 <div class="demo-receipt" id="demoReceipt" hidden></div>
@@ -713,7 +715,8 @@
           </details>
         </div>
         <p class="faq-cta">Ainda tem dúvidas? <a href="https://wa.me/5514998356762?text=Ol%C3%A1%21%20Tenho%20algumas%20d%C3%BAvidas%20sobre%20o%20NEXO%20ERP%20PDV." target="_blank" rel="noopener noreferrer">Converse com a equipe NEXO pelo WhatsApp ↗</a></p>
-      </div>    </section>
+      </div>
+    </section>
 
     <section id="diagnostico">
       <div class="wrap">
@@ -932,7 +935,8 @@
     .demo-business-choice strong{font-size:13px;line-height:1.3}
     .demo-business-choice small{color:#737d8c;font-size:11px;line-height:1.35}
     .demo-business-choice:hover{border-color:#9cc8f7;transform:translateY(-1px)}
-    .demo-business-choice.active{border-color:#0671d8;background:#f3f8ff;box-shadow:inset 0 0 0 1px #0671d8,0 5px 15px rgba(0,102,204,.07)}    .demo-business-choice.active>span{background:#dcecff}
+    .demo-business-choice.active{border-color:#0671d8;background:#f3f8ff;box-shadow:inset 0 0 0 1px #0671d8,0 5px 15px rgba(0,102,204,.07)}
+    .demo-business-choice.active>span{background:#dcecff}
     .demo-business-choice:focus-visible{outline:3px solid #7eb8f5;outline-offset:2px}
     .demo-app{border:1px solid #dfe5ed;border-radius:22px;box-shadow:0 18px 52px rgba(22,39,69,.09);background:#fff}
     .demo-appbar{padding:15px 20px;gap:14px}
@@ -1151,7 +1155,8 @@
       function showTab(name,moveFocus){var selected=document.querySelector('[data-demo-tab="'+name+'"]');if(!selected)return;document.querySelectorAll('[data-demo-tab]').forEach(function(b){var active=b===selected;b.classList.toggle('active',active);b.setAttribute('aria-selected',active?'true':'false');b.tabIndex=active?0:-1;});document.querySelectorAll('[data-demo-pane]').forEach(function(p){p.classList.toggle('active',p.getAttribute('data-demo-pane')===name);});if(moveFocus)selected.focus();}
       var demoTabList=document.querySelector('[role="tablist"]');
       function updateDemoTabOrientation(){if(demoTabList)demoTabList.setAttribute('aria-orientation',window.matchMedia('(max-width: 620px)').matches?'horizontal':'vertical');}
-      updateDemoTabOrientation();      window.addEventListener('resize',updateDemoTabOrientation);
+      updateDemoTabOrientation();
+      window.addEventListener('resize',updateDemoTabOrientation);
       document.querySelectorAll('[data-demo-tab]').forEach(function(b,index,all){b.addEventListener('click',function(){showTab(b.getAttribute('data-demo-tab'));});b.addEventListener('keydown',function(event){var next=index;if(event.key==='ArrowDown'||event.key==='ArrowRight')next=(index+1)%all.length;else if(event.key==='ArrowUp'||event.key==='ArrowLeft')next=(index-1+all.length)%all.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=all.length-1;else return;event.preventDefault();showTab(all[next].getAttribute('data-demo-tab'),true);});});
       document.querySelectorAll('[data-demo-go]').forEach(function(b){b.addEventListener('click',function(){showTab(b.getAttribute('data-demo-go'));});});
       function renderCart(){
@@ -1370,7 +1375,8 @@
           else if(i<=5) total+=44.90;
           else if(i<=20) total+=39.90;
           else if(i<=50) total+=34.90;
-          else if(i<=100) total+=29.90;          else if(i<=250) total+=24.90;
+          else if(i<=100) total+=29.90;
+          else if(i<=250) total+=24.90;
           else if(i<=500) total+=19.90;
           else total+=14.90;
         }
