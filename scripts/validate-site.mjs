@@ -112,6 +112,18 @@ validateHtml("privacidade.html");
 
 const homeHtml = read("index.html");
 
+const privacyHtml = read("privacidade.html");
+check(/id=["']diagnosticForm["']/.test(homeHtml), "index.html: formulário comercial ausente.");
+check(/id=["']diagnosticForm["'][\s\S]*?type=["']submit["'][\s\S]*?Continuar pelo WhatsApp/i.test(homeHtml), "index.html: ação principal do formulário comercial ausente.");
+check(/id=["']diagnosticForm["'][\s\S]*?não envia nem salva os dados em um servidor/i.test(homeHtml), "index.html: aviso de privacidade do formulário ausente ou divergente.");
+check(/id=["']diagnosticForm["'][\s\S]*?wa\.me\/5514998356762/i.test(homeHtml), "index.html: destino WhatsApp do formulário não encontrado.");
+check(/simulação interativa com dados fictícios/i.test(homeHtml), "index.html: demonstração não identifica claramente os dados fictícios.");
+check(/não está conectada ao sistema NEXO real/i.test(homeHtml), "index.html: demonstração não informa que não está conectada ao sistema real.");
+check(/não grava vendas ou altera estoques/i.test(homeHtml), "index.html: limites da simulação de vendas e estoque não estão informados.");
+check(/respostas programadas/i.test(homeHtml) && /não consulta o sistema NEXO real/i.test(privacyHtml), "Cleópatra: transparência sobre respostas demonstrativas ausente.");
+check(/não envia esses campos a um servidor próprio/i.test(privacyHtml), "Privacidade: explicação sobre o envio dos campos do formulário ausente.");
+
+
 check(/<link\b[^>]*rel=["']canonical["'][^>]*href=["']https:\/\/nexoinfo801-ship-it\.github\.io\/["']/i.test(homeHtml), "index.html: URL canonical ausente ou incorreta.");
 check(/<meta\b[^>]*property=["']og:title["'][^>]*content=["'][^"']+["']/i.test(homeHtml), "index.html: Open Graph title ausente.");
 check(/<meta\b[^>]*property=["']og:description["'][^>]*content=["'][^"']+["']/i.test(homeHtml), "index.html: Open Graph description ausente.");
