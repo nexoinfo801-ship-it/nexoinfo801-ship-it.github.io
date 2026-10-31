@@ -66,6 +66,12 @@ function validateHtml(file, options = {}) {
   if (options.mainPage) {
     check(idSet.has("conteudo"), "index.html: destino #conteudo ausente.");
     check(/class=["'][^"']*skip-link[^"']*["'][^>]*href=["']#conteudo["']/i.test(html) || /href=["']#conteudo["'][^>]*class=["'][^"']*skip-link/i.test(html), "index.html: link para pular ao conteúdo ausente.");
+    check(/<a\\b[^>]*class=["'][^"']*skip-link[^"']*["'][^>]*href=["']#conteudo["'][^>]*>\\s*Pular para o conteúdo principal\\s*<\\/a>/i.test(html), "index.html: link de salto não possui texto claro ou destino correto.");
+    check(/:focus-visible\\s*\\{[^}]*outline/i.test(html), "index.html: estilo de foco visível ausente.");
+    check(/@media\\s*\\(prefers-reduced-motion:\\s*reduce\\)/i.test(html), "index.html: preferência de movimento reduzido não contemplada.");
+    check(/event\\.key===['"]ArrowDown['"]|event\\.key===['"]ArrowRight['"]/i.test(html) && /event\\.key===['"]ArrowUp['"]|event\\.key===['"]ArrowLeft['"]/i.test(html), "index.html: navegação por setas nas abas da demonstração ausente.");
+    check(/event\\.key===['"]Home['"]/.test(html) && /event\\.key===['"]End['"]/.test(html), "index.html: atalhos Home/End nas abas da demonstração ausentes.");
+    check(/setAttribute\\(['"]aria-selected['"],['"]true['"]\\)/i.test(html) && /setAttribute\\(['"]tabindex['"],['"]0['"]\\)/i.test(html), "index.html: atualização do estado acessível e foco das abas ausente.");
 
     const references = [...html.matchAll(/getElementById\(['"]([^'"]+)['"]\)/g)].map((m) => m[1]);
     const missingReferences = [...new Set(references.filter((id) => !idSet.has(id)))];
