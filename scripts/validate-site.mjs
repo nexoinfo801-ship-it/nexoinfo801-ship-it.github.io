@@ -37,6 +37,20 @@ function validateHtml(file, options = {}) {
     check(Boolean(ariaName || (id && labels.has(id))), file + ": campo sem nome acessível (" + (id || "controle " + (index + 1)) + ").");
   }
 
+  const images = [...html.matchAll(/<img\b([^>]*)>/gi)];
+  for (const [index, match] of images.entries()) {
+    check(/\balt=["'][^"']*["']/i.test(match[1]), file + ": imagem sem atributo alt (imagem " + (index + 1) + ").");
+  }
+
+  const buttons = [...html.matchAll(/<button\b([^>]*)>([\s\S]*?)<\/button>/gi)];
+  for (const [index, match] of buttons.entries()) {
+    const attrs = match[1];
+    const textContent = match[2].replace(/<[^>]*>/g, " ").replace(/&nbsp;/gi, " ").trim();
+    const ariaName = /\baria-label=["'][^"']+["']/i.test(attrs) || /\baria-labelledby=["'][^"']+["']/i.test(attrs);
+    const titleName = /\btitle=["'][^"']+["']/i.test(attrs);
+    check(Boolean(ariaName || titleName || textContent), file + ": botão sem nome acessível (botão " + (index + 1) + ").");
+  }
+
   const externalBlank = [...html.matchAll(/<a\b[^>]*target=["']_blank["'][^>]*>/gi)].map((m) => m[0]);
   check(externalBlank.every((tag) => /\brel=["'][^"']*noopener/i.test(tag)), file + ": link target=_blank sem rel=noopener.");
 
