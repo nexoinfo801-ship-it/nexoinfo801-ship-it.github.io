@@ -3,12 +3,12 @@ import vm from "node:vm";
 import assert from "node:assert/strict";
 
 const html = fs.readFileSync("index.html", "utf8");
-const scripts = [...html.matchAll(/<script\\b([^>]*)>([\\s\\S]*?)<\\/script>/gi)];
+const scripts = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)];
 assert.ok(scripts.length >= 3, "Scripts principais do site devem existir");
 const app = scripts[1][2];
 
 function readObject(name) {
-  const match = app.match(new RegExp("var\\\\s+" + name + "\\\\s*=\\\\s*(\\\\{[\\\\s\\\\S]*?\\\\n      \\\\});"));
+  const match = app.match(new RegExp("var\\s+" + name + "\\s*=\\s*(\\{[\\s\\S]*?\\n      \\});"));
   assert.ok(match, "Objeto " + name + " deve existir");
   return vm.runInNewContext("(" + match[1] + ")");
 }
@@ -34,7 +34,7 @@ for (const [key, business] of Object.entries(businesses)) {
 }
 
 const calculator = scripts[2][2];
-const fn = calculator.match(/function calculate\\(count\\)\\s*\\{[\\s\\S]*?\\n      \\}/);
+const fn = calculator.match(/function calculate\(count\)\s*\{[\s\S]*?\n      \}/);
 assert.ok(fn, "Função de cálculo progressivo deve existir");
 const calculate = vm.runInNewContext("(" + fn[0] + ")");
 const expected = new Map([[1,49.90],[2,94.80],[5,229.50],[6,269.40],[20,828.00],[21,862.90],[50,1875.00],[51,1904.90],[100,3370.00],[101,3394.90],[250,7105.00],[251,7124.90],[500,12080.00],[501,12094.90],[1000,19530.00]]);
