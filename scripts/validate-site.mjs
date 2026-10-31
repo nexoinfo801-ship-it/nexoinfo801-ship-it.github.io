@@ -23,6 +23,8 @@ function validateHtml(file, options = {}) {
   check(/<title>\s*[^<]+\s*<\/title>/i.test(html), file + ": título ausente.");
   check(/<meta\b[^>]*name=["']description["'][^>]*content=["'][^"']{40,}["']/i.test(html), file + ": meta description ausente ou curta.");
   check((html.match(/<main\b/gi) || []).length === 1, file + ": deve existir exatamente um main.");
+  check(idSet.has("conteudo"), file + ": destino #conteudo ausente.");
+  check(/class=["'][^"']*skip-link[^"']*["'][^>]*href=["']#conteudo["']/i.test(html) || /href=["']#conteudo["'][^>]*class=["'][^"']*skip-link/i.test(html), file + ": link para pular ao conteúdo ausente.");
   check(!/^\s*er noreferrer">/m.test(html), file + ": fragmento de atributo HTML órfão.");
 
   const labels = new Set([...html.matchAll(/<label\b[^>]*\bfor=["']([^"']+)["']/gi)].map((m) => m[1]));
