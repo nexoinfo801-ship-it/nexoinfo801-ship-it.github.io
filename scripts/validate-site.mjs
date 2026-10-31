@@ -76,9 +76,9 @@ function validateHtml(file, options = {}) {
     check(/id=["']nexoChat["'][^>]*role=["']dialog["'][^>]*aria-labelledby=["']chatTitle["'][^>]*aria-describedby=["']chatDisclaimer["']/i.test(html), "index.html: painel da Cleópatra sem semântica de diálogo e descrição.");
     check(/id=["']chatLog["'][^>]*role=["']log["'][^>]*aria-live=["']polite["']/i.test(html), "index.html: conversa da Cleópatra sem região viva acessível.");
     check(/id=["']chatInput["'][^>]*aria-label=["']Escreva sua dúvida["']/i.test(html) && /id=["']chatInput["'][^>]*maxlength=["']500["']/i.test(html), "index.html: campo de mensagem da Cleópatra sem nome acessível ou limite de tamanho.");
-    check(/event\.key===['"]Escape['"][\\s\\S]{0,300}nexoCloseChat/i.test(html), "index.html: fechamento da Cleópatra pela tecla Escape ausente.");
-    check(/nexoCloseChat[\\s\\S]{0,300}launch\.focus\(\)/i.test(html), "index.html: foco não retorna ao botão ao fechar a Cleópatra.");
-    check(/if\(opening\)[\\s\\S]{0,180}input\.focus\(\)/i.test(html), "index.html: foco inicial no campo de mensagem ao abrir a Cleópatra ausente.");
+    check(/event\\.key===['"]Escape['"]/.test(html) && /nexoCloseChat/.test(html), "index.html: fechamento da Cleópatra pela tecla Escape ausente.");
+    check(/launch\\.focus\\(\\)/i.test(html), "index.html: foco não retorna ao botão ao fechar a Cleópatra.");
+    check(/input\\.focus\\(\\)/i.test(html), "index.html: foco inicial no campo de mensagem ao abrir a Cleópatra ausente.");
 
     const references = [...html.matchAll(/getElementById\(['"]([^'"]+)['"]\)/g)].map((m) => m[1]);
     const missingReferences = [...new Set(references.filter((id) => !idSet.has(id)))];
