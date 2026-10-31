@@ -71,7 +71,7 @@ function validateHtml(file, options = {}) {
     check(/@media\s*\(prefers-reduced-motion:\s*reduce\)/i.test(html), "index.html: preferência de movimento reduzido não contemplada.");
     check(/event\.key===['"]ArrowDown['"]|event\.key===['"]ArrowRight['"]/i.test(html) && /event\.key===['"]ArrowUp['"]|event\.key===['"]ArrowLeft['"]/i.test(html), "index.html: navegação por setas nas abas da demonstração ausente.");
     check(/event\.key===['"]Home['"]/.test(html) && /event\.key===['"]End['"]/.test(html), "index.html: atalhos Home/End nas abas da demonstração ausentes.");
-    check(/setAttribute\(['"]aria-selected['"],['"]true['"]\)/i.test(html) && /setAttribute\(['"]tabindex['"],['"]0['"]\)/i.test(html), "index.html: atualização do estado acessível e foco das abas ausente.");
+    check(/setAttribute\(['"]aria-selected['"],active\?['"]true['"]:['"]false['"]\)/i.test(html) && /\.tabIndex=active\?0:-1/i.test(html), "index.html: atualização do estado acessível e foco das abas ausente.");
 
     const references = [...html.matchAll(/getElementById\(['"]([^'"]+)['"]\)/g)].map((m) => m[1]);
     const missingReferences = [...new Set(references.filter((id) => !idSet.has(id)))];
