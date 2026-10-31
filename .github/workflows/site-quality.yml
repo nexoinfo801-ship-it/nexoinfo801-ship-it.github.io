@@ -23,3 +23,5 @@ jobs:
           node-version: 22
       - name: Run static validation
         run: node scripts/validate-site.mjs
+      - name: Test demo catalogs and pricing model
+        run: node scripts/test-site-model.mjs
