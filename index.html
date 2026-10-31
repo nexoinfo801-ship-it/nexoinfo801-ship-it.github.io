@@ -541,7 +541,19 @@
     }
     @media(prefers-reduced-motion:reduce){.visual-window{transform:none}}
 
-</style>
+
+    /* Correção de contraste: o hero claro não pode herdar as cores do tema escuro anterior. */
+    .hero{color:#1d1d1f}
+    .hero h1{color:#17283d}
+    .hero h1 span{color:#0666cc}
+    .hero .eyebrow{color:#1764a5;background:rgba(255,255,255,.88);border-color:#d9e8fb}
+    .hero .lead,.hero .note{color:#596579}
+    .hero .button.secondary{color:#075eb7;border-color:#c9d8eb;background:rgba(255,255,255,.88)}
+    .visual-window{color:#1d1d1f}
+    .visual-greeting strong{color:#1d1d1f}
+    .hero:before{opacity:.08}
+    .hero:after{border-color:rgba(43,91,151,.08);box-shadow:0 0 0 55px rgba(43,91,151,.018),0 0 0 110px rgba(43,91,151,.012)}
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
