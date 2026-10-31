@@ -26,7 +26,7 @@ check(/<meta\b[^>]*name=["']description["'][^>]*content=["'][^"']{40,}["']/i.tes
 check((html.match(/<main\b/gi) || []).length === 1, "A página deve conter exatamente um elemento main.");
 check(/class=["'][^"']*skip-link[^"']*["'][^>]*href=["']#conteudo["']/i.test(html) || /href=["']#conteudo["'][^>]*class=["'][^"']*skip-link/i.test(html), "Link para pular ao conteúdo principal ausente.");
 check(idSet.has("conteudo"), "Destino #conteudo do link de acessibilidade ausente.");
-check(!/^\\s*er noreferrer">/m.test(html), "Fragmento de atributo HTML órfão encontrado.");
+check(!/^\s*er noreferrer">/m.test(html), "Fragmento de atributo HTML órfão encontrado.");
 
 const scripts = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)];
 let executableScripts = 0;
