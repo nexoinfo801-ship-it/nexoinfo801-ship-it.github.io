@@ -41,3 +41,5 @@ const expected = new Map([[1,49.90],[2,94.80],[5,229.50],[6,269.40],[20,828.00],
 for (const [count, total] of expected) assert.equal(calculate(count), total, "Total progressivo incorreto para " + count + " terminais");
 assert.equal(calculate(1.5), 49.90, "Cálculo unitário deve manter a primeira faixa");
 console.log("Testes de modelo aprovados: 8 ramos, catálogos, integridade de preços/estoque e 15 limites da calculadora.");
+
+// This suite is executed by the site-quality workflow on pull requests.
