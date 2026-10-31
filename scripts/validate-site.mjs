@@ -111,6 +111,25 @@ validateHtml("index.html", { mainPage: true });
 validateHtml("privacidade.html");
 
 const homeHtml = read("index.html");
+
+check(/<link\b[^>]*rel=["']canonical["'][^>]*href=["']https:\/\/nexoinfo801-ship-it\.github\.io\/["']/i.test(homeHtml), "index.html: URL canonical ausente ou incorreta.");
+check(/<meta\b[^>]*property=["']og:title["'][^>]*content=["'][^"']+["']/i.test(homeHtml), "index.html: Open Graph title ausente.");
+check(/<meta\b[^>]*property=["']og:description["'][^>]*content=["'][^"']+["']/i.test(homeHtml), "index.html: Open Graph description ausente.");
+check(/<meta\b[^>]*property=["']og:url["'][^>]*content=["']https:\/\/nexoinfo801-ship-it\.github\.io\/["']/i.test(homeHtml), "index.html: Open Graph URL ausente ou incorreta.");
+const jsonLdBlocks = [...homeHtml.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)]
+  .filter((match) => /application\/ld\+json/i.test(match[1]));
+check(jsonLdBlocks.length > 0, "index.html: bloco JSON-LD ausente.");
+for (const [index, block] of jsonLdBlocks.entries()) {
+  try {
+    const structured = JSON.parse(block[2]);
+    const graph = Array.isArray(structured["@graph"]) ? structured["@graph"] : [structured];
+    check(graph.some((entry) => entry["@type"] === "Organization" && entry.name && entry.url), "index.html: entidade Organization incompleta no JSON-LD.");
+    check(graph.some((entry) => entry["@type"] === "SoftwareApplication" && entry.name && entry.applicationCategory), "index.html: entidade SoftwareApplication incompleta no JSON-LD.");
+  } catch (error) {
+    errors.push("index.html: JSON-LD inválido no bloco " + (index + 1) + ": " + error.message);
+  }
+}
+
 check(/"logo":\s*"https:\/\/nexoinfo801-ship-it\.github\.io\/favicon\.svg"/.test(homeHtml), "index.html: logo da organização ausente nos dados estruturados.");
 check(/"contactPoint":\s*\{[\s\S]*?"contactType":\s*"sales"/.test(homeHtml), "index.html: contato comercial ausente nos dados estruturados.");
 
