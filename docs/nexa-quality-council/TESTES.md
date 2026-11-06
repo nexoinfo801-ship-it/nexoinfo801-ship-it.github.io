@@ -1,5 +1,25 @@
 # Testes e validações
 
+## Resultado do CI
+
+<badge> não aplicável </badge>
+
+- Workflow: **Site quality checks**
+- Execução: **#35**
+- Resultado: **success**
+- Commit validado: `150b77b7735ea63623144e5a5e2169b`
+- Execução: https://github.com/nexoinfo801-ship-it/nexoinfo801-ship-it.github.io/actions/runs/42252687278
+
+Passos confirmados como concluídos:
+1. Checkout do repositório.
+2. Configuração do Node.js 22.
+3. `node scripts/validate-site.mjs` — sucesso.
+4. `node scripts/test-site-model.mjs` — sucesso.
+
+Trechos de saída:
+- `Validação estática ampliada do NEXO concluída sem falhas.`
+- `Testes de modelo aprovados: 8 ramos, catálogos, integridade de preços/estoque e 15 limites da calculadora.`
+
 ## Automação existente e ampliada
 
 O repositório já possuía:
@@ -19,6 +39,4 @@ Nesta branch, `scripts/test-site-model.mjs` foi ampliado para verificar:
 
 ## Limites
 
-Os scripts e workflow ainda precisam ser executados pelo GitHub Actions após a abertura do pull request. Não afirmo aprovação de CI antes do resultado.
-
-A suíte estática não substitui testes de navegador. Não comprova renderização visual, comportamento real de foco, acessibilidade com leitor de tela, envio ao WhatsApp ou compatibilidade em dispositivos físicos. Esses itens permanecem pendentes até execução em navegador.
+A suíte automatizada passou no GitHub Actions. Ela não substitui testes de navegador. Não comprova renderização visual, comportamento real de foco, acessibilidade com leitor de tela, envio ao WhatsApp ou compatibilidade em dispositivos físicos. Esses itens permanecem pendentes até execução em navegador.
