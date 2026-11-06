@@ -1341,7 +1341,7 @@
   <script>
 
     (function(){
-      var cart=[],salesCount=18,salesTotal=1284.5,currentBusiness='marmitaria',search;
+      var cart=[],operationsCount=18,operationValueTotal=1284.5,currentBusiness='marmitaria',search;
       var businesses={
         marmitaria:{label:'Marmitaria',mode:'sale',metricCount:18,metricTotal:1284.5,metricTotalLabel:'Valor dos pedidos',reportMetricLabel:'Pedidos',reportTotalLabel:'Valor total dos pedidos (exemplo)',finishLabel:'Finalizar pedido de teste',items:[['🍱','Marmita tradicional',22,'Refeições',18],['🍗','Marmita de frango',25,'Refeições',12],['🥗','Marmita leve',24,'Refeições',8],['🥤','Suco natural',7,'Bebidas',16],['🥫','Refrigerante lata',6,'Bebidas',22],['🍮','Pudim',8,'Sobremesas',5]]},
         mercado:{label:'Mercado',mode:'sale',metricCount:52,metricTotal:3840.9,metricTotalLabel:'Valor vendido',reportMetricLabel:'Vendas',reportTotalLabel:'Faturamento ilustrativo do dia',finishLabel:'Finalizar venda de teste',items:[['🍚','Arroz 5 kg',29.9,'Mercearia',20],['🫘','Feijão 1 kg',8.5,'Mercearia',14],['🥛','Leite 1 L',5.5,'Laticínios',18],['🧼','Detergente',2.99,'Limpeza',7],['🛢️','Óleo 900 ml',7.9,'Mercearia',24],['🍞','Pão de forma',9.5,'Padaria',9]]},
@@ -1376,13 +1376,13 @@
         var lines=document.getElementById('demoOrderLines');
         if(!cart.length){lines.innerHTML='<div class="demo-empty">Sua lista está vazia.<br>Escolha um item ao lado.</div>';}
         else{lines.innerHTML=cart.map(function(item,index){return '<div class="demo-line"><div><strong>'+item.icon+' '+item.name+'</strong><small>'+money(item.price)+' cada</small></div><div class="demo-line-right"><b>'+money(item.price*item.qty)+'</b><div class="demo-qty"><button type="button" data-demo-minus="'+index+'" aria-label="Diminuir quantidade de '+item.name.replace(/&/g,'&amp;').replace(/"/g,'&quot;')+'">−</button><span aria-label="Quantidade: '+item.qty+'">'+item.qty+'</span><button type="button" data-demo-plus="'+index+'" aria-label="Aumentar quantidade de '+item.name.replace(/&/g,'&amp;').replace(/"/g,'&quot;')+'">+</button></div></div></div>';}).join('');}
-        document.getElementById('demoSalesCount').textContent=String(salesCount);document.getElementById('demoSalesTotal').textContent=money(salesTotal);document.getElementById('demoReportCount').textContent=String(salesCount);document.getElementById('demoReportTotal').textContent=money(salesTotal);document.getElementById('demoTicket').textContent=money(salesCount?salesTotal/salesCount:0);
+        document.getElementById('demoSalesCount').textContent=String(operationsCount);document.getElementById('demoSalesTotal').textContent=money(operationValueTotal);document.getElementById('demoReportCount').textContent=String(operationsCount);document.getElementById('demoReportTotal').textContent=money(operationValueTotal);document.getElementById('demoTicket').textContent=money(operationsCount?operationValueTotal/operationsCount:0);
         lines.querySelectorAll('[data-demo-minus]').forEach(function(b){b.addEventListener('click',function(){var i=Number(b.getAttribute('data-demo-minus'));cart[i].qty--;if(cart[i].qty<=0)cart.splice(i,1);renderCart();});});
         lines.querySelectorAll('[data-demo-plus]').forEach(function(b){b.addEventListener('click',function(){cart[Number(b.getAttribute('data-demo-plus'))].qty++;renderCart();});});
       }
       function addProduct(button){var name=button.getAttribute('data-demo-product'),price=Number(button.getAttribute('data-demo-price')),icon=button.getAttribute('data-demo-icon')||'•';var found=cart.find(function(item){return item.name===name;});if(found)found.qty++;else cart.push({name:name,price:price,icon:icon,qty:1});document.getElementById('demoFeedback').textContent=name+' adicionado à simulação de '+businesses[currentBusiness].label+'.';document.getElementById('demoReceipt').hidden=true;renderCart();}
       function buildBusiness(key){
-        currentBusiness=key;var data=businesses[key];cart=[];salesCount=data.metricCount;salesTotal=data.metricTotal;document.getElementById('demoReceipt').hidden=true;document.getElementById('demoCurrentBusiness').textContent=data.label;
+        currentBusiness=key;var data=businesses[key];cart=[];operationsCount=data.metricCount;operationValueTotal=data.metricTotal;document.getElementById('demoReceipt').hidden=true;document.getElementById('demoCurrentBusiness').textContent=data.label;
         var demoCta=document.getElementById('demoWhatsAppCta');
         if(demoCta){var demoMessage='Olá! Experimentei a demonstração ilustrativa do NEXO ERP PDV para '+data.label+' e gostaria de agendar uma demonstração do sistema real. Podem confirmar os recursos e condições para meu negócio?';demoCta.href='https://wa.me/5514998356762?text='+encodeURIComponent(demoMessage);}
         document.querySelectorAll('[data-demo-business]').forEach(function(b){var active=b.getAttribute('data-demo-business')===key;b.classList.toggle('active',active);b.setAttribute('aria-pressed',active?'true':'false');});
@@ -1443,14 +1443,14 @@
         receiptDisclaimer.textContent='Ramo: '+business.label+'. '+(isSale?'Nenhuma transação real foi realizada.':'Nenhuma venda ou pagamento foi registrado.');
         receipt.append(receiptTitle,receiptSummary,receiptBreak,receiptDisclaimer);
         receipt.hidden=false;
-        salesCount++;
-        if(isSale)salesTotal+=total;
+        operationsCount++;
+        operationValueTotal+=total;
         document.getElementById('demoFeedback').textContent=isSale?'Simulação concluída. Indicadores ilustrativos atualizados nesta página.':'Simulação de serviço concluída. A contagem de operações foi atualizada, sem registrar venda ou faturamento.';
         cart=[];
         renderCart();
         receipt.scrollIntoView({behavior:'smooth',block:'nearest'});
       });
-      var resetAll=document.getElementById('demoResetAll');if(resetAll)resetAll.addEventListener('click',function(){salesCount=18;salesTotal=1284.5;buildBusiness('marmitaria');showTab('painel');});
+      var resetAll=document.getElementById('demoResetAll');if(resetAll)resetAll.addEventListener('click',function(){operationsCount=18;operationValueTotal=1284.5;buildBusiness('marmitaria');showTab('painel');});
       buildBusiness('marmitaria');
     })();
     window.nexoToggleChat = function () {
