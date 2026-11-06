@@ -3,10 +3,10 @@
 ## Resultado do CI
 
 - Workflow: **Site quality checks**
-- Execução: **#35**
+- Execução: **#38**
 - Resultado: **success**
-- Commit validado: `150b77b7735ea63623144e515f6df4dfb45e4deb`
-- Execução: https://github.com/nexoinfo801-ship-it/nexoinfo801-ship-it.github.io/actions/runs/42252687278
+- Commit validado: `da0c9c2ee657324105c830b5df4b9a161c3901fd`
+- Execução: https://github.com/nexoinfo801-ship-it/nexoinfo801-ship-it.github.io/actions/runs/42253145409
 
 Passos confirmados como concluídos:
 1. Checkout do repositório.
