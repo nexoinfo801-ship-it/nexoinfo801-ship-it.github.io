@@ -3,8 +3,8 @@
 - Repositório: `nexoinfo801-ship-it/nexoinfo801-ship-it.github.io`
 - Branch de trabalho: `nexa-quality-corrections-2026-11-06`
 - Pull request: https://github.com/nexoinfo801-ship-it/nexoinfo801-ship-it.github.io/pull/14
-- CI: https://github.com/nexoinfo801-ship-it/nexoinfo801-ship-it.github.io/actions/runs/42252687278
-- Workflow: `Site quality checks`, execução **#35**, conclusão **success**.
+- CI: https://github.com/nexoinfo801-ship-it/nexoinfo801-ship-it.github.io/actions/runs/42253145409
+- Workflow: `Site quality checks`, execução **#38**, conclusão **success**.
 - Commit testado: `150b77b7735ea63623144e5a5e2169b`
 - Arquivo principal: `index.html`
 - Testes de modelo: `scripts/test-site-model.mjs`
