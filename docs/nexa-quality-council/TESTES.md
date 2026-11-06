@@ -2,12 +2,10 @@
 
 ## Resultado do CI
 
-<badge> não aplicável </badge>
-
 - Workflow: **Site quality checks**
 - Execução: **#35**
 - Resultado: **success**
-- Commit validado: `150b77b7735ea63623144e5a5e2169b`
+- Commit validado: `150b77b7735ea63623144e515f6df4dfb45e4deb`
 - Execução: https://github.com/nexoinfo801-ship-it/nexoinfo801-ship-it.github.io/actions/runs/42252687278
 
 Passos confirmados como concluídos:
