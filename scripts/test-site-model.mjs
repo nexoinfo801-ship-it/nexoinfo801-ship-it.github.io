@@ -48,7 +48,7 @@ const expectedLowStock = {
   mercado: 1,
   bar: 1,
   cafeteria: 1,
-  roupas: 1,
+  roupas: 2,
   informatica: 3,
   funilaria: 2,
   oficina: 2
