@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nexoinfo801-ship-it.github.io/sitemap.xml
+Sitemap: https://nexoerp.dev/sitemap.xml
