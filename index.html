@@ -58,8 +58,8 @@
     .wrap{width:min(1100px,calc(100% - 40px));margin:auto}
     header{position:sticky;top:0;z-index:5;background:rgba(245,245,247,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,.06)}
     nav{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{font-weight:800;letter-spacing:.12em;text-decoration:none;font-size:15px}
-    .brand span{font-weight:500;letter-spacing:0;color:var(--muted)}
+    .brand{display:inline-flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.095em;text-decoration:none;font-size:15px;flex:0 0 auto}.brand img{display:block;width:44px;height:44px;object-fit:contain}
+    .brand span{font-weight:700;letter-spacing:.04em;color:var(--muted)}
     .navlinks{display:flex;align-items:center;gap:22px;font-size:14px}
     .navlinks a{text-decoration:none;color:#424245}
     .navlinks a:hover{color:var(--blue)}
@@ -567,7 +567,7 @@
   <header>
     <div class="wrap">
       <nav aria-label="Navegação principal">
-        <a class="brand" href="#inicio">NEXO <span>ERP PDV</span></a>
+        <a class="brand" href="#inicio" aria-label="NEXO ERP PRO — início"><img src="assets/nexo_logo_falcon.png" width="44" height="44" alt="NEXO ERP PRO"><span>NEXO ERP PRO</span></a>
         <div class="navlinks">
           <a class="hide-mobile" href="#solucao">A solução</a>
           <a class="hide-mobile" href="#demoNexo">Experimente</a>
