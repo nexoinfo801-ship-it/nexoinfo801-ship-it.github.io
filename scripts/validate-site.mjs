@@ -137,10 +137,10 @@ check(/respostas programadas/i.test(homeHtml) && /não consulta o sistema NEXO r
 check(/não envia esses campos a um servidor próprio/i.test(privacyHtml), "Privacidade: explicação sobre o envio dos campos do formulário ausente.");
 
 
-check(/<link\b[^>]*rel=["']canonical["'][^>]*href=["']https:\/\/nexoinfo801-ship-it\.github\.io\/["']/i.test(homeHtml), "index.html: URL canonical ausente ou incorreta.");
+check(/<link\b[^>]*rel=["']canonical["'][^>]*href=["']https:\/\/nexoerp\.dev\/["']/i.test(homeHtml), "index.html: URL canonical ausente ou incorreta.");
 check(/<meta\b[^>]*property=["']og:title["'][^>]*content=["'][^"']+["']/i.test(homeHtml), "index.html: Open Graph title ausente.");
 check(/<meta\b[^>]*property=["']og:description["'][^>]*content=["'][^"']+["']/i.test(homeHtml), "index.html: Open Graph description ausente.");
-check(/<meta\b[^>]*property=["']og:url["'][^>]*content=["']https:\/\/nexoinfo801-ship-it\.github\.io\/["']/i.test(homeHtml), "index.html: Open Graph URL ausente ou incorreta.");
+check(/<meta\b[^>]*property=["']og:url["'][^>]*content=["']https:\/\/nexoerp\.dev\/["']/i.test(homeHtml), "index.html: Open Graph URL ausente ou incorreta.");
 const jsonLdBlocks = [...homeHtml.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)]
   .filter((match) => /application\/ld\+json/i.test(match[1]));
 check(jsonLdBlocks.length > 0, "index.html: bloco JSON-LD ausente.");
@@ -155,16 +155,19 @@ for (const [index, block] of jsonLdBlocks.entries()) {
   }
 }
 
-check(/"logo":\s*"https:\/\/nexoinfo801-ship-it\.github\.io\/favicon\.svg"/.test(homeHtml), "index.html: logo da organização ausente nos dados estruturados.");
+check(/"logo":\s*"https:\/\/nexoerp\.dev\/favicon\.svg"/.test(homeHtml), "index.html: logo da organização ausente nos dados estruturados.");
 check(/"contactPoint":\s*\{[\s\S]*?"contactType":\s*"sales"/.test(homeHtml), "index.html: contato comercial ausente nos dados estruturados.");
 
+const cname = read("CNAME").trim();
+check(cname === "nexoerp.dev", "CNAME: domínio personalizado ausente ou incorreto.");
+
 const robots = read("robots.txt");
-check(/Sitemap:\s*https:\/\/nexoinfo801-ship-it\.github\.io\/sitemap\.xml/i.test(robots), "robots.txt: referência ao sitemap ausente.");
+check(/Sitemap:\s*https:\/\/nexoerp\.dev\/sitemap\.xml/i.test(robots), "robots.txt: referência ao sitemap ausente.");
 
 const sitemap = read("sitemap.xml");
 for (const url of [
-  "https://nexoinfo801-ship-it.github.io/",
-  "https://nexoinfo801-ship-it.github.io/privacidade.html"
+  "https://nexoerp.dev/",
+  "https://nexoerp.dev/privacidade.html"
 ]) check(sitemap.includes("<loc>" + url + "</loc>"), "sitemap.xml: URL obrigatória ausente: " + url);
 
 if (errors.length) {
