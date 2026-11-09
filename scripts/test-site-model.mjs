@@ -33,6 +33,44 @@ for (const [key, business] of Object.entries(businesses)) {
   }
 }
 
+const expectedModes = {
+  marmitaria: "sale",
+  mercado: "sale",
+  bar: "sale",
+  cafeteria: "sale",
+  roupas: "sale",
+  informatica: "sale",
+  funilaria: "quote",
+  oficina: "service"
+};
+const expectedLowStock = {
+  marmitaria: 1,
+  mercado: 1,
+  bar: 1,
+  cafeteria: 1,
+  roupas: 2,
+  informatica: 3,
+  funilaria: 2,
+  oficina: 2
+};
+for (const [key, business] of Object.entries(businesses)) {
+  assert.equal(business.mode, expectedModes[key], key + ": modo de operação correto");
+  assert.ok(Number.isInteger(business.metricCount) && business.metricCount >= 0, key + ": quantidade demonstrativa válida");
+  assert.ok(Number.isFinite(business.metricTotal) && business.metricTotal >= 0, key + ": total demonstrativo válido");
+  assert.ok(business.metricTotalLabel && business.reportMetricLabel && business.reportTotalLabel && business.finishLabel, key + ": rótulos específicos completos");
+  const lowStock = business.items.filter((item) => item[3] !== "Serviços" && item[4] > 0 && item[4] < 8).length;
+  assert.equal(lowStock, expectedLowStock[key], key + ": alertas de estoque derivados do catálogo");
+}
+assert.equal(businesses.funilaria.items.length, 6, "Funilaria deve manter catálogo de serviços e materiais");
+assert.equal(businesses.oficina.items.length, 6, "Oficina deve manter catálogo de peças e serviços");
+assert.ok(html.includes("paymentField.hidden=data.mode!=='sale'"), "Forma de pagamento deve ser ocultada nos fluxos de serviço");
+assert.ok(html.includes("business.mode==='sale'"), "Conclusão deve distinguir vendas de serviços");
+assert.ok(html.includes("operationValueTotal+=total"), "Total do relatório deve acompanhar valor demonstrativo/estimado da operação");
+assert.ok(html.includes("demoCatalogCount').textContent=String(data.items.length)"), "Contagem exibida deve corresponder ao catálogo");
+assert.ok(html.includes("window.matchMedia('(max-width: 680px)').matches"), "Orientação ARIA deve acompanhar breakpoint visual de 680 px");
+assert.ok(html.includes('R$ 149,90<span>/mês · referência</span>'), "Plano Essencial deve exibir o preço mensal de referência");
+assert.ok(html.includes("R$ 49,90 por mês durante 12 meses"), "Oferta promocional deve ser distinguida do preço de referência");
+
 const calculator = scripts[2][2];
 const fn = calculator.match(/function calculate\(count\)\s*\{[\s\S]*?\n      \}/);
 assert.ok(fn, "Função de cálculo progressivo deve existir");
