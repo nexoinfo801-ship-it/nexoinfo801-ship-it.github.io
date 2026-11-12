@@ -155,7 +155,9 @@ for (const [index, block] of jsonLdBlocks.entries()) {
   }
 }
 
-check(/"logo":\s*"https:\/\/nexoerp\.dev\/favicon\.svg"/.test(homeHtml), "index.html: logo da organização ausente nos dados estruturados.");
+check(/"logo":\\s*"https:\\/\\/nexoerp\\.dev\\/assets\\/nexo_logo_falcon\\.png"/.test(homeHtml), "index.html: logo oficial ausente nos dados estruturados.");
+check(fs.existsSync("assets/nexo_logo_falcon.png"), "Arquivo obrigatório ausente: assets/nexo_logo_falcon.png.");
+check(/<img\\b[^>]*src=["']assets\\/nexo_logo_falcon\\.png["'][^>]*width=["']44["'][^>]*height=["']44["'][^>]*alt=["']NEXO ERP PRO["']/i.test(homeHtml), "index.html: logo do cabeçalho sem dimensões ou texto alternativo esperados.");
 check(/"contactPoint":\s*\{[\s\S]*?"contactType":\s*"sales"/.test(homeHtml), "index.html: contato comercial ausente nos dados estruturados.");
 
 const cname = read("CNAME").trim();
