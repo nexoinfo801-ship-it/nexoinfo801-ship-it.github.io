@@ -89,6 +89,14 @@ def main() -> None:
         fail("dígitos verificadores do CNPJ não conferem")
     if cnpj_display not in index or cnpj_display not in privacy or cnpj_display not in terms:
         fail("CNPJ não aparece em todas as páginas institucionais exigidas")
+    unverified_claims = (
+        "comprovante cadastral informado para a empresa individual atual indica",
+        "situação cadastral ativa na data do documento consultado",
+    )
+    if any(claim in index.lower() for claim in unverified_claims):
+        fail("a página afirma consulta ou situação cadastral oficial sem comprovação")
+    if "consulte o comprovante oficial diretamente na receita federal" not in index.lower():
+        fail("a resposta de confiança não orienta a conferir o cadastro na Receita Federal")
     if 'href="termos.html"' not in index:
         fail("termos de uso não estão ligados no rodapé da página inicial")
     if 'href="privacidade.html"' not in index:
