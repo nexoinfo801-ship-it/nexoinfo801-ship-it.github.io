@@ -149,6 +149,17 @@ for (const [index, block] of jsonLdBlocks.entries()) {
     const structured = JSON.parse(block[2]);
     const graph = Array.isArray(structured["@graph"]) ? structured["@graph"] : [structured];
     check(graph.some((entry) => entry["@type"] === "Organization" && entry.name && entry.url), "index.html: entidade Organization incompleta no JSON-LD.");
+    const organizations = graph.filter((entry) => entry["@type"] === "Organization");
+    check(
+      organizations.some((entry) =>
+        entry.name === "NEXO ERP PDV" &&
+        Array.isArray(entry.alternateName) &&
+        entry.alternateName.includes("NEXO Playloud Informática e Automação") &&
+        entry.taxID === "37.418.913/0001-32" &&
+        !entry.legalName
+      ),
+      "index.html: a marca pública deve estar separada de uma razão social ainda não conferida."
+    );
     check(graph.some((entry) => entry["@type"] === "SoftwareApplication" && entry.name && entry.applicationCategory), "index.html: entidade SoftwareApplication incompleta no JSON-LD.");
   } catch (error) {
     errors.push("index.html: JSON-LD inválido no bloco " + (index + 1) + ": " + error.message);
@@ -169,7 +180,8 @@ check(/Sitemap:\s*https:\/\/nexoerp\.dev\/sitemap\.xml/i.test(robots), "robots.t
 const sitemap = read("sitemap.xml");
 for (const url of [
   "https://nexoerp.dev/",
-  "https://nexoerp.dev/privacidade.html"
+  "https://nexoerp.dev/privacidade.html",
+  "https://nexoerp.dev/termos.html"
 ]) check(sitemap.includes("<loc>" + url + "</loc>"), "sitemap.xml: URL obrigatória ausente: " + url);
 
 if (errors.length) {
