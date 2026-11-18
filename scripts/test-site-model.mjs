@@ -68,16 +68,17 @@ assert.ok(html.includes("business.mode==='sale'"), "Conclusão deve distinguir v
 assert.ok(html.includes("operationValueTotal+=total"), "Total do relatório deve acompanhar valor demonstrativo/estimado da operação");
 assert.ok(html.includes("demoCatalogCount').textContent=String(data.items.length)"), "Contagem exibida deve corresponder ao catálogo");
 assert.ok(html.includes("window.matchMedia('(max-width: 680px)').matches"), "Orientação ARIA deve acompanhar breakpoint visual de 680 px");
-assert.ok(html.includes('R$ 149,90<span>/mês · referência</span>'), "Plano Essencial deve exibir o preço mensal de referência");
-assert.ok(html.includes("R$ 49,90 por mês durante 12 meses"), "Oferta promocional deve ser distinguida do preço de referência");
+assert.ok(html.includes('R$ 159<span>/mês</span>'), "Plano Essencial deve exibir o preço mensal de referência");
+assert.ok(html.includes("R$ 239"), "Plano Restaurante Pro deve estar publicado");
+assert.ok(html.includes("R$ 329"), "Plano Premium deve estar publicado");
 
 const calculator = scripts[2][2];
 const fn = calculator.match(/function calculate\(count\)\s*\{[\s\S]*?\n      \}/);
 assert.ok(fn, "Função de cálculo progressivo deve existir");
 const calculate = vm.runInNewContext("(" + fn[0] + ")");
-const expected = new Map([[1,49.90],[2,94.80],[5,229.50],[6,269.40],[20,828.00],[21,862.90],[50,1875.00],[51,1904.90],[100,3370.00],[101,3394.90],[250,7105.00],[251,7124.90],[500,12080.00],[501,12094.90],[1000,19530.00]]);
+const expected = new Map([[1, 159.0], [2, 248.0], [5, 515.0], [6, 594.0], [20, 1700.0], [21, 1769.0], [50, 3770.0], [51, 3829.0], [100, 6720.0], [101, 6769.0], [250, 14070.0], [251, 14109.0], [500, 23820.0], [501, 23849.0], [1000, 38320.0]]);
 for (const [count, total] of expected) assert.equal(calculate(count), total, "Total progressivo incorreto para " + count + " terminais");
-assert.equal(calculate(1.5), 49.90, "Cálculo unitário deve manter a primeira faixa");
+assert.equal(calculate(1.5), 159.00, "Cálculo unitário deve manter a primeira faixa");
 console.log("Testes de modelo aprovados: 8 ramos, catálogos, integridade de preços/estoque e 15 limites da calculadora.");
 
 // This suite is executed by the site-quality workflow on pull requests.
