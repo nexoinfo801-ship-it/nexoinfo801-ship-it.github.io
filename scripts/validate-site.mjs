@@ -114,8 +114,8 @@ function validateHtml(file, options = {}) {
     console.log("- index.html: " + ids.length + " IDs, " + references.length + " referências JS, " + anchors.length + " âncoras, " + tabs.length + " abas e " + controls.length + " campos.");
   } else {
     check(/Aviso de privacidade/i.test(html), "privacidade.html: conteúdo de privacidade não identificado.");
-    check(/nexoinfo801@gmail\.com/i.test(html), "privacidade.html: e-mail de contato ausente.");
-    check(/wa\.me\/5514998356762/i.test(html), "privacidade.html: contato WhatsApp ausente.");
+    check(/nexopdv@zohomail\.com/i.test(html), "privacidade.html: e-mail de contato ausente.");
+    check(/wa\.me\/5514991072843/i.test(html), "privacidade.html: contato WhatsApp ausente.");
     console.log("- " + file + ": " + ids.length + " IDs e " + controls.length + " campos.");
   }
 }
@@ -129,7 +129,7 @@ const privacyHtml = read("privacidade.html");
 check(/id=["']diagnosticForm["']/.test(homeHtml), "index.html: formulário comercial ausente.");
 check(/id=["']diagnosticForm["'][\s\S]*?type=["']submit["'][\s\S]*?Continuar pelo WhatsApp/i.test(homeHtml), "index.html: ação principal do formulário comercial ausente.");
 check(/id=["']diagnosticForm["'][\s\S]*?não envia nem salva os dados em um servidor/i.test(homeHtml), "index.html: aviso de privacidade do formulário ausente ou divergente.");
-check(/id=["']diagnosticForm["'][\s\S]*?wa\.me\/5514998356762/i.test(homeHtml), "index.html: destino WhatsApp do formulário não encontrado.");
+check(/id=["']diagnosticForm["'][\s\S]*?wa\.me\/5514991072843/i.test(homeHtml), "index.html: destino WhatsApp do formulário não encontrado.");
 check(/simulação interativa com dados fictícios/i.test(homeHtml), "index.html: demonstração não identifica claramente os dados fictícios.");
 check(/não está conectada ao sistema NEXO real/i.test(homeHtml), "index.html: demonstração não informa que não está conectada ao sistema real.");
 check(/não grava vendas ou altera estoques/i.test(homeHtml), "index.html: limites da simulação de vendas e estoque não estão informados.");
@@ -156,6 +156,7 @@ for (const [index, block] of jsonLdBlocks.entries()) {
 }
 
 check(/"logo":\s*"https:\/\/nexoerp\.dev\/assets\/nexo_logo_falcon\.png"/.test(homeHtml), "index.html: logo oficial ausente nos dados estruturados.");
+check(/https:\/\/www\.instagram\.com\/nexoerpoficial\//i.test(homeHtml), "index.html: perfil oficial do Instagram ausente.");
 check(fs.existsSync("assets/nexo_logo_falcon.png"), "Arquivo obrigatório ausente: assets/nexo_logo_falcon.png.");
 check(/<img\b[^>]*src=["']assets\/nexo_logo_falcon\.png["'][^>]*width=["']44["'][^>]*height=["']44["'][^>]*alt=["\'](NEXO ERP PRO|NEXO ERP PDV)["\']/i.test(homeHtml), "index.html: logo do cabeçalho sem dimensões ou texto alternativo esperados.");
 check(/"contactPoint":\s*\{[\s\S]*?"contactType":\s*"sales"/.test(homeHtml), "index.html: contato comercial ausente nos dados estruturados.");
