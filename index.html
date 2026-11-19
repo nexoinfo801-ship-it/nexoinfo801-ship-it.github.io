@@ -2,6 +2,9 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f5f7">
   <link rel="icon" type="image/png" sizes="256x256" href="assets/nexo_favicon.png">
@@ -56,7 +59,8 @@
     ]
   }
   </script>
-  <style>
+  <style>html { scroll-behavior: smooth; }
+
     :root{color-scheme:light;--bg:#f5f5f7;--paper:#fff;--ink:#1d1d1f;--muted:#6e6e73;--blue:#087f4f;--line:#e5e5ea;--green:#16834a}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -941,7 +945,364 @@
       border-color: var(--blue);
     }
 
-  </style>
+  
+    /* ========================================================
+       REDUÇÃO DE ROLAGEM & ESTILO VISUAL VIBRANTE
+       ======================================================== */
+    section {
+      padding: clamp(32px, 4.2vw, 46px) 0 !important;
+    }
+    .hero {
+      padding: clamp(36px, 5vw, 54px) 0 clamp(24px, 3.5vw, 36px) !important;
+    }
+    .segmentos-section {
+      padding: clamp(34px, 4.5vw, 50px) 0 !important;
+      background: linear-gradient(180deg, #ffffff 0%, #f7fdf9 100%);
+    }
+    .pricing-section {
+      padding: clamp(36px, 5vw, 52px) 0 !important;
+      background: linear-gradient(180deg, #f8fafc 0%, #edfcf2 100%) !important;
+    }
+    .history-compact-section {
+      padding: clamp(32px, 4.2vw, 46px) 0 !important;
+      background: #ffffff;
+    }
+
+    /* Banner de Garantia e Teste no topo de Preços */
+    .pricing-trust-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: clamp(22px, 3.5vw, 32px);
+      text-align: center;
+      margin-bottom: 32px;
+      box-shadow: 0 16px 36px rgba(4, 120, 87, 0.18);
+    }
+    .pricing-trust-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      color: #a7f3d0;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+    .pricing-trust-banner h2 {
+      font-size: clamp(22px, 3.2vw, 32px);
+      color: #ffffff;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+    .pricing-trust-banner p {
+      font-size: 14.5px;
+      color: #d1fae5;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Cards de Preço - Visual Limpo, Colorido e Profissional */
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      align-items: stretch;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 900px) {
+      .pricing-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+    .pricing-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: clamp(22px, 3vw, 28px);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+    .pricing-card-kicker {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748b;
+      margin-bottom: 6px;
+    }
+    .pricing-card h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+    .pricing-card strong {
+      font-size: 38px;
+      font-weight: 900;
+      color: #0f172a;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .pricing-card strong span {
+      font-size: 14px;
+      font-weight: 500;
+      color: #64748b;
+    }
+    .pricing-card p {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #475569;
+      margin-bottom: 14px;
+    }
+    .pricing-card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 22px 0;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #334155;
+    }
+    .pricing-card-list li {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+    }
+    .chk-grn {
+      color: #059669;
+      font-weight: 900;
+    }
+    .niche-subitem {
+      padding-left: 18px;
+      font-size: 12px;
+      color: #475569;
+      margin-bottom: 4px !important;
+    }
+
+    /* Destaque do NEXO Pro */
+    .pricing-card-featured {
+      border: 2px solid #10b981 !important;
+      background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%) !important;
+      box-shadow: 0 12px 36px rgba(16, 185, 129, 0.16) !important;
+      position: relative;
+    }
+    .featured-kicker {
+      color: #047857 !important;
+      font-weight: 900 !important;
+    }
+    .featured-price {
+      color: #047857 !important;
+    }
+
+    /* Simulador Compacto */
+    .pricing-calculator-compact {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 14px 20px;
+      margin-top: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .pricing-calculator-compact summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 13.5px;
+      color: #047857;
+      outline: none;
+    }
+    .pricing-calculator-compact summary:hover {
+      text-decoration: underline;
+    }
+
+    /* Card Compacto da História do Fundador */
+    .history-compact-card {
+      background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid #e2e8f0;
+      border-radius: 22px;
+      padding: clamp(24px, 4vw, 38px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .history-badge-lead {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #059669;
+      background: #ecfdf5;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .history-compact-card h2 {
+      font-size: clamp(24px, 3.2vw, 34px);
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      color: #0f172a;
+    }
+    .history-lead-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #475569;
+      margin-bottom: 22px;
+    }
+    .history-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 768px) {
+      .history-proof-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .history-proof-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      text-decoration: none;
+      color: #1e293b;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .history-proof-item:hover {
+      border-color: #10b981;
+      transform: translateY(-2px);
+    }
+    .history-proof-item .proof-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .history-proof-item strong {
+      display: block;
+      font-size: 13px;
+      color: #0f172a;
+    }
+    .history-proof-item span {
+      display: block;
+      font-size: 11.5px;
+      color: #059669;
+      line-height: 1.4;
+    }
+    .history-footnote {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+  
+    /* ========================================================
+       PADRÃO DE DESIGN APPLE & MICROSOFT (SaaS TIER 1)
+       ======================================================== */
+    :root {
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      --bg: #f8fafc;
+      --paper: #ffffff;
+      --paper-soft: #f1f5f9;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --blue: #059669;
+      --green: #10b981;
+      --emerald-dark: #064e3b;
+      --emerald-glow: rgba(16, 185, 129, 0.22);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Redução de rolagem extrema: espaçamentos elegantes e compactos */
+    section {
+      padding: clamp(32px, 4vw, 44px) 0 !important;
+    }
+    .hero {
+      padding: clamp(36px, 4.5vw, 50px) 0 clamp(24px, 3vw, 36px) !important;
+    }
+    .segmentos-section {
+      padding: clamp(32px, 4vw, 46px) 0 !important;
+    }
+    .pricing-section {
+      padding: clamp(34px, 4.2vw, 48px) 0 !important;
+    }
+
+    /* Botões estilo Apple/Microsoft: cantos refinados, toque tátil e gradientes sutis */
+    .button, button.button, a.button {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      border-radius: 999px !important;
+      padding: 12px 24px !important;
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3) !important;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    }
+    .button:hover, button.button:hover, a.button:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 8px 22px rgba(5, 150, 105, 0.42) !important;
+      filter: brightness(1.06) !important;
+    }
+    .button.secondary, a.button.secondary {
+      background: #ffffff !important;
+      color: #0f172a !important;
+      border: 1px solid #cbd5e1 !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+    }
+    .button.secondary:hover, a.button.secondary:hover {
+      background: #f8fafc !important;
+      border-color: #94a3b8 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    /* Cards estilo Apple: bordas ultrafinas, fundo puro e sombras ambiente */
+    .card, .segmento-card, .pricing-card, .history-compact-card, .diagnostic-card {
+      background: #ffffff !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 20px !important;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04) !important;
+    }
+    .segmento-card {
+      padding: 22px 24px !important;
+    }
+    .segmento-card:hover {
+      border-color: #10b981 !important;
+      box-shadow: 0 14px 32px rgba(16, 185, 129, 0.12) !important;
+      transform: translateY(-3px) !important;
+    }
+
+    /* Navbar estilo Apple com vidro fosco */
+    header {
+      background: rgba(255, 255, 255, 0.88) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07) !important;
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 1000 !important;
+    }
+    [data-theme="dark"] header {
+      background: rgba(11, 15, 25, 0.88) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+    </style>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
@@ -951,7 +1312,7 @@
         <a class="brand" href="#inicio" aria-label="NEXO ERP PDV — início"><img src="assets/nexo_logo_falcon.png" width="44" height="44" alt="NEXO ERP PDV"><span>NEXO ERP PDV</span></a>
         <div class="navlinks">
           <a class="hide-mobile" href="#segmentos">Nichos &amp; Segmentos</a>
-          <a class="hide-mobile" href="#solucao">A solução</a>
+          <a class="hide-mobile" href="#ecossistema">Ecossistema</a>
           <a class="hide-mobile" href="#demoNexo">Experimente</a>
           <a class="hide-mobile" href="#precos">Preços</a>
           <a class="hide-mobile" href="#perguntas">Dúvidas</a>
@@ -1007,11 +1368,11 @@
             </div>
             <div class="visual-video-footer" style="padding: 12px 18px; background: rgba(255, 255, 255, 0.02); border-top: 1px solid rgba(255, 255, 255, 0.06); display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #94a3b8;">
               <span style="display: flex; align-items: center; gap: 8px;">
-                <span style="color: #38bdf8;">✓</span> Montagem de Marmita
+                <span style="color: #10b981;">✓</span> Venda Rápida de Caixa
                 <span style="opacity: 0.4;">·</span>
-                <span style="color: #38bdf8;">✓</span> Fechamento & Troco
+                <span style="color: #10b981;">✓</span> Fechamento &amp; Troco
                 <span style="opacity: 0.4;">·</span>
-                <span style="color: #38bdf8;">✓</span> Cupom 80mm
+                <span style="color: #10b981;">✓</span> Cupom Térmico 80mm
               </span>
               <span style="color: #64748b; font-size: 11px;">46s</span>
             </div>
@@ -1150,7 +1511,7 @@
         </div>
 
         <!-- O Ecossistema NEXO -->
-        <div class="ecossistema-box">
+        <div id="ecossistema" class="ecossistema-box">
           <div class="ecossistema-head">
             <div class="eyebrow" style="color:#34d399">Tecnologia Integrada</div>
             <h3>O Ecossistema NEXO: Do balcão à retaguarda</h3>
@@ -1183,33 +1544,7 @@
     </section>
 
 
-    <section id="solucao" class="solution-section">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">Uma rotina mais organizada</div>
-          <h2>Mais organização na rotina do negócio.</h2>
-          <p>Uma apresentação direta, sem complicar o que já é corrido na vida de quem administra uma empresa.</p>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <div class="icon" aria-hidden="true">▦</div>
-            <h3>Gestão em um só lugar</h3>
-            <p>Tenha uma visão mais organizada das atividades apoiadas pelo sistema de gestão e ponto de venda.</p>
-          </article>
-          <article class="card">
-            <div class="icon" aria-hidden="true">↗</div>
-            <h3>Apoio para decidir</h3>
-            <p>Busque mais clareza para acompanhar a operação e avaliar os próximos passos do seu negócio.</p>
-          </article>
-          <article class="card">
-            <div class="icon" aria-hidden="true">◎</div>
-            <h3>Apresentação personalizada</h3>
-            <p>Conheça a solução em uma demonstração voltada à realidade e às necessidades da sua empresa.</p>
-          </article>
-        </div>
-        <p class="fineprint" style="text-align:center;margin-top:20px">Os recursos aplicáveis variam conforme a configuração e o plano contratado. Consulte a equipe NEXO para confirmar os detalhes.</p>
-      </div>
-    </section>
+    
 
 
     <section id="demoNexo" class="demo-section">
@@ -1223,8 +1558,8 @@
         <div class="demo-business-picker">
           <div class="demo-picker-heading"><div><span class="eyebrow">Escolha sua realidade</span><h3>Qual é o seu tipo de negócio?</h3><p>A demonstração muda conforme o ramo selecionado.</p></div><span class="demo-picker-count">8 experiências</span></div>
           <div class="demo-business-grid" role="group" aria-label="Escolha o ramo do negócio">
-            <button class="demo-business-choice active" type="button" data-demo-business="marmitaria" aria-pressed="true"><span>🍱</span><strong>Marmitaria</strong><small>Pedidos e refeições</small></button>
-            <button class="demo-business-choice" type="button" data-demo-business="mercado" aria-pressed="false"><span>🛒</span><strong>Mercado</strong><small>Produtos e estoque</small></button>
+            <button class="demo-business-choice" type="button" data-demo-business="marmitaria" aria-pressed="false"><span>🍱</span><strong>Marmitaria</strong><small>Pedidos e refeições</small></button>
+            <button class="demo-business-choice active" type="button" data-demo-business="mercado" aria-pressed="true"><span>🛒</span><strong>Mercado</strong><small>Produtos e estoque</small></button>
             <button class="demo-business-choice" type="button" data-demo-business="bar" aria-pressed="false"><span>🍻</span><strong>Bar</strong><small>Consumo e balcão</small></button>
             <button class="demo-business-choice" type="button" data-demo-business="cafeteria" aria-pressed="false"><span>☕</span><strong>Cafeteria</strong><small>Bebidas e lanches</small></button>
             <button class="demo-business-choice" type="button" data-demo-business="roupas" aria-pressed="false"><span>👕</span><strong>Loja de roupas</strong><small>Peças e acessórios</small></button>
@@ -1234,7 +1569,7 @@
           </div>
         </div>
         <div class="demo-app">
-          <div class="demo-appbar"><div class="demo-appbrand"><img class="demo-mark" src="assets/nexo_logo_falcon.png" width="40" height="40" alt="Logo NEXO ERP PDV" loading="lazy"><span>NEXO <small>ERP PDV</small></span></div><div class="demo-appcontext"><span class="demo-live-dot"></span> Ambiente de demonstração · <span id="demoCurrentBusiness">Marmitaria</span> <span class="demo-tag">DADOS FICTÍCIOS</span></div><button class="demo-reset-all" id="demoResetAll" type="button">Reiniciar demo ↻</button></div>
+          <div class="demo-appbar"><div class="demo-appbrand"><img class="demo-mark" src="assets/nexo_logo_falcon.png" width="40" height="40" alt="Logo NEXO ERP PDV" loading="lazy"><span>NEXO <small>ERP PDV</small></span></div><div class="demo-appcontext"><span class="demo-live-dot"></span> Ambiente de demonstração · <span id="demoCurrentBusiness">Mercado</span> <span class="demo-tag">DADOS FICTÍCIOS</span></div><button class="demo-reset-all" id="demoResetAll" type="button">Reiniciar demo ↻</button></div>
           <div class="demo-appbody">
             <aside class="demo-sidebar" aria-label="Menu da demonstração">
               <div class="demo-side-label">ÁREA DE TRABALHO</div>
@@ -1284,189 +1619,147 @@
       </div>
     </section>
 
-        <section id="oferta" class="offer-section">
-      <div class="wrap">
-        <div class="offer">
-          <div>
-            <div class="eyebrow">Teste na prática e sem risco</div>
-            <h2>7 dias de teste no seu comércio. Sem taxa de adesão.</h2>
-            <p class="offer-intro">Instalamos e configuramos o NEXO ERP PDV diretamente na sua operação para você comprovar a velocidade e a estabilidade na prática, com acompanhamento de perto.</p>
-            <ul>
-              <li>7 dias de teste grátis com todas as funcionalidades liberadas.</li>
-              <li>Zero taxa de adesão ou taxa de implantação.</li>
-              <li>Treinamento prático para sua equipe e suporte dedicado.</li>
-            </ul>
-          </div>
-          <div class="pricebox">
-            <div class="price-label">Planos universais para qualquer comércio</div>
-            <div class="price">R$ 159 <small>a</small> R$ 239 <small>/ mês</small></div>
-            <p><strong>NEXO Pro (R$ 239/mês):</strong> Recursos especializados do seu nicho incluídos (mesas, O.S., grade, balança ou fracionamento).</p>
-            <p><strong>NEXO Essencial (R$ 159/mês):</strong> Balcão e varejo ágil completo.</p>
-            <p style="font-size:12.5px;color:#059669;font-weight:700;margin:6px 0 14px">✓ 7 dias de teste grátis na sua loja física sem pegadinhas</p>
-            <a class="button" href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Quero%20agendar%20meu%20teste%20gr%C3%A1tis%20de%207%20dias%20do%20NEXO%20ERP%20PDV%20no%20meu%20com%C3%A9rcio." target="_blank" rel="noopener noreferrer">Solicitar teste grátis de 7 dias <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-      </div>
-    </section>
+        
 
-    <section id="precos" class="pricing-section">
+        <section id="precos" class="pricing-section">
       <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">Planos e escala</div>
-          <h2>Uma estrutura de preço que acompanha o seu negócio.</h2>
-          <p>Comece com um terminal e explore uma estimativa para operações maiores. A proposta final depende da avaliação técnica e comercial da equipe NEXO.</p>
+        <!-- Banner de Confiança e Teste Grátis -->
+        <div class="pricing-trust-banner">
+          <span class="pricing-trust-badge">★ GARANTIA TOTAL NA SUA LOJA FÍSICA</span>
+          <h2>7 dias de teste grátis no seu comércio. Sem taxa de adesão.</h2>
+          <p>Instalamos e configuramos o NEXO ERP PDV na sua operação para você comprovar a velocidade e a estabilidade na prática. Treinamento prático e suporte dedicado inclusos.</p>
+        </div>
+
+        <div class="section-head" style="margin-bottom:28px">
+          <div class="eyebrow">Planos Universais para Qualquer Comércio</div>
+          <h2 style="font-size:clamp(28px, 3.8vw, 40px)">O mesmo valor justo e transparente para todos os ramos.</h2>
+          <p style="max-width:720px;margin:8px auto 0;font-size:15px;color:var(--muted)">Restaurantes, Mercadinhos, Lojas de Roupas, Oficinas, Materiais de Construção, Assistência de Celular e Varejo em Geral. Sem taxas escondidas nem pegadinhas.</p>
         </div>
 
         <div class="pricing-cards">
+          <!-- Plano 1: Essencial -->
           <article class="pricing-card">
-            <div class="pricing-card-kicker">Balcão e Varejo Ágil</div>
+            <div class="pricing-card-kicker">Balcão &amp; Varejo Ágil</div>
             <h3>NEXO Essencial</h3>
             <strong>R$ 159<span>/mês</span></strong>
-            <p>Perfeito para comércios de balcão e varejo em geral que buscam velocidade no caixa, estoque seguro e notas fiscais.</p>
-            <ul style="margin:16px 0 22px;padding-left:18px;color:#455a4e;font-size:13.5px;line-height:1.75">
-              <li>PDV ágil que funciona 100% offline no Windows</li>
-              <li>Controle de estoque, compras e inventário</li>
-              <li>Contas a pagar, receber e crediário da loja</li>
-              <li>Emissão fiscal completa (NFC-e / SAT / Cupom)</li>
-              <li>Envio de comprovante de venda no WhatsApp</li>
-              <li>1 terminal de caixa incluído</li>
-              <li>Suporte dedicado e backup automático</li>
+            <p>Ideal para qualquer comércio de balcão e varejo que busca agilidade máxima no caixa, controle rigoroso de estoque e notas fiscais sem travas.</p>
+            <ul class="pricing-card-list">
+              <li><span class="chk-grn">✓</span> Frente de Caixa (PDV) 100% offline no Windows</li>
+              <li><span class="chk-grn">✓</span> Controle completo de estoque e código de barras</li>
+              <li><span class="chk-grn">✓</span> Contas a pagar, contas a receber e crediário da loja</li>
+              <li><span class="chk-grn">✓</span> Emissão fiscal completa (NFC-e / SAT / Cupom)</li>
+              <li><span class="chk-grn">✓</span> Envio de comprovante de venda no WhatsApp</li>
+              <li><span class="chk-grn">✓</span> 1 terminal de caixa incluído com backup e suporte</li>
+              <li><span class="chk-grn">✓</span> <strong>Válido para qualquer nicho de comércio</strong></li>
             </ul>
-            <a class="button" style="display:block;text-align:center;margin-top:auto" href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Quero%20testar%20o%20plano%20NEXO%20Essencial%20(R%24%20159%2Fm%C3%AAs)%20por%207%20dias." target="_blank" rel="noopener noreferrer">Testar Essencial por 7 dias ↗</a>
+            <a class="button secondary" style="display:block;text-align:center;margin-top:auto" href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Quero%20testar%20o%20plano%20NEXO%20Essencial%20(R%24%20159%2Fm%C3%AAs)%20por%207%20dias." target="_blank" rel="noopener noreferrer">Testar Essencial por 7 dias ↗</a>
           </article>
 
-          <article class="pricing-card pricing-card-featured" style="border-width:2px;border-color:#10b981;background:linear-gradient(180deg,#ffffff 0%,#f0fdf4 100%)">
-            <div class="pricing-card-kicker" style="color:#059669;font-weight:900">★ Mais Escolhido · Operações Dinâmicas</div>
+          <!-- Plano 2: NEXO Pro (Destaque) -->
+          <article class="pricing-card pricing-card-featured">
+            <div class="pricing-card-kicker featured-kicker">★ MAIS ESCOLHIDO · RECURSOS DO SEU NICHO INCLUSOS</div>
             <h3>NEXO Pro</h3>
-            <strong style="color:#047857">R$ 239<span>/mês</span></strong>
-            <p>A solução completa com as rotinas especializadas do seu nicho liberadas sem nenhum custo extra.</p>
-            <ul style="margin:16px 0 22px;padding-left:18px;color:#1e3a2b;font-size:13.5px;line-height:1.75">
-              <li><strong>Tudo incluído no Plano Essencial</strong></li>
-              <li><strong>Módulo do seu nicho liberado:</strong></li>
-              <li>· Restaurantes: Mesas, Comandas, KDS e Garçom no celular</li>
-              <li>· Oficinas: Ordens de Serviço (O.S.) e Peças/Mão de Obra</li>
-              <li>· Moda: Grade completa de Cor e Tamanho</li>
-              <li>· Mercados: Balança integrada e Etiquetas de gôndola</li>
-              <li>· Materiais: Fracionamento (m/kg) e orçamentos rápidos</li>
-              <li>· Celular: Controle de IMEI, serial e termo de garantia</li>
-              <li>Backup blindado em nuvem e suporte prioritário</li>
+            <strong class="featured-price">R$ 239<span>/mês</span></strong>
+            <p>A solução completa com as rotinas especializadas do seu segmento liberadas sem nenhum custo adicional.</p>
+            <ul class="pricing-card-list featured-list">
+              <li><span class="chk-grn">✓</span> <strong>Tudo incluído no Plano Essencial</strong></li>
+              <li><span class="chk-grn">✓</span> <strong>Módulo especializado do seu ramo liberado:</strong></li>
+              <li class="niche-subitem">· <strong>Restaurantes/Bares:</strong> Mesas, Comandas, KDS e Garçom no celular</li>
+              <li class="niche-subitem">· <strong>Mercadinhos:</strong> Balança de peso integrada e etiquetas de gôndola</li>
+              <li class="niche-subitem">· <strong>Moda/Roupas:</strong> Grade completa de cor, tamanho e modelo</li>
+              <li class="niche-subitem">· <strong>Oficinas:</strong> Ordens de Serviço (O.S.) e peças/mão de obra</li>
+              <li class="niche-subitem">· <strong>Construção:</strong> Venda fracionada (m/kg) e orçamentos rápidos</li>
+              <li class="niche-subitem">· <strong>Celular/Informática:</strong> Controle de IMEI, serial e termo de garantia</li>
+              <li class="niche-subitem">· <strong>Varejo Geral:</strong> Cadastros rápidos, promoções e kits</li>
+              <li><span class="chk-grn">✓</span> Backup blindado em nuvem e suporte prioritário</li>
+              <li><span class="chk-grn">✓</span> <strong>Mesmo valor para todos os segmentos</strong></li>
             </ul>
             <a class="button" style="display:block;text-align:center;margin-top:auto" href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Quero%20testar%20o%20plano%20NEXO%20Pro%20(R%24%20239%2Fm%C3%AAs)%20por%207%20dias%20no%20meu%20com%C3%A9rcio." target="_blank" rel="noopener noreferrer">Testar NEXO Pro por 7 dias ↗</a>
           </article>
 
+          <!-- Plano 3: Multi-Caixas / Premium -->
           <article class="pricing-card">
-            <div class="pricing-card-kicker">Alto Fluxo e Múltiplos Caixas</div>
-            <h3>NEXO Premium</h3>
+            <div class="pricing-card-kicker">Alto Fluxo &amp; Múltiplos Terminais</div>
+            <h3>NEXO Multi-Caixas</h3>
             <strong>R$ 329<span>/mês</span></strong>
-            <p>Para estabelecimentos de grande movimento que exigem múltiplos caixas simultâneos e gestão avançada.</p>
-            <ul style="margin:16px 0 22px;padding-left:18px;color:#455a4e;font-size:13.5px;line-height:1.75">
-              <li><strong>Tudo incluído no Plano NEXO Pro</strong></li>
-              <li>Múltiplos caixas simultâneos na loja física</li>
-              <li>Segunda tela do cliente (itens e Pix dinâmico no visor)</li>
-              <li>Nexo Copiloto com diagnósticos de lucratividade</li>
-              <li>Treinamento de equipe e implantação assistida</li>
-              <li>Atendimento prioritário direto com os especialistas</li>
+            <p>Para estabelecimentos de grande movimento que exigem múltiplos caixas simultâneos e gestão avançada na mesma loja.</p>
+            <ul class="pricing-card-list">
+              <li><span class="chk-grn">✓</span> <strong>Tudo incluído no Plano NEXO Pro</strong></li>
+              <li><span class="chk-grn">✓</span> Múltiplos caixas operando simultâneos na loja física</li>
+              <li><span class="chk-grn">✓</span> Segunda tela do cliente (itens e Pix dinâmico no visor)</li>
+              <li><span class="chk-grn">✓</span> Painel de lucratividade, curva ABC e DRE simplificado</li>
+              <li><span class="chk-grn">✓</span> Treinamento de equipe e implantação assistida</li>
+              <li><span class="chk-grn">✓</span> Atendimento VIP prioritário direto com especialistas</li>
+              <li><span class="chk-grn">✓</span> <strong>Válido para qualquer segmento de comércio</strong></li>
             </ul>
-            <a class="button secondary" style="display:block;text-align:center;margin-top:auto" href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Quero%20conhecer%20o%20plano%20NEXO%20Premium%20(R%24%20329%2Fm%C3%AAs)%20para%20m%C3%BAltiplos%20caixas." target="_blank" rel="noopener noreferrer">Falar sobre Plano Premium ↗</a>
+            <a class="button secondary" style="display:block;text-align:center;margin-top:auto" href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Quero%20conhecer%20o%20plano%20NEXO%20Multi-Caixas%20(R%24%20329%2Fm%C3%AAs)." target="_blank" rel="noopener noreferrer">Falar sobre Multi-Caixas ↗</a>
           </article>
         </div>
 
-        <div class="pricing-calculator" aria-labelledby="pricingCalculatorTitle">
-          <div class="calculator-copy">
-            <div class="eyebrow">Simulador de investimento</div>
-            <h3 id="pricingCalculatorTitle">Quantos terminais sua operação precisa?</h3>
-            <p>Altere a quantidade e veja uma estimativa mensal calculada por faixas progressivas. A simulação não envia dados nem cria uma contratação.</p>
-            <label for="terminalCount">Quantidade de terminais</label>
-            <div class="terminal-control">
-              <button type="button" id="terminalMinus" aria-label="Diminuir quantidade de terminais">−</button>
-              <input id="terminalCount" name="terminalCount" type="number" min="1" max="1000" step="1" value="1" inputmode="numeric" aria-describedby="terminalHelp">
-              <button type="button" id="terminalPlus" aria-label="Aumentar quantidade de terminais">+</button>
+        <!-- Simulador Compacto Recolhível para quem precisa de muitos caixas -->
+        <details class="pricing-calculator-compact">
+          <summary>Precisa de 2 ou mais terminais na mesma loja? Clique para simular faixas progressivas ▾</summary>
+          <div class="pricing-calculator" aria-labelledby="pricingCalculatorTitle" style="margin-top:20px">
+            <div class="calculator-copy">
+              <div class="eyebrow">Simulador de investimento</div>
+              <h3 id="pricingCalculatorTitle">Quantos terminais sua operação precisa?</h3>
+              <p>Altere a quantidade e veja uma estimativa mensal calculada por faixas progressivas.</p>
+              <label for="terminalCount">Quantidade de terminais</label>
+              <div class="terminal-control">
+                <button type="button" id="terminalMinus" aria-label="Diminuir quantidade de terminais">−</button>
+                <input id="terminalCount" name="terminalCount" type="number" min="1" max="1000" step="1" value="1" inputmode="numeric" aria-describedby="terminalHelp">
+                <button type="button" id="terminalPlus" aria-label="Aumentar quantidade de terminais">+</button>
+              </div>
+              <input id="terminalRange" class="terminal-range" type="range" min="1" max="1000" value="1" aria-label="Ajustar quantidade de terminais">
+              <div class="range-labels"><span>1 terminal</span><span>1.000 terminais</span></div>
             </div>
-            <input id="terminalRange" class="terminal-range" type="range" min="1" max="1000" value="1" aria-label="Ajustar quantidade de terminais">
-            <div class="range-labels"><span>1 terminal</span><span>1.000 terminais</span></div>
-            <p id="terminalHelp" class="calculator-help">Para 101 terminais ou mais, o valor é apenas uma referência matemática e requer proposta personalizada.</p>
-          </div>
-          <div class="calculator-result" aria-live="polite" aria-atomic="true">
-            <span class="result-label">Estimativa mensal</span>
-            <strong id="terminalTotal">R$ 159,00</strong>
-            <div class="result-divider"></div>
-            <div class="result-detail"><span>Terminais selecionados</span><b id="terminalCountLabel">1</b></div>
-            <div class="result-detail"><span>Média por terminal</span><b id="terminalAverage">R$ 159,00</b></div>
-            <p id="terminalQuoteNote" class="result-disclaimer">Valor de referência para 1 terminal. Consulte as condições do plano.</p>
-            <a class="button" id="terminalQuoteButton" href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Quero%20confirmar%20as%20condi%C3%A7%C3%B5es%20do%20NEXO%20ERP%20PDV%20para%201%20terminal." target="_blank" rel="noopener noreferrer">Solicitar proposta ↗</a>
-          </div>
-        </div>
-
-        <details class="pricing-details">
-          <summary>Entenda as faixas usadas na estimativa</summary>
-          <div class="pricing-tier-grid">
-            <div><span>1º terminal</span><strong>R$ 159,00</strong></div>
-            <div><span>2 a 5</span><strong>+R$ 89,00 por terminal adicional</strong></div>
-            <div><span>6 a 20</span><strong>+R$ 79,00 por terminal adicional</strong></div>
-            <div><span>21 a 50</span><strong>+R$ 69,00 por terminal adicional</strong></div>
-            <div><span>51 a 100</span><strong>+R$ 59,00 por terminal adicional</strong></div>
-            <div><span>101 a 250</span><strong>+R$ 49,00 por terminal adicional</strong></div>
-            <div><span>251 a 500</span><strong>+R$ 39,00 por terminal adicional</strong></div>
-            <div><span>501 a 1.000</span><strong>+R$ 29,00 por terminal adicional</strong></div>
+            <div class="calculator-result" aria-live="polite" aria-atomic="true">
+              <span class="result-label">Estimativa mensal</span>
+              <strong id="terminalTotal">R$ 159,00</strong>
+              <div class="result-divider"></div>
+              <div class="result-detail"><span>Terminais selecionados</span><b id="terminalCountLabel">1</b></div>
+              <div class="result-detail"><span>Média por terminal</span><b id="terminalAverage">R$ 159,00</b></div>
+              <a class="button" id="terminalQuoteButton" href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Quero%20confirmar%20as%20condi%C3%A7%C3%B5es%20do%20NEXO%20ERP%20PDV%20para%201%20terminal." target="_blank" rel="noopener noreferrer">Solicitar proposta ↗</a>
+            </div>
           </div>
         </details>
-
-        <p class="pricing-note">Transparência: as faixas acima são uma referência comercial em avaliação, não uma confirmação automática de compatibilidade, multi-loja, estoque compartilhado, sincronização ou recursos empresariais. Antes da contratação, a equipe confirma por escrito o escopo, a mensalidade, implantação, suporte e requisitos técnicos. Tributos, equipamentos e serviços adicionais podem alterar o investimento.</p>
       </div>
     </section>
 
 
-    <section id="historia-nexo">
+        <section id="historia-nexo" class="history-compact-section">
       <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">Quem está por trás do NEXO</div>
-          <h2>Uma história construída na prática.</h2>
-          <p>Meu nome é Everton Junior de Jesus Pires. Minha ligação com a informática começou pela curiosidade de entender como os computadores funcionam. Com o tempo, essa curiosidade virou estudo, trabalho e vontade de criar minhas próprias soluções.</p>
+        <div class="history-compact-card">
+          <div class="history-badge-lead">QUEM ESTÁ POR TRÁS DO NEXO</div>
+          <h2>Uma história construída na prática com o comércio.</h2>
+          <p class="history-lead-text">
+            Meu nome é <strong>Everton Junior de Jesus Pires</strong>. Minha ligação com a informática começou pela curiosidade de entender computadores e transformou-se em profissão: formação técnica em montagem e manutenção, experiência prática e desenvolvimento de software voltado para a rotina real de quem empreende.
+          </p>
+          <div class="history-proof-grid">
+            <a class="history-proof-item" href="https://www.camaraavare.sp.gov.br/semanarios/2016/d7a6f6249933f68ba85202b836cc7e9a.pdf#page=12" target="_blank" rel="noopener noreferrer">
+              <span class="proof-icon">📜</span>
+              <div>
+                <strong>Registro Público de 2016</strong>
+                <span>Semanário Oficial da Câmara de Avaré (pág. 12) ↗</span>
+              </div>
+            </a>
+            <a class="history-proof-item" href="https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/" target="_blank" rel="noopener noreferrer">
+              <span class="proof-icon">🏢</span>
+              <div>
+                <strong>CNPJ Ativo desde 15/06/2020</strong>
+                <span>Comprovante oficial na Receita Federal ↗</span>
+              </div>
+            </a>
+            <div class="history-proof-item">
+              <span class="proof-icon">🤝</span>
+              <div>
+                <strong>Atendimento em Avaré e Região</strong>
+                <span>Suporte direto com quem entende e desenvolve o sistema</span>
+              </div>
+            </div>
+          </div>
+          <p class="history-footnote">Compromisso com seriedade, presença local e evolução contínua ao lado dos comerciantes da nossa região.</p>
         </div>
-        <div class="grid">
-          <article class="card">
-            <div class="icon" aria-hidden="true">💻</div>
-            <h3>Tudo começou com um computador</h3>
-            <p>Meu interesse pela informática começou com a vontade de entender como os computadores funcionam e como a tecnologia pode resolver problemas do dia a dia. Essa curiosidade se transformou em estudo, prática e trabalho com soluções para pessoas e empresas.</p>
-          </article>
-          <article class="card">
-            <div class="icon" aria-hidden="true">🛠️</div>
-            <h3>Aprendi estudando e colocando a mão na massa</h3>
-            <p>Tenho formação técnica em manutenção de hardware e montagem e manutenção de computadores. Também ampliei meus conhecimentos em programação por meio de estudo independente, leitura e prática. Aprender fazendo sempre foi parte importante do meu trabalho.</p>
-            <p style="margin-top:10px">Essa combinação de base técnica, curiosidade e experiência prática orienta a forma como desenvolvo e aprimoro soluções.</p>
-          </article>
-          <article class="card">
-            <div class="icon" aria-hidden="true">🧩</div>
-            <h3>Por que estou construindo o NEXO</h3>
-            <p>O NEXO ERP PDV nasceu dessa experiência com tecnologia e da vontade de oferecer ferramentas úteis à rotina do comércio. O sistema já está em operação comercial, e o trabalho segue orientado por uma ideia simples: entender as necessidades de quem empreende e buscar soluções práticas para elas.</p>
-            <p style="margin-top:10px"><strong>Meu compromisso é continuar aprendendo, ouvindo quem utiliza a tecnologia e evoluindo o produto com responsabilidade.</strong></p>
-          </article>
-        </div>
-        <div class="section-head" style="margin-top:34px">
-          <div class="eyebrow">Marcos da trajetória</div>
-          <h2>Uma história com raízes reais.</h2>
-          <p><strong>2016:</strong> um registro publicado no Semanário Oficial da Câmara Municipal de Avaré menciona Everton Junior de Jesus Pires em pedido deferido para atividade de loja de equipamentos para informática.</p>
-          <p style="margin-top:10px"><strong>15/06/2020:</strong> data de constituição indicada no comprovante cadastral da empresa individual de Everton Junior de Jesus Pires.</p>
-          <p style="margin-top:10px">Esses marcos documentais se somam à trajetória pessoal de aprendizado e paixão pela informática. Cada registro tem seu significado, e a história do fundador não se resume à data de abertura de um CNPJ.</p>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <div class="icon" aria-hidden="true">📜</div>
-            <h3>Registro público de 2016</h3>
-            <p><a href="https://www.camaraavare.sp.gov.br/semanarios/2016/d7a6f6249933f68ba85202b836cc7e9a.pdf#page=12" target="_blank" rel="noopener noreferrer">Ler o Semanário Oficial de Avaré (página 12) ↗</a></p>
-          </article>
-          <article class="card">
-            <div class="icon" aria-hidden="true">🏢</div>
-            <h3>Cadastro empresarial</h3>
-            <p><a href="https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/" target="_blank" rel="noopener noreferrer">Consultar o cadastro na Receita Federal ↗</a></p>
-          </article>
-          <article class="card">
-            <div class="icon" aria-hidden="true">💻</div>
-            <h3>NEXO Playloud</h3>
-            <p><a href="https://playloud-iformatica.ueniweb.com/" target="_blank" rel="noopener noreferrer">Conhecer a página pública da Playloud Informática ↗</a></p>
-          </article>
-        </div>
-        <p class="fineprint" style="text-align:center;margin-top:18px">O registro municipal de 2016 documenta uma atividade relacionada à informática naquele período. O cadastro empresarial de 2020 identifica a constituição da empresa atual. São marcos diferentes, apresentados com transparência e respeito à trajetória do fundador.</p>
       </div>
     </section>
 
@@ -1592,9 +1885,9 @@
           <p>Fale diretamente com a equipe NEXO pelo WhatsApp para combinar uma demonstração e confirmar os recursos, valores e condições adequados ao seu negócio.</p>
           <div class="actions" style="margin-top:18px">
             <a class="button" href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20conhecer%20o%20NEXO%20ERP%20PDV.%20Podemos%20agendar%20uma%20demonstra%C3%A7%C3%A3o%3F" target="_blank" rel="noopener noreferrer">Conversar pelo WhatsApp</a>
-            <a class="button secondary" href="mailto:nexopdv@zohomail.com">Enviar e-mail</a>
+            <a class="button secondary" href="/cdn-cgi/l/email-protection#2a444f52455a4e5c6a50454245474b434604494547">Enviar e-mail</a>
           </div>
-          <p class="fineprint" style="margin-top:18px">Prefere e-mail? Escreva para nexopdv@zohomail.com. A demonstração, os recursos e as condições comerciais são confirmados pela equipe.</p>
+          <p class="fineprint" style="margin-top:18px">Prefere e-mail? Escreva para <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9ff1fae7f0effbe9dfe5f0f7f0f2fef6f3b1fcf0f2">[email&#160;protected]</a>. A demonstração, os recursos e as condições comerciais são confirmados pela equipe.</p>
         </div>
       </div>
     </section>
@@ -1607,7 +1900,7 @@
         <span>NEXO Playloud Informática e Automação</span>
       </div>
       <div class="footer-contact">
-        <a href="mailto:nexopdv@zohomail.com">nexopdv@zohomail.com</a>
+        <a href="/cdn-cgi/l/email-protection#741a110c1b041002340e1b1c1b19151d185a171b19"><span class="__cf_email__" data-cfemail="d0beb5a8bfa0b4a690aabfb8bfbdb1b9bcfeb3bfbd">[email&#160;protected]</span></a>
         <a href="https://www.instagram.com/nexoerpoficial/" target="_blank" rel="noopener noreferrer">Instagram @nexoerpoficial ↗</a>
         <a href="privacidade.html">Aviso de privacidade</a>
         <a href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Vim%20pelo%20site%20do%20NEXO%20ERP%20PDV." target="_blank" rel="noopener noreferrer">WhatsApp da equipe ↗</a>
@@ -2712,6 +3005,264 @@
       border-color: var(--blue);
     }
 
+  
+    /* ========================================================
+       REDUÇÃO DE ROLAGEM & ESTILO VISUAL VIBRANTE
+       ======================================================== */
+    section {
+      padding: clamp(32px, 4.2vw, 46px) 0 !important;
+    }
+    .hero {
+      padding: clamp(36px, 5vw, 54px) 0 clamp(24px, 3.5vw, 36px) !important;
+    }
+    .segmentos-section {
+      padding: clamp(34px, 4.5vw, 50px) 0 !important;
+      background: linear-gradient(180deg, #ffffff 0%, #f7fdf9 100%);
+    }
+    .pricing-section {
+      padding: clamp(36px, 5vw, 52px) 0 !important;
+      background: linear-gradient(180deg, #f8fafc 0%, #edfcf2 100%) !important;
+    }
+    .history-compact-section {
+      padding: clamp(32px, 4.2vw, 46px) 0 !important;
+      background: #ffffff;
+    }
+
+    /* Banner de Garantia e Teste no topo de Preços */
+    .pricing-trust-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: clamp(22px, 3.5vw, 32px);
+      text-align: center;
+      margin-bottom: 32px;
+      box-shadow: 0 16px 36px rgba(4, 120, 87, 0.18);
+    }
+    .pricing-trust-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      color: #a7f3d0;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+    .pricing-trust-banner h2 {
+      font-size: clamp(22px, 3.2vw, 32px);
+      color: #ffffff;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+    .pricing-trust-banner p {
+      font-size: 14.5px;
+      color: #d1fae5;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Cards de Preço - Visual Limpo, Colorido e Profissional */
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      align-items: stretch;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 900px) {
+      .pricing-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+    .pricing-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: clamp(22px, 3vw, 28px);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+    .pricing-card-kicker {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748b;
+      margin-bottom: 6px;
+    }
+    .pricing-card h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+    .pricing-card strong {
+      font-size: 38px;
+      font-weight: 900;
+      color: #0f172a;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .pricing-card strong span {
+      font-size: 14px;
+      font-weight: 500;
+      color: #64748b;
+    }
+    .pricing-card p {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #475569;
+      margin-bottom: 14px;
+    }
+    .pricing-card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 22px 0;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #334155;
+    }
+    .pricing-card-list li {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+    }
+    .chk-grn {
+      color: #059669;
+      font-weight: 900;
+    }
+    .niche-subitem {
+      padding-left: 18px;
+      font-size: 12px;
+      color: #475569;
+      margin-bottom: 4px !important;
+    }
+
+    /* Destaque do NEXO Pro */
+    .pricing-card-featured {
+      border: 2px solid #10b981 !important;
+      background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%) !important;
+      box-shadow: 0 12px 36px rgba(16, 185, 129, 0.16) !important;
+      position: relative;
+    }
+    .featured-kicker {
+      color: #047857 !important;
+      font-weight: 900 !important;
+    }
+    .featured-price {
+      color: #047857 !important;
+    }
+
+    /* Simulador Compacto */
+    .pricing-calculator-compact {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 14px 20px;
+      margin-top: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .pricing-calculator-compact summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 13.5px;
+      color: #047857;
+      outline: none;
+    }
+    .pricing-calculator-compact summary:hover {
+      text-decoration: underline;
+    }
+
+    /* Card Compacto da História do Fundador */
+    .history-compact-card {
+      background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid #e2e8f0;
+      border-radius: 22px;
+      padding: clamp(24px, 4vw, 38px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .history-badge-lead {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #059669;
+      background: #ecfdf5;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .history-compact-card h2 {
+      font-size: clamp(24px, 3.2vw, 34px);
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      color: #0f172a;
+    }
+    .history-lead-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #475569;
+      margin-bottom: 22px;
+    }
+    .history-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 768px) {
+      .history-proof-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .history-proof-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      text-decoration: none;
+      color: #1e293b;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .history-proof-item:hover {
+      border-color: #10b981;
+      transform: translateY(-2px);
+    }
+    .history-proof-item .proof-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .history-proof-item strong {
+      display: block;
+      font-size: 13px;
+      color: #0f172a;
+    }
+    .history-proof-item span {
+      display: block;
+      font-size: 11.5px;
+      color: #059669;
+      line-height: 1.4;
+    }
+    .history-footnote {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 8px;
+      text-align: center;
+    }
+
   </style>
   <button type="button" class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
   <section class="chat-panel" id="nexoChat" role="dialog" aria-labelledby="chatTitle" aria-describedby="chatDisclaimer" aria-modal="false">
@@ -2725,10 +3276,10 @@
     <div class="chat-disclaimer" id="chatDisclaimer">Sou uma assistente demonstrativa com respostas programadas, não conectada ao sistema NEXO real. Para confirmar recursos, preços, disponibilidade e condições, fale com a equipe.</div>
   </section>
   
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
     (function(){
-      var cart=[],operationsCount=18,operationValueTotal=1284.5,currentBusiness='marmitaria',search;
+      var cart=[],operationsCount=18,operationValueTotal=1284.5,currentBusiness='mercado',search;
       var businesses={
         marmitaria:{label:'Marmitaria',mode:'sale',metricCount:18,metricTotal:1284.5,metricTotalLabel:'Valor dos pedidos',reportMetricLabel:'Pedidos',reportTotalLabel:'Valor total dos pedidos (exemplo)',finishLabel:'Finalizar pedido de teste',items:[['🍱','Marmita tradicional',22,'Refeições',18],['🍗','Marmita de frango',25,'Refeições',12],['🥗','Marmita leve',24,'Refeições',8],['🥤','Suco natural',7,'Bebidas',16],['🥫','Refrigerante lata',6,'Bebidas',22],['🍮','Pudim',8,'Sobremesas',5]]},
         mercado:{label:'Mercado',mode:'sale',metricCount:52,metricTotal:3840.9,metricTotalLabel:'Valor vendido',reportMetricLabel:'Vendas',reportTotalLabel:'Faturamento ilustrativo do dia',finishLabel:'Finalizar venda de teste',items:[['🍚','Arroz 5 kg',29.9,'Mercearia',20],['🫘','Feijão 1 kg',8.5,'Mercearia',14],['🥛','Leite 1 L',5.5,'Laticínios',18],['🧼','Detergente',2.99,'Limpeza',7],['🛢️','Óleo 900 ml',7.9,'Mercearia',24],['🍞','Pão de forma',9.5,'Padaria',9]]},
@@ -2837,8 +3388,8 @@
         renderCart();
         receipt.scrollIntoView({behavior:'smooth',block:'nearest'});
       });
-      var resetAll=document.getElementById('demoResetAll');if(resetAll)resetAll.addEventListener('click',function(){operationsCount=18;operationValueTotal=1284.5;buildBusiness('marmitaria');showTab('painel');});
-      buildBusiness('marmitaria');
+      var resetAll=document.getElementById('demoResetAll');if(resetAll)resetAll.addEventListener('click',function(){operationsCount=18;operationValueTotal=1284.5;buildBusiness('mercado');showTab('painel');});
+      buildBusiness('mercado');
     })();
     window.nexoToggleChat = function () {
       var panel = document.getElementById('nexoChat');
@@ -3127,11 +3678,11 @@
           </div>
         </a>
 
-        <a href="mailto:nexopdv@zohomail.com?subject=Suporte%20NEXO%20ERP%20PDV" style="text-decoration:none;display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--paper);color:inherit;transition:border-color 0.2s ease" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--line)'">
+        <a href="/cdn-cgi/l/email-protection#e688839e89968290a69c898e898b878f8ac885898bd99593848c838592dbb5939689949283c3d4d6a8a3bea9c3d4d6a3b4b6c3d4d6b6a2b0" style="text-decoration:none;display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--paper);color:inherit;transition:border-color 0.2s ease" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--line)'">
           <span style="font-size:24px">✉️</span>
           <div>
             <strong style="display:block;font-size:14.5px">E-mail Oficial de Atendimento</strong>
-            <span style="font-size:12.5px;color:var(--muted)">Envio de arquivos, notas e solicitações formais: nexopdv@zohomail.com</span>
+            <span style="font-size:12.5px;color:var(--muted)">Envio de arquivos, notas e solicitações formais: <span class="__cf_email__" data-cfemail="422c273a2d32263402382d2a2d2f232b2e6c212d2f">[email&#160;protected]</span></span>
           </div>
         </a>
 
@@ -3151,14 +3702,10 @@
   </div>
 
   <!-- SCRIPT DE TEMA E MODAIS -->
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     (function(){
       // 1. TEMA ESCURO / CLARO
-      var savedTheme = localStorage.getItem('nexo_theme');
-      if (!savedTheme) {
-        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        savedTheme = prefersDark ? 'dark' : 'light';
-      }
+      var savedTheme = localStorage.getItem('nexo_theme') || 'light';
       function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
         var sun = document.getElementById('themeIconSun');
