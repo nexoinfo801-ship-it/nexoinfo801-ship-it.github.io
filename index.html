@@ -1302,6 +1302,315 @@
       background: rgba(11, 15, 25, 0.88) !important;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     }
+    
+    /* ========================================================
+       SISTEMA DE DESIGN UNIFICADO E CONTRASTE ABSOLUTO
+       ======================================================== */
+    :root {
+      color-scheme: light;
+      --bg: #f8fafc;
+      --paper: #ffffff;
+      --paper-soft: #f1f5f9;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --blue: #059669;
+      --green: #10b981;
+      --card-bg: #ffffff;
+      --card-border: #e2e8f0;
+      --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #090d16;
+      --paper: #111827;
+      --paper-soft: #1a2234;
+      --ink: #f8fafc;
+      --muted: #94a3b8;
+      --line: #1e293b;
+      --blue: #10b981;
+      --green: #34d399;
+      --card-bg: #111827;
+      --card-border: #1e293b;
+      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    body {
+      background: var(--bg) !important;
+      color: var(--ink) !important;
+    }
+
+    /* Headings globais */
+    h1, h2, h3, h4 {
+      color: var(--ink) !important;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    /* Section head titles */
+    .section-head h2 {
+      color: var(--ink) !important;
+    }
+    .section-head p {
+      color: var(--muted) !important;
+    }
+
+    /* Seção de segmentos / nichos */
+    .segmentos-section {
+      background: var(--bg) !important;
+    }
+    .segmento-card {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 20px !important;
+      padding: 24px 26px !important;
+      box-shadow: var(--card-shadow) !important;
+    }
+    .segmento-card h3 {
+      color: var(--ink) !important;
+      font-size: 20px !important;
+      margin: 0 0 10px !important;
+    }
+    .segmento-card p {
+      color: var(--muted) !important;
+      font-size: 14px !important;
+      line-height: 1.6 !important;
+    }
+    .segmento-features li {
+      color: var(--ink) !important;
+      font-size: 13.5px !important;
+    }
+
+    /* Trust banner */
+    .pricing-trust-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%) !important;
+      color: #ffffff !important;
+      border-radius: 20px !important;
+      padding: clamp(24px, 3.5vw, 34px) !important;
+      text-align: center !important;
+      margin-bottom: 32px !important;
+      box-shadow: 0 16px 36px rgba(4, 120, 87, 0.2) !important;
+    }
+    .pricing-trust-banner h2 {
+      color: #ffffff !important;
+      font-size: clamp(22px, 3.2vw, 32px) !important;
+      margin-bottom: 8px !important;
+    }
+    .pricing-trust-banner p {
+      color: #d1fae5 !important;
+      font-size: 14.5px !important;
+    }
+
+    /* Cards de Preço - CORREÇÃO CRÍTICA */
+    .pricing-cards {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 20px !important;
+      align-items: stretch !important;
+      margin-bottom: 24px !important;
+    }
+    @media (max-width: 900px) {
+      .pricing-cards {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .pricing-card {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 20px !important;
+      padding: clamp(24px, 3.2vw, 30px) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      box-shadow: var(--card-shadow) !important;
+      color: var(--ink) !important;
+    }
+    .pricing-card-kicker {
+      font-size: 11px !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.06em !important;
+      color: var(--muted) !important;
+      margin-bottom: 8px !important;
+    }
+    .pricing-card h3 {
+      font-size: 22px !important;
+      margin-bottom: 8px !important;
+      color: var(--ink) !important;
+      font-weight: 800 !important;
+    }
+    .pricing-card-amount {
+      font-size: 38px !important;
+      font-weight: 900 !important;
+      color: var(--ink) !important;
+      display: block !important;
+      margin: 10px 0 12px !important;
+      letter-spacing: -0.04em !important;
+      line-height: 1.1 !important;
+    }
+    .pricing-card-amount span {
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      color: var(--muted) !important;
+      margin-left: 4px !important;
+    }
+    .pricing-card p {
+      font-size: 13.5px !important;
+      line-height: 1.6 !important;
+      color: var(--muted) !important;
+      margin-bottom: 18px !important;
+    }
+    .pricing-card-list {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 0 24px 0 !important;
+      font-size: 13px !important;
+      line-height: 1.65 !important;
+      color: var(--ink) !important;
+    }
+    .pricing-card-list li {
+      margin-bottom: 7px !important;
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 8px !important;
+      font-size: 13px !important;
+      line-height: 1.45 !important;
+    }
+    /* PROTEÇÃO CONTRA TEXTO GIGANTE DENTRO DA LISTA */
+    .pricing-card-list strong {
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      display: inline !important;
+      color: var(--ink) !important;
+      margin: 0 !important;
+      letter-spacing: normal !important;
+      line-height: inherit !important;
+    }
+    .niche-subitem {
+      padding-left: 18px !important;
+      font-size: 12px !important;
+      color: var(--muted) !important;
+      margin-bottom: 4px !important;
+    }
+    .niche-subitem strong {
+      font-size: 12px !important;
+      color: var(--ink) !important;
+    }
+
+    /* Plano NEXO Pro (Destaque) */
+    .pricing-card-featured {
+      border: 2px solid #10b981 !important;
+      background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%) !important;
+      box-shadow: 0 14px 38px rgba(16, 185, 129, 0.16) !important;
+      position: relative !important;
+    }
+    .featured-kicker {
+      color: #047857 !important;
+      font-weight: 850 !important;
+    }
+    .featured-price {
+      color: #047857 !important;
+    }
+    [data-theme="dark"] .pricing-card-featured {
+      border: 2px solid #10b981 !important;
+      background: linear-gradient(180deg, #111827 0%, #064e3b 100%) !important;
+      box-shadow: 0 16px 42px rgba(16, 185, 129, 0.25) !important;
+    }
+    [data-theme="dark"] .featured-kicker {
+      color: #34d399 !important;
+    }
+    [data-theme="dark"] .featured-price {
+      color: #34d399 !important;
+    }
+
+    /* Card História Compacto */
+    .history-compact-card {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 22px !important;
+      padding: clamp(26px, 4vw, 36px) !important;
+      box-shadow: var(--card-shadow) !important;
+      color: var(--ink) !important;
+    }
+    .history-compact-card h2 {
+      color: var(--ink) !important;
+    }
+    .history-lead-text {
+      color: var(--muted) !important;
+    }
+    .history-proof-item {
+      background: var(--paper-soft) !important;
+      border: 1px solid var(--line) !important;
+      color: var(--ink) !important;
+    }
+    .history-proof-item strong {
+      color: var(--ink) !important;
+    }
+    .history-proof-item span {
+      color: var(--muted) !important;
+    }
+    .history-footnote {
+      color: var(--muted) !important;
+    }
+
+    /* Ecossistema */
+    .ecossistema-box {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 22px !important;
+      padding: clamp(26px, 4vw, 36px) !important;
+      box-shadow: var(--card-shadow) !important;
+    }
+    .ecossistema-head h3 {
+      color: var(--ink) !important;
+    }
+    .ecossistema-head p {
+      color: var(--muted) !important;
+    }
+    .ecossistema-item h4 {
+      color: var(--ink) !important;
+    }
+    .ecossistema-item p {
+      color: var(--muted) !important;
+    }
+
+    /* Simulador compacto */
+    .pricing-calculator-compact {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 16px !important;
+      padding: 14px 20px !important;
+      margin-top: 16px !important;
+      box-shadow: var(--card-shadow) !important;
+      color: var(--ink) !important;
+    }
+    .pricing-calculator-compact summary {
+      color: var(--blue) !important;
+      font-weight: 700 !important;
+    }
+    .calculator-copy h3 {
+      color: var(--ink) !important;
+    }
+    .calculator-copy p {
+      color: var(--muted) !important;
+    }
+    .calculator-result {
+      background: var(--paper-soft) !important;
+      border: 1px solid var(--line) !important;
+      color: var(--ink) !important;
+    }
+    .calculator-result strong {
+      color: var(--ink) !important;
+    }
+    .result-detail span {
+      color: var(--muted) !important;
+    }
+    .result-detail b {
+      color: var(--ink) !important;
+    }
+
     </style>
 </head>
 <body>
@@ -1641,7 +1950,7 @@
           <article class="pricing-card">
             <div class="pricing-card-kicker">Balcão &amp; Varejo Ágil</div>
             <h3>NEXO Essencial</h3>
-            <strong>R$ 159<span>/mês</span></strong>
+            <strong class="pricing-card-amount">R$ 159<span>/mês</span></strong>
             <p>Ideal para qualquer comércio de balcão e varejo que busca agilidade máxima no caixa, controle rigoroso de estoque e notas fiscais sem travas.</p>
             <ul class="pricing-card-list">
               <li><span class="chk-grn">✓</span> Frente de Caixa (PDV) 100% offline no Windows</li>
@@ -1659,7 +1968,7 @@
           <article class="pricing-card pricing-card-featured">
             <div class="pricing-card-kicker featured-kicker">★ MAIS ESCOLHIDO · RECURSOS DO SEU NICHO INCLUSOS</div>
             <h3>NEXO Pro</h3>
-            <strong class="featured-price">R$ 239<span>/mês</span></strong>
+            <strong class="pricing-card-amount featured-price">R$ 239<span>/mês</span></strong>
             <p>A solução completa com as rotinas especializadas do seu segmento liberadas sem nenhum custo adicional.</p>
             <ul class="pricing-card-list featured-list">
               <li><span class="chk-grn">✓</span> <strong>Tudo incluído no Plano Essencial</strong></li>
@@ -1681,7 +1990,7 @@
           <article class="pricing-card">
             <div class="pricing-card-kicker">Alto Fluxo &amp; Múltiplos Terminais</div>
             <h3>NEXO Multi-Caixas</h3>
-            <strong>R$ 329<span>/mês</span></strong>
+            <strong class="pricing-card-amount">R$ 329<span>/mês</span></strong>
             <p>Para estabelecimentos de grande movimento que exigem múltiplos caixas simultâneos e gestão avançada na mesma loja.</p>
             <ul class="pricing-card-list">
               <li><span class="chk-grn">✓</span> <strong>Tudo incluído no Plano NEXO Pro</strong></li>
@@ -3264,7 +3573,316 @@
       text-align: center;
     }
 
-  </style>
+  
+    /* ========================================================
+       SISTEMA DE DESIGN UNIFICADO E CONTRASTE ABSOLUTO
+       ======================================================== */
+    :root {
+      color-scheme: light;
+      --bg: #f8fafc;
+      --paper: #ffffff;
+      --paper-soft: #f1f5f9;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --blue: #059669;
+      --green: #10b981;
+      --card-bg: #ffffff;
+      --card-border: #e2e8f0;
+      --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #090d16;
+      --paper: #111827;
+      --paper-soft: #1a2234;
+      --ink: #f8fafc;
+      --muted: #94a3b8;
+      --line: #1e293b;
+      --blue: #10b981;
+      --green: #34d399;
+      --card-bg: #111827;
+      --card-border: #1e293b;
+      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    body {
+      background: var(--bg) !important;
+      color: var(--ink) !important;
+    }
+
+    /* Headings globais */
+    h1, h2, h3, h4 {
+      color: var(--ink) !important;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    /* Section head titles */
+    .section-head h2 {
+      color: var(--ink) !important;
+    }
+    .section-head p {
+      color: var(--muted) !important;
+    }
+
+    /* Seção de segmentos / nichos */
+    .segmentos-section {
+      background: var(--bg) !important;
+    }
+    .segmento-card {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 20px !important;
+      padding: 24px 26px !important;
+      box-shadow: var(--card-shadow) !important;
+    }
+    .segmento-card h3 {
+      color: var(--ink) !important;
+      font-size: 20px !important;
+      margin: 0 0 10px !important;
+    }
+    .segmento-card p {
+      color: var(--muted) !important;
+      font-size: 14px !important;
+      line-height: 1.6 !important;
+    }
+    .segmento-features li {
+      color: var(--ink) !important;
+      font-size: 13.5px !important;
+    }
+
+    /* Trust banner */
+    .pricing-trust-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%) !important;
+      color: #ffffff !important;
+      border-radius: 20px !important;
+      padding: clamp(24px, 3.5vw, 34px) !important;
+      text-align: center !important;
+      margin-bottom: 32px !important;
+      box-shadow: 0 16px 36px rgba(4, 120, 87, 0.2) !important;
+    }
+    .pricing-trust-banner h2 {
+      color: #ffffff !important;
+      font-size: clamp(22px, 3.2vw, 32px) !important;
+      margin-bottom: 8px !important;
+    }
+    .pricing-trust-banner p {
+      color: #d1fae5 !important;
+      font-size: 14.5px !important;
+    }
+
+    /* Cards de Preço - CORREÇÃO CRÍTICA */
+    .pricing-cards {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 20px !important;
+      align-items: stretch !important;
+      margin-bottom: 24px !important;
+    }
+    @media (max-width: 900px) {
+      .pricing-cards {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .pricing-card {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 20px !important;
+      padding: clamp(24px, 3.2vw, 30px) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      box-shadow: var(--card-shadow) !important;
+      color: var(--ink) !important;
+    }
+    .pricing-card-kicker {
+      font-size: 11px !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.06em !important;
+      color: var(--muted) !important;
+      margin-bottom: 8px !important;
+    }
+    .pricing-card h3 {
+      font-size: 22px !important;
+      margin-bottom: 8px !important;
+      color: var(--ink) !important;
+      font-weight: 800 !important;
+    }
+    .pricing-card-amount {
+      font-size: 38px !important;
+      font-weight: 900 !important;
+      color: var(--ink) !important;
+      display: block !important;
+      margin: 10px 0 12px !important;
+      letter-spacing: -0.04em !important;
+      line-height: 1.1 !important;
+    }
+    .pricing-card-amount span {
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      color: var(--muted) !important;
+      margin-left: 4px !important;
+    }
+    .pricing-card p {
+      font-size: 13.5px !important;
+      line-height: 1.6 !important;
+      color: var(--muted) !important;
+      margin-bottom: 18px !important;
+    }
+    .pricing-card-list {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 0 24px 0 !important;
+      font-size: 13px !important;
+      line-height: 1.65 !important;
+      color: var(--ink) !important;
+    }
+    .pricing-card-list li {
+      margin-bottom: 7px !important;
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 8px !important;
+      font-size: 13px !important;
+      line-height: 1.45 !important;
+    }
+    /* PROTEÇÃO CONTRA TEXTO GIGANTE DENTRO DA LISTA */
+    .pricing-card-list strong {
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      display: inline !important;
+      color: var(--ink) !important;
+      margin: 0 !important;
+      letter-spacing: normal !important;
+      line-height: inherit !important;
+    }
+    .niche-subitem {
+      padding-left: 18px !important;
+      font-size: 12px !important;
+      color: var(--muted) !important;
+      margin-bottom: 4px !important;
+    }
+    .niche-subitem strong {
+      font-size: 12px !important;
+      color: var(--ink) !important;
+    }
+
+    /* Plano NEXO Pro (Destaque) */
+    .pricing-card-featured {
+      border: 2px solid #10b981 !important;
+      background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%) !important;
+      box-shadow: 0 14px 38px rgba(16, 185, 129, 0.16) !important;
+      position: relative !important;
+    }
+    .featured-kicker {
+      color: #047857 !important;
+      font-weight: 850 !important;
+    }
+    .featured-price {
+      color: #047857 !important;
+    }
+    [data-theme="dark"] .pricing-card-featured {
+      border: 2px solid #10b981 !important;
+      background: linear-gradient(180deg, #111827 0%, #064e3b 100%) !important;
+      box-shadow: 0 16px 42px rgba(16, 185, 129, 0.25) !important;
+    }
+    [data-theme="dark"] .featured-kicker {
+      color: #34d399 !important;
+    }
+    [data-theme="dark"] .featured-price {
+      color: #34d399 !important;
+    }
+
+    /* Card História Compacto */
+    .history-compact-card {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 22px !important;
+      padding: clamp(26px, 4vw, 36px) !important;
+      box-shadow: var(--card-shadow) !important;
+      color: var(--ink) !important;
+    }
+    .history-compact-card h2 {
+      color: var(--ink) !important;
+    }
+    .history-lead-text {
+      color: var(--muted) !important;
+    }
+    .history-proof-item {
+      background: var(--paper-soft) !important;
+      border: 1px solid var(--line) !important;
+      color: var(--ink) !important;
+    }
+    .history-proof-item strong {
+      color: var(--ink) !important;
+    }
+    .history-proof-item span {
+      color: var(--muted) !important;
+    }
+    .history-footnote {
+      color: var(--muted) !important;
+    }
+
+    /* Ecossistema */
+    .ecossistema-box {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 22px !important;
+      padding: clamp(26px, 4vw, 36px) !important;
+      box-shadow: var(--card-shadow) !important;
+    }
+    .ecossistema-head h3 {
+      color: var(--ink) !important;
+    }
+    .ecossistema-head p {
+      color: var(--muted) !important;
+    }
+    .ecossistema-item h4 {
+      color: var(--ink) !important;
+    }
+    .ecossistema-item p {
+      color: var(--muted) !important;
+    }
+
+    /* Simulador compacto */
+    .pricing-calculator-compact {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 16px !important;
+      padding: 14px 20px !important;
+      margin-top: 16px !important;
+      box-shadow: var(--card-shadow) !important;
+      color: var(--ink) !important;
+    }
+    .pricing-calculator-compact summary {
+      color: var(--blue) !important;
+      font-weight: 700 !important;
+    }
+    .calculator-copy h3 {
+      color: var(--ink) !important;
+    }
+    .calculator-copy p {
+      color: var(--muted) !important;
+    }
+    .calculator-result {
+      background: var(--paper-soft) !important;
+      border: 1px solid var(--line) !important;
+      color: var(--ink) !important;
+    }
+    .calculator-result strong {
+      color: var(--ink) !important;
+    }
+    .result-detail span {
+      color: var(--muted) !important;
+    }
+    .result-detail b {
+      color: var(--ink) !important;
+    }
+
+    </style>
   <button type="button" class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
   <section class="chat-panel" id="nexoChat" role="dialog" aria-labelledby="chatTitle" aria-describedby="chatDisclaimer" aria-modal="false">
     <div class="chat-head">
@@ -3706,7 +4324,16 @@
   <script>
     (function(){
       // 1. TEMA ESCURO / CLARO
-      var savedTheme = localStorage.getItem('nexo_theme') || 'light';
+      var savedTheme = 'light';
+      try {
+        if (localStorage.getItem('nexo_theme_v4') === 'set') {
+          savedTheme = localStorage.getItem('nexo_theme') || 'light';
+        } else {
+          localStorage.setItem('nexo_theme_v4', 'set');
+          localStorage.setItem('nexo_theme', 'light');
+          savedTheme = 'light';
+        }
+      } catch(e) { savedTheme = 'light'; }
       function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
         var sun = document.getElementById('themeIconSun');
