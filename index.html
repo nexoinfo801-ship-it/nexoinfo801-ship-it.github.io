@@ -1303,13 +1303,9 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     }
     
-    
     /* ========================================================
-       PADRONIZAÇÃO UNIVERSAL DE CORES, TEXTOS E CARTÕES
-       PADRÃO APPLE & MICROSOFT · CONTRASTE MÁXIMO E LEITURA IMPECÁVEL
+       SISTEMA DE DESIGN UNIFICADO E CONTRASTE ABSOLUTO
        ======================================================== */
-
-    /* 1. PALETA DE CORES E VARIÁVEIS UNIFICADAS */
     :root {
       color-scheme: light;
       --bg: #f8fafc;
@@ -1323,7 +1319,6 @@
       --card-bg: #ffffff;
       --card-border: #e2e8f0;
       --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-      --card-shadow-hover: 0 14px 32px -4px rgba(0, 0, 0, 0.1);
     }
 
     [data-theme="dark"] {
@@ -1339,186 +1334,113 @@
       --card-bg: #111827;
       --card-border: #1e293b;
       --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      --card-shadow-hover: 0 18px 40px rgba(0, 0, 0, 0.6);
     }
 
     body {
       background: var(--bg) !important;
       color: var(--ink) !important;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* 2. ESCALA TIPOGRÁFICA PADRONIZADA DE TÍTULOS */
-    h1, .hero h1 {
-      font-size: clamp(32px, 4.5vw, 54px) !important;
-      font-weight: 850 !important;
-      line-height: 1.12 !important;
-      letter-spacing: -0.04em !important;
+    /* Headings globais */
+    h1, h2, h3, h4 {
       color: var(--ink) !important;
-      margin: 0 0 16px !important;
     }
 
-    h2, .section-head h2 {
-      font-size: clamp(26px, 3.4vw, 36px) !important;
-      font-weight: 800 !important;
-      line-height: 1.18 !important;
-      letter-spacing: -0.035em !important;
+    p {
+      color: var(--muted);
+    }
+
+    /* Section head titles */
+    .section-head h2 {
       color: var(--ink) !important;
-      margin: 0 0 12px !important;
     }
-
-    .section-head {
-      text-align: center !important;
-      margin-bottom: 32px !important;
-    }
-
-    .section-head p, .hero p {
-      font-size: clamp(14.5px, 1.8vw, 16.5px) !important;
-      font-weight: 450 !important;
-      line-height: 1.62 !important;
+    .section-head p {
       color: var(--muted) !important;
-      max-width: 680px !important;
-      margin: 0 auto 16px !important;
     }
 
-    /* 3. TÍTULOS E TEXTOS DE CARTÕES PADRONIZADOS */
-    .segmento-card h3,
-    .pricing-card h3,
-    .ecossistema-head h3,
-    .calculator-copy h3,
-    .diagnostic-card h3,
-    .contact h2 {
-      font-size: 21px !important;
-      font-weight: 750 !important;
-      line-height: 1.3 !important;
-      letter-spacing: -0.025em !important;
-      color: var(--ink) !important;
-      margin: 0 0 10px !important;
+    /* Seção de segmentos / nichos */
+    .segmentos-section {
+      background: var(--bg) !important;
     }
-
-    .ecossistema-item h4 {
-      font-size: 16.5px !important;
-      font-weight: 700 !important;
-      line-height: 1.3 !important;
-      letter-spacing: -0.015em !important;
-      color: var(--ink) !important;
-      margin: 0 0 6px !important;
-    }
-
-    /* Parágrafos internos de cartões */
-    .segmento-card p,
-    .pricing-card p,
-    .ecossistema-item p,
-    .history-lead-text,
-    .contact p,
-    .diagnostic-card p,
-    .calculator-copy p {
-      font-size: 14px !important;
-      font-weight: 400 !important;
-      line-height: 1.6 !important;
-      color: var(--muted) !important;
-      margin: 0 0 14px !important;
-    }
-
-    /* 4. LISTAS E ITENS DENTRO DOS CARTÕES */
-    .segmento-features,
-    .pricing-card-list {
-      list-style: none !important;
-      padding: 0 !important;
-      margin: 0 0 20px 0 !important;
-    }
-
-    .segmento-features li,
-    .pricing-card-list li {
-      font-size: 13.5px !important;
-      font-weight: 450 !important;
-      line-height: 1.55 !important;
-      color: var(--ink) !important;
-      margin-bottom: 7px !important;
-      display: flex !important;
-      align-items: flex-start !important;
-      gap: 8px !important;
-    }
-
-    /* PROTEÇÃO ABSOLUTA: palavras em negrito nas listas herdam tamanho normal */
-    .segmento-features strong,
-    .pricing-card-list strong,
-    .niche-subitem strong {
-      font-size: 13.5px !important;
-      font-weight: 700 !important;
-      display: inline !important;
-      color: var(--ink) !important;
-      margin: 0 !important;
-      line-height: inherit !important;
-      letter-spacing: normal !important;
-    }
-
-    .niche-subitem {
-      padding-left: 20px !important;
-      font-size: 12.5px !important;
-      color: var(--muted) !important;
-      margin-bottom: 4px !important;
-    }
-
-    /* 5. PADRONIZAÇÃO DE CONTAINERS DE CARTÕES */
-    .segmento-card,
-    .pricing-card,
-    .history-compact-card,
-    .ecossistema-box,
-    .diagnostic-card,
-    .contact {
+    .segmento-card {
       background: var(--card-bg) !important;
       border: 1px solid var(--card-border) !important;
       border-radius: 20px !important;
+      padding: 24px 26px !important;
+      box-shadow: var(--card-shadow) !important;
+    }
+    .segmento-card h3 {
+      color: var(--ink) !important;
+      font-size: 20px !important;
+      margin: 0 0 10px !important;
+    }
+    .segmento-card p {
+      color: var(--muted) !important;
+      font-size: 14px !important;
+      line-height: 1.6 !important;
+    }
+    .segmento-features li {
+      color: var(--ink) !important;
+      font-size: 13.5px !important;
+    }
+
+    /* Trust banner */
+    .pricing-trust-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%) !important;
+      color: #ffffff !important;
+      border-radius: 20px !important;
+      padding: clamp(24px, 3.5vw, 34px) !important;
+      text-align: center !important;
+      margin-bottom: 32px !important;
+      box-shadow: 0 16px 36px rgba(4, 120, 87, 0.2) !important;
+    }
+    .pricing-trust-banner h2 {
+      color: #ffffff !important;
+      font-size: clamp(22px, 3.2vw, 32px) !important;
+      margin-bottom: 8px !important;
+    }
+    .pricing-trust-banner p {
+      color: #d1fae5 !important;
+      font-size: 14.5px !important;
+    }
+
+    /* Cards de Preço - CORREÇÃO CRÍTICA */
+    .pricing-cards {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 20px !important;
+      align-items: stretch !important;
+      margin-bottom: 24px !important;
+    }
+    @media (max-width: 900px) {
+      .pricing-cards {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .pricing-card {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 20px !important;
+      padding: clamp(24px, 3.2vw, 30px) !important;
+      display: flex !important;
+      flex-direction: column !important;
       box-shadow: var(--card-shadow) !important;
       color: var(--ink) !important;
-      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
-
-    .segmento-card:hover,
-    .pricing-card:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: var(--card-shadow-hover) !important;
-    }
-
-    .segmento-card {
-      padding: clamp(22px, 3vw, 28px) !important;
-    }
-
-    .pricing-card {
-      padding: clamp(24px, 3.2vw, 30px) !important;
-    }
-
-    /* Sub-cartões / itens compactos */
-    .history-proof-item,
-    .ecossistema-item,
-    .calculator-result {
-      background: var(--paper-soft) !important;
-      border: 1px solid var(--line) !important;
-      border-radius: 14px !important;
-      color: var(--ink) !important;
-      padding: 16px 18px !important;
-    }
-
-    .history-proof-item strong {
-      font-size: 26px !important;
-      font-weight: 850 !important;
-      color: var(--ink) !important;
-      display: block !important;
-      margin-bottom: 4px !important;
-      letter-spacing: -0.03em !important;
-    }
-
-    .history-proof-item span {
-      font-size: 12.5px !important;
+    .pricing-card-kicker {
+      font-size: 11px !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.06em !important;
       color: var(--muted) !important;
-      line-height: 1.4 !important;
-      display: block !important;
+      margin-bottom: 8px !important;
     }
-
-    /* 6. VALOR DE PREÇO DOS PLANOS */
+    .pricing-card h3 {
+      font-size: 22px !important;
+      margin-bottom: 8px !important;
+      color: var(--ink) !important;
+      font-weight: 800 !important;
+    }
     .pricing-card-amount {
       font-size: 38px !important;
       font-weight: 900 !important;
@@ -1528,15 +1450,56 @@
       letter-spacing: -0.04em !important;
       line-height: 1.1 !important;
     }
-
     .pricing-card-amount span {
       font-size: 14px !important;
       font-weight: 500 !important;
       color: var(--muted) !important;
       margin-left: 4px !important;
     }
+    .pricing-card p {
+      font-size: 13.5px !important;
+      line-height: 1.6 !important;
+      color: var(--muted) !important;
+      margin-bottom: 18px !important;
+    }
+    .pricing-card-list {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 0 24px 0 !important;
+      font-size: 13px !important;
+      line-height: 1.65 !important;
+      color: var(--ink) !important;
+    }
+    .pricing-card-list li {
+      margin-bottom: 7px !important;
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 8px !important;
+      font-size: 13px !important;
+      line-height: 1.45 !important;
+    }
+    /* PROTEÇÃO CONTRA TEXTO GIGANTE DENTRO DA LISTA */
+    .pricing-card-list strong {
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      display: inline !important;
+      color: var(--ink) !important;
+      margin: 0 !important;
+      letter-spacing: normal !important;
+      line-height: inherit !important;
+    }
+    .niche-subitem {
+      padding-left: 18px !important;
+      font-size: 12px !important;
+      color: var(--muted) !important;
+      margin-bottom: 4px !important;
+    }
+    .niche-subitem strong {
+      font-size: 12px !important;
+      color: var(--ink) !important;
+    }
 
-    /* 7. PLANO DESTAQUE (NEXO PRO) */
+    /* Plano NEXO Pro (Destaque) */
     .pricing-card-featured {
       border: 2px solid #10b981 !important;
       background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%) !important;
@@ -1553,7 +1516,7 @@
     [data-theme="dark"] .pricing-card-featured {
       border: 2px solid #10b981 !important;
       background: linear-gradient(180deg, #111827 0%, #064e3b 100%) !important;
-      box-shadow: 0 16px 42px rgba(16, 185, 129, 0.28) !important;
+      box-shadow: 0 16px 42px rgba(16, 185, 129, 0.25) !important;
     }
     [data-theme="dark"] .featured-kicker {
       color: #34d399 !important;
@@ -1562,49 +1525,375 @@
       color: #34d399 !important;
     }
 
-    /* 8. TRUST BANNER (GARANTIA 7 DIAS) */
-    .pricing-trust-banner {
-      background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%) !important;
-      border: 1px solid rgba(16, 185, 129, 0.3) !important;
-      border-radius: 20px !important;
-      padding: clamp(24px, 3.5vw, 34px) !important;
-      text-align: center !important;
-      margin-bottom: 32px !important;
-      box-shadow: 0 16px 36px rgba(4, 120, 87, 0.2) !important;
-    }
-    .pricing-trust-banner h2 {
-      color: #ffffff !important;
-      font-size: clamp(22px, 3vw, 30px) !important;
-      margin-bottom: 8px !important;
-    }
-    .pricing-trust-banner p {
-      color: #d1fae5 !important;
-      font-size: 14.5px !important;
-      max-width: 720px !important;
-      margin: 0 auto !important;
-    }
-
-    /* 9. FAQ ACCORDION */
-    .faq-item {
+    /* Card História Compacto */
+    .history-compact-card {
       background: var(--card-bg) !important;
       border: 1px solid var(--card-border) !important;
-      border-radius: 14px !important;
-      margin-bottom: 10px !important;
-      overflow: hidden !important;
+      border-radius: 22px !important;
+      padding: clamp(26px, 4vw, 36px) !important;
+      box-shadow: var(--card-shadow) !important;
+      color: var(--ink) !important;
     }
-    .faq-item summary {
-      padding: 16px 20px !important;
-      font-size: 15.5px !important;
+    .history-compact-card h2 {
+      color: var(--ink) !important;
+    }
+    .history-lead-text {
+      color: var(--muted) !important;
+    }
+    .history-proof-item {
+      background: var(--paper-soft) !important;
+      border: 1px solid var(--line) !important;
+      color: var(--ink) !important;
+    }
+    .history-proof-item strong {
+      color: var(--ink) !important;
+    }
+    .history-proof-item span {
+      color: var(--muted) !important;
+    }
+    .history-footnote {
+      color: var(--muted) !important;
+    }
+
+    /* Ecossistema */
+    .ecossistema-box {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 22px !important;
+      padding: clamp(26px, 4vw, 36px) !important;
+      box-shadow: var(--card-shadow) !important;
+    }
+    .ecossistema-head h3 {
+      color: var(--ink) !important;
+    }
+    .ecossistema-head p {
+      color: var(--muted) !important;
+    }
+    .ecossistema-item h4 {
+      color: var(--ink) !important;
+    }
+    .ecossistema-item p {
+      color: var(--muted) !important;
+    }
+
+    /* Simulador compacto */
+    .pricing-calculator-compact {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 16px !important;
+      padding: 14px 20px !important;
+      margin-top: 16px !important;
+      box-shadow: var(--card-shadow) !important;
+      color: var(--ink) !important;
+    }
+    .pricing-calculator-compact summary {
+      color: var(--blue) !important;
+      font-weight: 700 !important;
+    }
+    .calculator-copy h3 {
+      color: var(--ink) !important;
+    }
+    .calculator-copy p {
+      color: var(--muted) !important;
+    }
+    .calculator-result {
+      background: var(--paper-soft) !important;
+      border: 1px solid var(--line) !important;
+      color: var(--ink) !important;
+    }
+    .calculator-result strong {
+      color: var(--ink) !important;
+    }
+    .result-detail span {
+      color: var(--muted) !important;
+    }
+    .result-detail b {
+      color: var(--ink) !important;
+    }
+
+    
+    /* ========================================================
+       PADRONIZAÇÃO UNIVERSAL DE BOTÕES, CONTROLES E FOCO
+       PADRÃO APPLE & MICROSOFT · ACESSIBILIDADE WCAG AAA
+       ======================================================== */
+
+    /* 1. FOCO UNIFICADO E ACESSÍVEL PARA TODOS OS ELEMENTOS */
+    :focus-visible,
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    summary:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 2px solid #10b981 !important;
+      outline-offset: 2px !important;
+      box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.25) !important;
+      border-radius: inherit !important;
+    }
+
+    /* 2. BOTÃO PRIMÁRIO (.button, .demo-primary, .chat-send) */
+    .button,
+    .demo-primary,
+    .chat-send {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      min-height: 44px !important;
+      padding: 0 22px !important;
+      font-size: 14.5px !important;
       font-weight: 650 !important;
+      letter-spacing: -0.01em !important;
+      line-height: 1 !important;
+      border-radius: 12px !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      background: linear-gradient(180deg, #10b981 0%, #059669 100%) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.12) !important;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.28), 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+      transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.15s ease !important;
+      text-align: center !important;
+      box-sizing: border-box !important;
+    }
+
+    .button:hover,
+    .demo-primary:hover,
+    .chat-send:hover {
+      background: linear-gradient(180deg, #059669 0%, #047857 100%) !important;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.38) !important;
+      transform: translateY(-1px) !important;
+      color: #ffffff !important;
+    }
+
+    .button:active,
+    .demo-primary:active,
+    .chat-send:active {
+      transform: translateY(0) !important;
+      box-shadow: 0 1px 3px rgba(16, 185, 129, 0.25) !important;
+    }
+
+    /* 3. BOTÃO SECUNDÁRIO (.button.secondary, .demo-clear) */
+    .button.secondary,
+    .demo-clear {
+      background: var(--card-bg) !important;
+      border: 1.5px solid var(--card-border) !important;
+      color: var(--ink) !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+      min-height: 44px !important;
+      padding: 0 20px !important;
+      border-radius: 12px !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+    }
+
+    .button.secondary:hover,
+    .demo-clear:hover {
+      background: var(--paper-soft) !important;
+      border-color: #10b981 !important;
+      color: var(--blue) !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .button.secondary:active,
+    .demo-clear:active {
+      transform: translateY(0) !important;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    [data-theme="dark"] .button.secondary:hover,
+    [data-theme="dark"] .demo-clear:hover {
+      color: #34d399 !important;
+      border-color: #10b981 !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    /* 4. BOTÕES COMPACTOS DE NAVEGAÇÃO E AÇÃO */
+    .btn-outline-nav {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-height: 38px !important;
+      padding: 0 18px !important;
+      font-size: 13.5px !important;
+      font-weight: 650 !important;
+      border-radius: 999px !important;
+      background: transparent !important;
+      color: var(--blue) !important;
+      border: 1.5px solid var(--blue) !important;
+      text-decoration: none !important;
+      transition: all 0.18s ease !important;
+    }
+    .btn-outline-nav:hover {
+      background: var(--blue) !important;
+      color: #ffffff !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 3px 10px rgba(16, 185, 129, 0.25) !important;
+    }
+    [data-theme="dark"] .btn-outline-nav {
+      color: #34d399 !important;
+      border-color: #10b981 !important;
+    }
+    [data-theme="dark"] .btn-outline-nav:hover {
+      background: #10b981 !important;
+      color: #090d16 !important;
+    }
+
+    /* Alternador de tema */
+    .theme-toggle-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-height: 38px !important;
+      padding: 0 14px !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      border-radius: 10px !important;
+      background: var(--paper-soft) !important;
+      border: 1.5px solid var(--line) !important;
       color: var(--ink) !important;
       cursor: pointer !important;
+      transition: all 0.18s ease !important;
     }
-    .faq-item p {
-      padding: 0 20px 16px 20px !important;
+    .theme-toggle-btn:hover {
+      border-color: var(--blue) !important;
+      color: var(--blue) !important;
+      transform: translateY(-1px) !important;
+    }
+    [data-theme="dark"] .theme-toggle-btn:hover {
+      color: #34d399 !important;
+      border-color: #10b981 !important;
+    }
+
+    /* Botão CTA dos Nichos (.segmento-cta) */
+    .segmento-cta {
+      margin-top: auto !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-height: 40px !important;
+      padding: 0 16px !important;
+      border-radius: 10px !important;
+      background: var(--paper-soft) !important;
+      border: 1.5px solid var(--card-border) !important;
+      color: var(--ink) !important;
+      font-size: 13.5px !important;
+      font-weight: 650 !important;
+      cursor: pointer !important;
+      text-decoration: none !important;
+      transition: all 0.18s ease !important;
+    }
+    .segmento-cta:hover {
+      background: var(--blue) !important;
+      border-color: var(--blue) !important;
+      color: #ffffff !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25) !important;
+    }
+
+    /* 5. CONTROLES DE FORMULÁRIO (INPUT, SELECT, TEXTAREA) */
+    input[type="text"],
+    input[type="search"],
+    input[type="number"],
+    select,
+    textarea {
+      min-height: 44px !important;
+      padding: 10px 14px !important;
+      border-radius: 12px !important;
       font-size: 14px !important;
-      color: var(--muted) !important;
-      line-height: 1.6 !important;
-      margin: 0 !important;
+      font-weight: 450 !important;
+      font-family: inherit !important;
+      background: var(--card-bg) !important;
+      border: 1.5px solid var(--line) !important;
+      color: var(--ink) !important;
+      box-sizing: border-box !important;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease !important;
+    }
+
+    input[type="text"]:focus,
+    input[type="search"]:focus,
+    input[type="number"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #10b981 !important;
+      outline: none !important;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.22) !important;
+    }
+
+    /* Steppers (+ e -) */
+    #terminalMinus,
+    #terminalPlus {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 40px !important;
+      height: 40px !important;
+      border-radius: 10px !important;
+      background: var(--paper-soft) !important;
+      border: 1.5px solid var(--line) !important;
+      color: var(--ink) !important;
+      font-size: 20px !important;
+      font-weight: 700 !important;
+      cursor: pointer !important;
+      transition: all 0.18s ease !important;
+    }
+    #terminalMinus:hover,
+    #terminalPlus:hover {
+      background: var(--blue) !important;
+      border-color: var(--blue) !important;
+      color: #ffffff !important;
+    }
+
+    /* Chips e seletores de nicho no modal */
+    .modal-niche-chip {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-height: 36px !important;
+      padding: 0 14px !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      border-radius: 999px !important;
+      background: var(--paper-soft) !important;
+      border: 1.5px solid var(--line) !important;
+      color: var(--ink) !important;
+      cursor: pointer !important;
+      transition: all 0.18s ease !important;
+    }
+    .modal-niche-chip:hover {
+      border-color: #10b981 !important;
+      color: var(--blue) !important;
+    }
+    .modal-niche-chip.active {
+      background: #10b981 !important;
+      border-color: #10b981 !important;
+      color: #ffffff !important;
+      font-weight: 700 !important;
+    }
+
+    /* Botão fechar modal */
+    .nexo-modal-close,
+    .chat-close {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 36px !important;
+      height: 36px !important;
+      border-radius: 50% !important;
+      background: var(--paper-soft) !important;
+      border: 1px solid var(--line) !important;
+      color: var(--ink) !important;
+      font-size: 20px !important;
+      cursor: pointer !important;
+      transition: all 0.18s ease !important;
+    }
+    .nexo-modal-close:hover,
+    .chat-close:hover {
+      background: #ef4444 !important;
+      border-color: #ef4444 !important;
+      color: #ffffff !important;
     }
 
     </style>
@@ -3570,13 +3859,9 @@
     }
 
   
-    
     /* ========================================================
-       PADRONIZAÇÃO UNIVERSAL DE CORES, TEXTOS E CARTÕES
-       PADRÃO APPLE & MICROSOFT · CONTRASTE MÁXIMO E LEITURA IMPECÁVEL
+       SISTEMA DE DESIGN UNIFICADO E CONTRASTE ABSOLUTO
        ======================================================== */
-
-    /* 1. PALETA DE CORES E VARIÁVEIS UNIFICADAS */
     :root {
       color-scheme: light;
       --bg: #f8fafc;
@@ -3590,7 +3875,6 @@
       --card-bg: #ffffff;
       --card-border: #e2e8f0;
       --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-      --card-shadow-hover: 0 14px 32px -4px rgba(0, 0, 0, 0.1);
     }
 
     [data-theme="dark"] {
@@ -3606,186 +3890,113 @@
       --card-bg: #111827;
       --card-border: #1e293b;
       --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      --card-shadow-hover: 0 18px 40px rgba(0, 0, 0, 0.6);
     }
 
     body {
       background: var(--bg) !important;
       color: var(--ink) !important;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* 2. ESCALA TIPOGRÁFICA PADRONIZADA DE TÍTULOS */
-    h1, .hero h1 {
-      font-size: clamp(32px, 4.5vw, 54px) !important;
-      font-weight: 850 !important;
-      line-height: 1.12 !important;
-      letter-spacing: -0.04em !important;
+    /* Headings globais */
+    h1, h2, h3, h4 {
       color: var(--ink) !important;
-      margin: 0 0 16px !important;
     }
 
-    h2, .section-head h2 {
-      font-size: clamp(26px, 3.4vw, 36px) !important;
-      font-weight: 800 !important;
-      line-height: 1.18 !important;
-      letter-spacing: -0.035em !important;
+    p {
+      color: var(--muted);
+    }
+
+    /* Section head titles */
+    .section-head h2 {
       color: var(--ink) !important;
-      margin: 0 0 12px !important;
     }
-
-    .section-head {
-      text-align: center !important;
-      margin-bottom: 32px !important;
-    }
-
-    .section-head p, .hero p {
-      font-size: clamp(14.5px, 1.8vw, 16.5px) !important;
-      font-weight: 450 !important;
-      line-height: 1.62 !important;
+    .section-head p {
       color: var(--muted) !important;
-      max-width: 680px !important;
-      margin: 0 auto 16px !important;
     }
 
-    /* 3. TÍTULOS E TEXTOS DE CARTÕES PADRONIZADOS */
-    .segmento-card h3,
-    .pricing-card h3,
-    .ecossistema-head h3,
-    .calculator-copy h3,
-    .diagnostic-card h3,
-    .contact h2 {
-      font-size: 21px !important;
-      font-weight: 750 !important;
-      line-height: 1.3 !important;
-      letter-spacing: -0.025em !important;
-      color: var(--ink) !important;
-      margin: 0 0 10px !important;
+    /* Seção de segmentos / nichos */
+    .segmentos-section {
+      background: var(--bg) !important;
     }
-
-    .ecossistema-item h4 {
-      font-size: 16.5px !important;
-      font-weight: 700 !important;
-      line-height: 1.3 !important;
-      letter-spacing: -0.015em !important;
-      color: var(--ink) !important;
-      margin: 0 0 6px !important;
-    }
-
-    /* Parágrafos internos de cartões */
-    .segmento-card p,
-    .pricing-card p,
-    .ecossistema-item p,
-    .history-lead-text,
-    .contact p,
-    .diagnostic-card p,
-    .calculator-copy p {
-      font-size: 14px !important;
-      font-weight: 400 !important;
-      line-height: 1.6 !important;
-      color: var(--muted) !important;
-      margin: 0 0 14px !important;
-    }
-
-    /* 4. LISTAS E ITENS DENTRO DOS CARTÕES */
-    .segmento-features,
-    .pricing-card-list {
-      list-style: none !important;
-      padding: 0 !important;
-      margin: 0 0 20px 0 !important;
-    }
-
-    .segmento-features li,
-    .pricing-card-list li {
-      font-size: 13.5px !important;
-      font-weight: 450 !important;
-      line-height: 1.55 !important;
-      color: var(--ink) !important;
-      margin-bottom: 7px !important;
-      display: flex !important;
-      align-items: flex-start !important;
-      gap: 8px !important;
-    }
-
-    /* PROTEÇÃO ABSOLUTA: palavras em negrito nas listas herdam tamanho normal */
-    .segmento-features strong,
-    .pricing-card-list strong,
-    .niche-subitem strong {
-      font-size: 13.5px !important;
-      font-weight: 700 !important;
-      display: inline !important;
-      color: var(--ink) !important;
-      margin: 0 !important;
-      line-height: inherit !important;
-      letter-spacing: normal !important;
-    }
-
-    .niche-subitem {
-      padding-left: 20px !important;
-      font-size: 12.5px !important;
-      color: var(--muted) !important;
-      margin-bottom: 4px !important;
-    }
-
-    /* 5. PADRONIZAÇÃO DE CONTAINERS DE CARTÕES */
-    .segmento-card,
-    .pricing-card,
-    .history-compact-card,
-    .ecossistema-box,
-    .diagnostic-card,
-    .contact {
+    .segmento-card {
       background: var(--card-bg) !important;
       border: 1px solid var(--card-border) !important;
       border-radius: 20px !important;
+      padding: 24px 26px !important;
+      box-shadow: var(--card-shadow) !important;
+    }
+    .segmento-card h3 {
+      color: var(--ink) !important;
+      font-size: 20px !important;
+      margin: 0 0 10px !important;
+    }
+    .segmento-card p {
+      color: var(--muted) !important;
+      font-size: 14px !important;
+      line-height: 1.6 !important;
+    }
+    .segmento-features li {
+      color: var(--ink) !important;
+      font-size: 13.5px !important;
+    }
+
+    /* Trust banner */
+    .pricing-trust-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%) !important;
+      color: #ffffff !important;
+      border-radius: 20px !important;
+      padding: clamp(24px, 3.5vw, 34px) !important;
+      text-align: center !important;
+      margin-bottom: 32px !important;
+      box-shadow: 0 16px 36px rgba(4, 120, 87, 0.2) !important;
+    }
+    .pricing-trust-banner h2 {
+      color: #ffffff !important;
+      font-size: clamp(22px, 3.2vw, 32px) !important;
+      margin-bottom: 8px !important;
+    }
+    .pricing-trust-banner p {
+      color: #d1fae5 !important;
+      font-size: 14.5px !important;
+    }
+
+    /* Cards de Preço - CORREÇÃO CRÍTICA */
+    .pricing-cards {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 20px !important;
+      align-items: stretch !important;
+      margin-bottom: 24px !important;
+    }
+    @media (max-width: 900px) {
+      .pricing-cards {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .pricing-card {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 20px !important;
+      padding: clamp(24px, 3.2vw, 30px) !important;
+      display: flex !important;
+      flex-direction: column !important;
       box-shadow: var(--card-shadow) !important;
       color: var(--ink) !important;
-      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
-
-    .segmento-card:hover,
-    .pricing-card:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: var(--card-shadow-hover) !important;
-    }
-
-    .segmento-card {
-      padding: clamp(22px, 3vw, 28px) !important;
-    }
-
-    .pricing-card {
-      padding: clamp(24px, 3.2vw, 30px) !important;
-    }
-
-    /* Sub-cartões / itens compactos */
-    .history-proof-item,
-    .ecossistema-item,
-    .calculator-result {
-      background: var(--paper-soft) !important;
-      border: 1px solid var(--line) !important;
-      border-radius: 14px !important;
-      color: var(--ink) !important;
-      padding: 16px 18px !important;
-    }
-
-    .history-proof-item strong {
-      font-size: 26px !important;
-      font-weight: 850 !important;
-      color: var(--ink) !important;
-      display: block !important;
-      margin-bottom: 4px !important;
-      letter-spacing: -0.03em !important;
-    }
-
-    .history-proof-item span {
-      font-size: 12.5px !important;
+    .pricing-card-kicker {
+      font-size: 11px !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.06em !important;
       color: var(--muted) !important;
-      line-height: 1.4 !important;
-      display: block !important;
+      margin-bottom: 8px !important;
     }
-
-    /* 6. VALOR DE PREÇO DOS PLANOS */
+    .pricing-card h3 {
+      font-size: 22px !important;
+      margin-bottom: 8px !important;
+      color: var(--ink) !important;
+      font-weight: 800 !important;
+    }
     .pricing-card-amount {
       font-size: 38px !important;
       font-weight: 900 !important;
@@ -3795,15 +4006,56 @@
       letter-spacing: -0.04em !important;
       line-height: 1.1 !important;
     }
-
     .pricing-card-amount span {
       font-size: 14px !important;
       font-weight: 500 !important;
       color: var(--muted) !important;
       margin-left: 4px !important;
     }
+    .pricing-card p {
+      font-size: 13.5px !important;
+      line-height: 1.6 !important;
+      color: var(--muted) !important;
+      margin-bottom: 18px !important;
+    }
+    .pricing-card-list {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 0 24px 0 !important;
+      font-size: 13px !important;
+      line-height: 1.65 !important;
+      color: var(--ink) !important;
+    }
+    .pricing-card-list li {
+      margin-bottom: 7px !important;
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 8px !important;
+      font-size: 13px !important;
+      line-height: 1.45 !important;
+    }
+    /* PROTEÇÃO CONTRA TEXTO GIGANTE DENTRO DA LISTA */
+    .pricing-card-list strong {
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      display: inline !important;
+      color: var(--ink) !important;
+      margin: 0 !important;
+      letter-spacing: normal !important;
+      line-height: inherit !important;
+    }
+    .niche-subitem {
+      padding-left: 18px !important;
+      font-size: 12px !important;
+      color: var(--muted) !important;
+      margin-bottom: 4px !important;
+    }
+    .niche-subitem strong {
+      font-size: 12px !important;
+      color: var(--ink) !important;
+    }
 
-    /* 7. PLANO DESTAQUE (NEXO PRO) */
+    /* Plano NEXO Pro (Destaque) */
     .pricing-card-featured {
       border: 2px solid #10b981 !important;
       background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%) !important;
@@ -3820,7 +4072,7 @@
     [data-theme="dark"] .pricing-card-featured {
       border: 2px solid #10b981 !important;
       background: linear-gradient(180deg, #111827 0%, #064e3b 100%) !important;
-      box-shadow: 0 16px 42px rgba(16, 185, 129, 0.28) !important;
+      box-shadow: 0 16px 42px rgba(16, 185, 129, 0.25) !important;
     }
     [data-theme="dark"] .featured-kicker {
       color: #34d399 !important;
@@ -3829,49 +4081,375 @@
       color: #34d399 !important;
     }
 
-    /* 8. TRUST BANNER (GARANTIA 7 DIAS) */
-    .pricing-trust-banner {
-      background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%) !important;
-      border: 1px solid rgba(16, 185, 129, 0.3) !important;
-      border-radius: 20px !important;
-      padding: clamp(24px, 3.5vw, 34px) !important;
-      text-align: center !important;
-      margin-bottom: 32px !important;
-      box-shadow: 0 16px 36px rgba(4, 120, 87, 0.2) !important;
-    }
-    .pricing-trust-banner h2 {
-      color: #ffffff !important;
-      font-size: clamp(22px, 3vw, 30px) !important;
-      margin-bottom: 8px !important;
-    }
-    .pricing-trust-banner p {
-      color: #d1fae5 !important;
-      font-size: 14.5px !important;
-      max-width: 720px !important;
-      margin: 0 auto !important;
-    }
-
-    /* 9. FAQ ACCORDION */
-    .faq-item {
+    /* Card História Compacto */
+    .history-compact-card {
       background: var(--card-bg) !important;
       border: 1px solid var(--card-border) !important;
-      border-radius: 14px !important;
-      margin-bottom: 10px !important;
-      overflow: hidden !important;
+      border-radius: 22px !important;
+      padding: clamp(26px, 4vw, 36px) !important;
+      box-shadow: var(--card-shadow) !important;
+      color: var(--ink) !important;
     }
-    .faq-item summary {
-      padding: 16px 20px !important;
-      font-size: 15.5px !important;
+    .history-compact-card h2 {
+      color: var(--ink) !important;
+    }
+    .history-lead-text {
+      color: var(--muted) !important;
+    }
+    .history-proof-item {
+      background: var(--paper-soft) !important;
+      border: 1px solid var(--line) !important;
+      color: var(--ink) !important;
+    }
+    .history-proof-item strong {
+      color: var(--ink) !important;
+    }
+    .history-proof-item span {
+      color: var(--muted) !important;
+    }
+    .history-footnote {
+      color: var(--muted) !important;
+    }
+
+    /* Ecossistema */
+    .ecossistema-box {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 22px !important;
+      padding: clamp(26px, 4vw, 36px) !important;
+      box-shadow: var(--card-shadow) !important;
+    }
+    .ecossistema-head h3 {
+      color: var(--ink) !important;
+    }
+    .ecossistema-head p {
+      color: var(--muted) !important;
+    }
+    .ecossistema-item h4 {
+      color: var(--ink) !important;
+    }
+    .ecossistema-item p {
+      color: var(--muted) !important;
+    }
+
+    /* Simulador compacto */
+    .pricing-calculator-compact {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      border-radius: 16px !important;
+      padding: 14px 20px !important;
+      margin-top: 16px !important;
+      box-shadow: var(--card-shadow) !important;
+      color: var(--ink) !important;
+    }
+    .pricing-calculator-compact summary {
+      color: var(--blue) !important;
+      font-weight: 700 !important;
+    }
+    .calculator-copy h3 {
+      color: var(--ink) !important;
+    }
+    .calculator-copy p {
+      color: var(--muted) !important;
+    }
+    .calculator-result {
+      background: var(--paper-soft) !important;
+      border: 1px solid var(--line) !important;
+      color: var(--ink) !important;
+    }
+    .calculator-result strong {
+      color: var(--ink) !important;
+    }
+    .result-detail span {
+      color: var(--muted) !important;
+    }
+    .result-detail b {
+      color: var(--ink) !important;
+    }
+
+    
+    /* ========================================================
+       PADRONIZAÇÃO UNIVERSAL DE BOTÕES, CONTROLES E FOCO
+       PADRÃO APPLE & MICROSOFT · ACESSIBILIDADE WCAG AAA
+       ======================================================== */
+
+    /* 1. FOCO UNIFICADO E ACESSÍVEL PARA TODOS OS ELEMENTOS */
+    :focus-visible,
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    summary:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 2px solid #10b981 !important;
+      outline-offset: 2px !important;
+      box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.25) !important;
+      border-radius: inherit !important;
+    }
+
+    /* 2. BOTÃO PRIMÁRIO (.button, .demo-primary, .chat-send) */
+    .button,
+    .demo-primary,
+    .chat-send {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      min-height: 44px !important;
+      padding: 0 22px !important;
+      font-size: 14.5px !important;
       font-weight: 650 !important;
+      letter-spacing: -0.01em !important;
+      line-height: 1 !important;
+      border-radius: 12px !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      background: linear-gradient(180deg, #10b981 0%, #059669 100%) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.12) !important;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.28), 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+      transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.15s ease !important;
+      text-align: center !important;
+      box-sizing: border-box !important;
+    }
+
+    .button:hover,
+    .demo-primary:hover,
+    .chat-send:hover {
+      background: linear-gradient(180deg, #059669 0%, #047857 100%) !important;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.38) !important;
+      transform: translateY(-1px) !important;
+      color: #ffffff !important;
+    }
+
+    .button:active,
+    .demo-primary:active,
+    .chat-send:active {
+      transform: translateY(0) !important;
+      box-shadow: 0 1px 3px rgba(16, 185, 129, 0.25) !important;
+    }
+
+    /* 3. BOTÃO SECUNDÁRIO (.button.secondary, .demo-clear) */
+    .button.secondary,
+    .demo-clear {
+      background: var(--card-bg) !important;
+      border: 1.5px solid var(--card-border) !important;
+      color: var(--ink) !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+      min-height: 44px !important;
+      padding: 0 20px !important;
+      border-radius: 12px !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+    }
+
+    .button.secondary:hover,
+    .demo-clear:hover {
+      background: var(--paper-soft) !important;
+      border-color: #10b981 !important;
+      color: var(--blue) !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    .button.secondary:active,
+    .demo-clear:active {
+      transform: translateY(0) !important;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    [data-theme="dark"] .button.secondary:hover,
+    [data-theme="dark"] .demo-clear:hover {
+      color: #34d399 !important;
+      border-color: #10b981 !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    /* 4. BOTÕES COMPACTOS DE NAVEGAÇÃO E AÇÃO */
+    .btn-outline-nav {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-height: 38px !important;
+      padding: 0 18px !important;
+      font-size: 13.5px !important;
+      font-weight: 650 !important;
+      border-radius: 999px !important;
+      background: transparent !important;
+      color: var(--blue) !important;
+      border: 1.5px solid var(--blue) !important;
+      text-decoration: none !important;
+      transition: all 0.18s ease !important;
+    }
+    .btn-outline-nav:hover {
+      background: var(--blue) !important;
+      color: #ffffff !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 3px 10px rgba(16, 185, 129, 0.25) !important;
+    }
+    [data-theme="dark"] .btn-outline-nav {
+      color: #34d399 !important;
+      border-color: #10b981 !important;
+    }
+    [data-theme="dark"] .btn-outline-nav:hover {
+      background: #10b981 !important;
+      color: #090d16 !important;
+    }
+
+    /* Alternador de tema */
+    .theme-toggle-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-height: 38px !important;
+      padding: 0 14px !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      border-radius: 10px !important;
+      background: var(--paper-soft) !important;
+      border: 1.5px solid var(--line) !important;
       color: var(--ink) !important;
       cursor: pointer !important;
+      transition: all 0.18s ease !important;
     }
-    .faq-item p {
-      padding: 0 20px 16px 20px !important;
+    .theme-toggle-btn:hover {
+      border-color: var(--blue) !important;
+      color: var(--blue) !important;
+      transform: translateY(-1px) !important;
+    }
+    [data-theme="dark"] .theme-toggle-btn:hover {
+      color: #34d399 !important;
+      border-color: #10b981 !important;
+    }
+
+    /* Botão CTA dos Nichos (.segmento-cta) */
+    .segmento-cta {
+      margin-top: auto !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-height: 40px !important;
+      padding: 0 16px !important;
+      border-radius: 10px !important;
+      background: var(--paper-soft) !important;
+      border: 1.5px solid var(--card-border) !important;
+      color: var(--ink) !important;
+      font-size: 13.5px !important;
+      font-weight: 650 !important;
+      cursor: pointer !important;
+      text-decoration: none !important;
+      transition: all 0.18s ease !important;
+    }
+    .segmento-cta:hover {
+      background: var(--blue) !important;
+      border-color: var(--blue) !important;
+      color: #ffffff !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25) !important;
+    }
+
+    /* 5. CONTROLES DE FORMULÁRIO (INPUT, SELECT, TEXTAREA) */
+    input[type="text"],
+    input[type="search"],
+    input[type="number"],
+    select,
+    textarea {
+      min-height: 44px !important;
+      padding: 10px 14px !important;
+      border-radius: 12px !important;
       font-size: 14px !important;
-      color: var(--muted) !important;
-      line-height: 1.6 !important;
-      margin: 0 !important;
+      font-weight: 450 !important;
+      font-family: inherit !important;
+      background: var(--card-bg) !important;
+      border: 1.5px solid var(--line) !important;
+      color: var(--ink) !important;
+      box-sizing: border-box !important;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease !important;
+    }
+
+    input[type="text"]:focus,
+    input[type="search"]:focus,
+    input[type="number"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #10b981 !important;
+      outline: none !important;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.22) !important;
+    }
+
+    /* Steppers (+ e -) */
+    #terminalMinus,
+    #terminalPlus {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 40px !important;
+      height: 40px !important;
+      border-radius: 10px !important;
+      background: var(--paper-soft) !important;
+      border: 1.5px solid var(--line) !important;
+      color: var(--ink) !important;
+      font-size: 20px !important;
+      font-weight: 700 !important;
+      cursor: pointer !important;
+      transition: all 0.18s ease !important;
+    }
+    #terminalMinus:hover,
+    #terminalPlus:hover {
+      background: var(--blue) !important;
+      border-color: var(--blue) !important;
+      color: #ffffff !important;
+    }
+
+    /* Chips e seletores de nicho no modal */
+    .modal-niche-chip {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-height: 36px !important;
+      padding: 0 14px !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      border-radius: 999px !important;
+      background: var(--paper-soft) !important;
+      border: 1.5px solid var(--line) !important;
+      color: var(--ink) !important;
+      cursor: pointer !important;
+      transition: all 0.18s ease !important;
+    }
+    .modal-niche-chip:hover {
+      border-color: #10b981 !important;
+      color: var(--blue) !important;
+    }
+    .modal-niche-chip.active {
+      background: #10b981 !important;
+      border-color: #10b981 !important;
+      color: #ffffff !important;
+      font-weight: 700 !important;
+    }
+
+    /* Botão fechar modal */
+    .nexo-modal-close,
+    .chat-close {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 36px !important;
+      height: 36px !important;
+      border-radius: 50% !important;
+      background: var(--paper-soft) !important;
+      border: 1px solid var(--line) !important;
+      color: var(--ink) !important;
+      font-size: 20px !important;
+      cursor: pointer !important;
+      transition: all 0.18s ease !important;
+    }
+    .nexo-modal-close:hover,
+    .chat-close:hover {
+      background: #ef4444 !important;
+      border-color: #ef4444 !important;
+      color: #ffffff !important;
     }
 
     </style>
