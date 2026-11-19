@@ -35,12 +35,12 @@
         "name": "NEXO Playloud Informática e Automação",
         "url": "https://nexoerp.dev/",
         "email": "nexopdv@zohomail.com",
-        "telephone": "+55-14-99835-6762",
+        "telephone": "+55-14-99107-2843",
         "logo": "https://nexoerp.dev/assets/nexo_logo_falcon.png",
         "sameAs": ["https://www.instagram.com/nexoerpoficial/"],
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+55-14-99835-6762",
+          "telephone": "+55-14-99107-2843",
           "contactType": "sales",
           "availableLanguage": "Portuguese"
         }
@@ -51,7 +51,7 @@
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Windows",
         "url": "https://nexoerp.dev/",
-        "description": "Sistema completo de gestão comercial e ponto de venda (PDV) para restaurantes, mercados, oficinas e varejo. Atendimento rápido, controle de comandas, estoque e fechamento de caixa."
+        "description": "Sistema completo de gestão comercial e frente de caixa (PDV) offline-first para restaurantes, mercados, lojas de roupas, oficinas mecânicas, materiais de construção e comércio em geral. Emissão fiscal, controle de estoque, crediário e comandas no celular com preço universal e transparente."
       }
     ]
   }
@@ -567,6 +567,380 @@
     .visual-greeting strong{color:#1d1d1f}
     .hero:before{opacity:.08}
     .hero:after{border-color:rgba(43,151,88,.08);box-shadow:0 0 0 55px rgba(43,151,88,.018),0 0 0 110px rgba(43,151,88,.012)}
+  
+    /* ========================================================
+       TEMA ESCURO PROFISSIONAL (DARK MODE)
+       ======================================================== */
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #090d16;
+      --paper: #111827;
+      --paper-soft: #1a2234;
+      --ink: #f8fafc;
+      --muted: #94a3b8;
+      --line: #1e293b;
+      --blue: #10b981;
+      --green: #34d399;
+    }
+    [data-theme="dark"] header {
+      background: rgba(9, 13, 22, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    [data-theme="dark"] .brand span {
+      color: #cbd5e1;
+    }
+    [data-theme="dark"] .navlinks a {
+      color: #cbd5e1;
+    }
+    [data-theme="dark"] .navlinks a:hover {
+      color: #34d399;
+    }
+    [data-theme="dark"] .hero {
+      background: radial-gradient(ellipse at 50% 0%, #151e32 0%, #090d16 75%);
+    }
+    [data-theme="dark"] .pricebox {
+      background: #111827 !important;
+      border-color: #1e293b !important;
+      color: #f8fafc !important;
+    }
+    [data-theme="dark"] .pricing-card {
+      background: #111827 !important;
+      border-color: #1e293b !important;
+      color: #f8fafc !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+    }
+    [data-theme="dark"] .pricing-card p {
+      color: #94a3b8 !important;
+    }
+    [data-theme="dark"] .pricing-card ul {
+      color: #cbd5e1 !important;
+    }
+    [data-theme="dark"] .pricing-card-featured {
+      background: linear-gradient(180deg, #111827 0%, #064e3b 100%) !important;
+      border-color: #10b981 !important;
+      box-shadow: 0 16px 42px rgba(16, 185, 129, 0.18) !important;
+    }
+    [data-theme="dark"] .card {
+      background: #111827;
+      border-color: #1e293b;
+    }
+    [data-theme="dark"] .card p {
+      color: #94a3b8;
+    }
+    [data-theme="dark"] .faq-item {
+      background: #111827;
+      border-color: #1e293b;
+    }
+    [data-theme="dark"] .trust-strip {
+      background: #0d121f;
+      border-color: #1e293b;
+    }
+    [data-theme="dark"] .offer {
+      background: #111827;
+      border-color: #1e293b;
+    }
+    [data-theme="dark"] .contact-card {
+      background: #111827;
+      border-color: #1e293b;
+    }
+    [data-theme="dark"] .demo-shell {
+      background: #111827;
+      border-color: #1e293b;
+    }
+    [data-theme="dark"] .history-card {
+      background: #111827;
+      border-color: #1e293b;
+    }
+    [data-theme="dark"] .chat-panel {
+      background: #111827;
+      border-color: #1e293b;
+    }
+    [data-theme="dark"] .chat-body {
+      background: #090d16;
+    }
+    [data-theme="dark"] footer {
+      background: #060911;
+      border-top-color: #1e293b;
+    }
+
+    /* BOTAO ALTERNADOR DE TEMA */
+    .theme-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 650;
+      color: var(--ink);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    [data-theme="dark"] .theme-toggle-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: #f1f5f9;
+    }
+    .theme-toggle-btn:hover {
+      transform: translateY(-1px);
+      border-color: var(--blue);
+    }
+    .btn-outline-nav {
+      background: transparent;
+      color: var(--blue) !important;
+      border: 1.5px solid var(--blue);
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-weight: 650;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+    .btn-outline-nav:hover {
+      background: var(--blue);
+      color: #fff !important;
+    }
+
+    /* SEÇÃO DE SEGMENTOS E NICHOS */
+    .segmentos-section {
+      padding: 82px 0 72px;
+      background: transparent;
+    }
+    .segmentos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
+      margin-top: 36px;
+    }
+    .segmento-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      position: relative;
+    }
+    .segmento-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--blue);
+      box-shadow: 0 16px 38px rgba(16, 185, 129, 0.12);
+    }
+    .segmento-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--blue);
+      background: rgba(16, 185, 129, 0.12);
+      padding: 5px 12px;
+      border-radius: 20px;
+      align-self: flex-start;
+      margin-bottom: 14px;
+    }
+    .segmento-card h3 {
+      font-size: 20px;
+      margin: 0 0 10px;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+    .segmento-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0 0 18px;
+      line-height: 1.6;
+    }
+    .segmento-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13.5px;
+    }
+    .segmento-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      line-height: 1.45;
+    }
+    .segmento-features li span.chk {
+      color: var(--blue);
+      font-weight: 900;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .segmento-cta {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 650;
+      text-decoration: none;
+      color: var(--blue);
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .segmento-cta:hover {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    /* ECOSSISTEMA BANNER */
+    .ecossistema-box {
+      margin-top: 54px;
+      background: linear-gradient(135deg, #0b1120 0%, #111827 100%);
+      color: #fff;
+      border-radius: 26px;
+      padding: 44px 34px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+    .ecossistema-head {
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+    .ecossistema-head h3 {
+      font-size: clamp(24px, 3.5vw, 32px);
+      margin: 0 0 10px;
+      color: #fff;
+      letter-spacing: -0.03em;
+    }
+    .ecossistema-head p {
+      color: #cbd5e1;
+      font-size: 15px;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .ecossistema-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+    .ecossistema-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 22px;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .ecossistema-item:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.07);
+    }
+    .ecossistema-icon {
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+    .ecossistema-item h4 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      color: #34d399;
+      letter-spacing: -0.01em;
+    }
+    .ecossistema-item p {
+      margin: 0;
+      font-size: 13px;
+      color: #cbd5e1;
+      line-height: 1.55;
+    }
+
+    /* MODAIS PROFISSIONAIS */
+    .nexo-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .nexo-modal-backdrop.open {
+      display: flex;
+      opacity: 1;
+    }
+    .nexo-modal-card {
+      background: var(--paper);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      max-width: 580px;
+      width: 100%;
+      padding: 34px;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.5);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .nexo-modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.06);
+      border: 0;
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+      color: inherit;
+      transition: background 0.2s ease;
+    }
+    [data-theme="dark"] .nexo-modal-close {
+      background: rgba(255, 255, 255, 0.12);
+    }
+    .nexo-modal-close:hover {
+      background: rgba(239, 68, 68, 0.18);
+      color: #ef4444;
+    }
+    .modal-niche-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 18px 0 24px;
+    }
+    .modal-niche-chip {
+      background: rgba(0, 0, 0, 0.04);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: inherit;
+    }
+    [data-theme="dark"] .modal-niche-chip {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .modal-niche-chip:hover, .modal-niche-chip.active {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+
   </style>
 </head>
 <body>
@@ -576,14 +950,18 @@
       <nav aria-label="Navegação principal">
         <a class="brand" href="#inicio" aria-label="NEXO ERP PDV — início"><img src="assets/nexo_logo_falcon.png" width="44" height="44" alt="NEXO ERP PDV"><span>NEXO ERP PDV</span></a>
         <div class="navlinks">
+          <a class="hide-mobile" href="#segmentos">Nichos &amp; Segmentos</a>
           <a class="hide-mobile" href="#solucao">A solução</a>
           <a class="hide-mobile" href="#demoNexo">Experimente</a>
-          <a class="hide-mobile" href="#historia-nexo">Nossa história</a>
-          <a class="hide-mobile" href="#perguntas">Dúvidas</a>
           <a class="hide-mobile" href="#precos">Preços</a>
-          <a class="hide-mobile" href="#diagnostico">Seu negócio</a>
-          <a href="#oferta">Oferta</a>
-          <a class="button" href="#contato">Conhecer o NEXO</a>
+          <a class="hide-mobile" href="#perguntas">Dúvidas</a>
+          <button id="themeToggleBtn" class="theme-toggle-btn" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema claro/escuro">
+            <span id="themeIconSun" aria-hidden="true">☀️</span>
+            <span id="themeIconMoon" aria-hidden="true" style="display:none">🌙</span>
+            <span class="hide-mobile">Tema</span>
+          </button>
+          <a class="btn-outline-nav hide-mobile" href="javascript:void(0)" onclick="window.nexoOpenDemoModal()">Agendar demo</a>
+          <a class="button" href="javascript:void(0)" onclick="window.nexoOpenPortalModal()">Acessar</a>
         </div>
       </nav>
     </div>
@@ -595,7 +973,7 @@
         <div class="hero-copy">
           <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Tecnologia feita para a rotina do comércio</div>
           <h1>Seu comércio merece uma gestão <span>à altura.</span></h1>
-          <p class="lead">O NEXO ERP PDV já está em operação no comércio. Conheça a solução, veja uma apresentação e converse com nossa equipe para avaliar como o sistema pode atender à realidade da sua empresa.</p>
+          <p class="lead">O sistema completo de gestão e frente de caixa (PDV) offline-first para restaurantes, mercados, lojas de roupas, oficinas mecânicas, materiais de construção e comércio em geral. Rápido, seguro e com preço justo e transparente para qualquer nicho.</p>
           <div class="actions">
             <a class="button" href="#contato">Solicitar uma demonstração <span aria-hidden="true">↗</span></a>
             <a class="button secondary" href="#demoNexo">Explorar a prévia</a>
@@ -652,6 +1030,158 @@
         <article><span class="trust-icon" aria-hidden="true">↗</span><div><strong>Conversa direta com a equipe</strong><p>Entenda os recursos e as condições antes de decidir.</p></div></article>
       </div>
     </section>
+
+    <!-- ========================================================
+         SEÇÃO DE SEGMENTOS E NICHOS DO COMÉRCIO
+         ======================================================== -->
+    <section id="segmentos" class="segmentos-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Nichos e Segmentos Especializados</div>
+          <h2>Feito sob medida para a rotina do seu comércio.</h2>
+          <p>Cada segmento tem suas particularidades. No NEXO ERP PDV, você tem fluxos dedicados sem telas poluídas nem botões inúteis para o seu negócio. O mesmo preço transparente para todos.</p>
+        </div>
+
+        <div class="segmentos-grid">
+          <!-- 1. Restaurantes, Bares e Gastronomia -->
+          <article class="segmento-card">
+            <span class="segmento-badge">🍽️ Gastronomia &amp; Delivery</span>
+            <h3>Restaurantes, Bares, Lanchonetes &amp; Pizzarias</h3>
+            <p>Atendimento rápido e sem papéis perdidos. Da recepção ao fechamento de conta em segundos.</p>
+            <ul class="segmento-features">
+              <li><span class="chk">✓</span> Mapa visual de Mesas e Comandas individuais em tempo real</li>
+              <li><span class="chk">✓</span> Garçom lança pedidos direto no celular, sem maquininha cara</li>
+              <li><span class="chk">✓</span> Painel de Cozinha e Bar (KDS) organizado por estações</li>
+              <li><span class="chk">✓</span> Divisão de conta por pessoa e taxa de serviço automática</li>
+              <li><span class="chk">✓</span> Lançamento na mesa sem cobrar antes do fechamento</li>
+            </ul>
+            <button type="button" class="segmento-cta" onclick="window.nexoOpenDemoModal('Restaurantes, Bares e Gastronomia')">Ver demonstração para Restaurante ↗</button>
+          </article>
+
+          <!-- 2. Mercados e Mercearias -->
+          <article class="segmento-card">
+            <span class="segmento-badge">🛒 Alimentação &amp; Checkout</span>
+            <h3>Mercadinhos, Mercearias, Padarias &amp; Hortifrúti</h3>
+            <p>Velocidade máxima no caixa para evitar filas, com balança integrada e leitura contínua.</p>
+            <ul class="segmento-features">
+              <li><span class="chk">✓</span> Leitura rápida de código de barras sem travar o operador</li>
+              <li><span class="chk">✓</span> Integração direta com balança pesadora de checkout</li>
+              <li><span class="chk">✓</span> Emissão e leitura de etiquetas de pesagem com código EAN</li>
+              <li><span class="chk">✓</span> Fechamento de caixa cego, sangria e suprimento seguros</li>
+              <li><span class="chk">✓</span> Opera 100% offline: a internet caiu, seu caixa continua vendendo</li>
+            </ul>
+            <button type="button" class="segmento-cta" onclick="window.nexoOpenDemoModal('Mercados e Mercearias')">Ver demonstração para Mercado ↗</button>
+          </article>
+
+          <!-- 3. Roupas e Calçados -->
+          <article class="segmento-card">
+            <span class="segmento-badge">👗 Moda, Roupas &amp; Calçados</span>
+            <h3>Lojas de Vestuário, Moda Íntima &amp; Calçados</h3>
+            <p>Controle perfeito de grades por cor e tamanho com crediário próprio para fidelizar clientes.</p>
+            <ul class="segmento-features">
+              <li><span class="chk">✓</span> Matriz completa de grade por Cor e Tamanho (P, M, G, GG e numerações)</li>
+              <li><span class="chk">✓</span> Gestão ágil de trocas e devoluções com vale-troca no balcão</li>
+              <li><span class="chk">✓</span> Crediário próprio da loja com limite de crédito e carnê impresso</li>
+              <li><span class="chk">✓</span> Impressão de etiquetas de código de barras personalizadas</li>
+              <li><span class="chk">✓</span> Ranking de produtos e marcas com maior giro e lucro</li>
+            </ul>
+            <button type="button" class="segmento-cta" onclick="window.nexoOpenDemoModal('Lojas de Roupas e Calçados')">Ver demonstração para Moda ↗</button>
+          </article>
+
+          <!-- 4. Oficinas e Assistências -->
+          <article class="segmento-card">
+            <span class="segmento-badge">🔧 Automotivo &amp; Serviços</span>
+            <h3>Oficinas Mecânicas, Auto Centers &amp; Motos</h3>
+            <p>Ordens de Serviço completas que separam peças e mão de obra com histórico por veículo.</p>
+            <ul class="segmento-features">
+              <li><span class="chk">✓</span> Ordem de Serviço (O.S.) com status: Aberta, Orçamento, Aprovada e Concluída</li>
+              <li><span class="chk">✓</span> Registro de placa, modelo, cor e quilometragem do veículo</li>
+              <li><span class="chk">✓</span> Separação contábil de peças aplicadas vs. mão de obra cobrada</li>
+              <li><span class="chk">✓</span> Histórico completo de revisões anteriores por cliente</li>
+              <li><span class="chk">✓</span> Impressão de orçamento formal e laudo para aprovação rápida</li>
+            </ul>
+            <button type="button" class="segmento-cta" onclick="window.nexoOpenDemoModal('Oficinas Mecânicas e Auto Centers')">Ver demonstração para Oficina ↗</button>
+          </article>
+
+          <!-- 5. Materiais de Construção -->
+          <article class="segmento-card">
+            <span class="segmento-badge">🧱 Construção &amp; Ferragens</span>
+            <h3>Materiais de Construção, Ferragens &amp; Elétrica</h3>
+            <p>Venda fracionada e orçamentos rápidos para pedreiros e construtores sem complicação.</p>
+            <ul class="segmento-features">
+              <li><span class="chk">✓</span> Fracionamento preciso por metro linear, metro quadrado, quilo ou unidade</li>
+              <li><span class="chk">✓</span> Geração de orçamentos rápidos com envio direto no WhatsApp do cliente</li>
+              <li><span class="chk">✓</span> Controle de entrega futura e romaneio de carga para caminhão</li>
+              <li><span class="chk">✓</span> Múltiplas tabelas de preço para atacado, construtor e balcão</li>
+              <li><span class="chk">✓</span> Alerta de estoque mínimo para não faltar cimento, ferro ou conexões</li>
+            </ul>
+            <button type="button" class="segmento-cta" onclick="window.nexoOpenDemoModal('Materiais de Construção e Ferragens')">Ver demonstração para Construção ↗</button>
+          </article>
+
+          <!-- 6. Informática e Celulares -->
+          <article class="segmento-card">
+            <span class="segmento-badge">📱 Celulares &amp; Tecnologia</span>
+            <h3>Assistência de Celular, Informática &amp; Eletrônicos</h3>
+            <p>Rastreabilidade absoluta por IMEI e número de série com termo de garantia formal.</p>
+            <ul class="segmento-features">
+              <li><span class="chk">✓</span> Controle rigoroso por número de série e IMEI do aparelho</li>
+              <li><span class="chk">✓</span> Laudo de entrada com checklist de defeito, estado e riscos na carcaça</li>
+              <li><span class="chk">✓</span> Emissão automática de Termo de Garantia legal (CDC)</li>
+              <li><span class="chk">✓</span> Gestão de peças de reposição (telas, baterias, conectores)</li>
+              <li><span class="chk">✓</span> Notificação no WhatsApp quando o aparelho estiver pronto</li>
+            </ul>
+            <button type="button" class="segmento-cta" onclick="window.nexoOpenDemoModal('Assistência de Celulares e Informática')">Ver demonstração para Celular ↗</button>
+          </article>
+
+          <!-- 7. Varejo Geral -->
+          <article class="segmento-card">
+            <span class="segmento-badge">🛍️ Varejo &amp; Lojas em Geral</span>
+            <h3>Papelarias, Pet Shops, Autopeças &amp; Cosméticos</h3>
+            <p>O caixa que sua equipe aprende a usar no primeiro dia. Rápido, intuitivo e sem erros.</p>
+            <ul class="segmento-features">
+              <li><span class="chk">✓</span> Busca ultra inteligente por código, nome, marca ou referência</li>
+              <li><span class="chk">✓</span> Emissão fiscal descomplicada: NFC-e, SAT e Cupom Fiscal</li>
+              <li><span class="chk">✓</span> Contas a pagar, contas a receber e controle de despesas</li>
+              <li><span class="chk">✓</span> Curva ABC de vendas mostrando os itens mais lucrativos</li>
+              <li><span class="chk">✓</span> Backup blindado com restauração em 1 clique</li>
+            </ul>
+            <button type="button" class="segmento-cta" onclick="window.nexoOpenDemoModal('Varejo e Comércio em Geral')">Ver demonstração para Varejo ↗</button>
+          </article>
+        </div>
+
+        <!-- O Ecossistema NEXO -->
+        <div class="ecossistema-box">
+          <div class="ecossistema-head">
+            <div class="eyebrow" style="color:#34d399">Tecnologia Integrada</div>
+            <h3>O Ecossistema NEXO: Do balcão à retaguarda</h3>
+            <p>Quatro soluções conectadas que trabalham juntas na sua rede local, sem depender da internet externa para continuar operando.</p>
+          </div>
+          <div class="ecossistema-grid">
+            <div class="ecossistema-item">
+              <div class="ecossistema-icon">💻</div>
+              <h4>NEXO PDV Desktop</h4>
+              <p>O coração do comércio. Roda no Windows, funciona 100% offline com banco local SQLite, imprime em qualquer térmica e emite nota fiscal com velocidade.</p>
+            </div>
+            <div class="ecossistema-item">
+              <div class="ecossistema-icon">📱</div>
+              <h4>NEXO Mobile / Garçom</h4>
+              <p>Liberdade total. O vendedor ou garçom lança pedidos, orçamentos e comandas no próprio celular conectado à rede da loja. Sem maquininhas caras.</p>
+            </div>
+            <div class="ecossistema-item">
+              <div class="ecossistema-icon">📺</div>
+              <h4>NEXO KDS de Produção</h4>
+              <p>O fim dos pedidos no papel. Painel digital para Cozinha, Bar/Copa ou Bancada Técnica, organizado por ordem de chegada com alerta de tempo.</p>
+            </div>
+            <div class="ecossistema-item">
+              <div class="ecossistema-icon">💳</div>
+              <h4>NEXO Segunda Tela</h4>
+              <p>Mais transparência e vendas. O cliente vê os itens passados no visor voltado para ele e paga o Pix instantâneo gerado na hora no QR Code.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <section id="solucao" class="solution-section">
       <div class="wrap">
@@ -768,10 +1298,11 @@
             </ul>
           </div>
           <div class="pricebox">
-            <div class="price-label">Plano mais escolhido para bares e restaurantes</div>
-            <div class="price">R$ 239 <small>/ mês</small></div>
-            <p>Restaurante Pro: Mesas, KDS, comanda no celular e backup em nuvem.</p>
-            <p>Planos a partir de <strong>R$ 159/mês</strong> para comércio de balcão.</p>
+            <div class="price-label">Planos universais para qualquer comércio</div>
+            <div class="price">R$ 159 <small>a</small> R$ 239 <small>/ mês</small></div>
+            <p><strong>NEXO Pro (R$ 239/mês):</strong> Recursos especializados do seu nicho incluídos (mesas, O.S., grade, balança ou fracionamento).</p>
+            <p><strong>NEXO Essencial (R$ 159/mês):</strong> Balcão e varejo ágil completo.</p>
+            <p style="font-size:12.5px;color:#059669;font-weight:700;margin:6px 0 14px">✓ 7 dias de teste grátis na sua loja física sem pegadinhas</p>
             <a class="button" href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Quero%20agendar%20meu%20teste%20gr%C3%A1tis%20de%207%20dias%20do%20NEXO%20ERP%20PDV%20no%20meu%20com%C3%A9rcio." target="_blank" rel="noopener noreferrer">Solicitar teste grátis de 7 dias <span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -788,48 +1319,55 @@
 
         <div class="pricing-cards">
           <article class="pricing-card">
-            <div class="pricing-card-kicker">Balcão e Varejo</div>
+            <div class="pricing-card-kicker">Balcão e Varejo Ágil</div>
             <h3>NEXO Essencial</h3>
             <strong>R$ 159<span>/mês</span></strong>
-            <p>Perfeito para lojas, mercados e comércios de balcão que precisam de agilidade e estabilidade.</p>
+            <p>Perfeito para comércios de balcão e varejo em geral que buscam velocidade no caixa, estoque seguro e notas fiscais.</p>
             <ul style="margin:16px 0 22px;padding-left:18px;color:#455a4e;font-size:13.5px;line-height:1.75">
-              <li>PDV ágil que funciona 100% offline</li>
-              <li>Controle de estoque e reposição</li>
-              <li>Comprovante de venda no WhatsApp</li>
-              <li>Emissão fiscal integrada (NFC-e / SAT)</li>
+              <li>PDV ágil que funciona 100% offline no Windows</li>
+              <li>Controle de estoque, compras e inventário</li>
+              <li>Contas a pagar, receber e crediário da loja</li>
+              <li>Emissão fiscal completa (NFC-e / SAT / Cupom)</li>
+              <li>Envio de comprovante de venda no WhatsApp</li>
               <li>1 terminal de caixa incluído</li>
+              <li>Suporte dedicado e backup automático</li>
             </ul>
             <a class="button" style="display:block;text-align:center;margin-top:auto" href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Quero%20testar%20o%20plano%20NEXO%20Essencial%20(R%24%20159%2Fm%C3%AAs)%20por%207%20dias." target="_blank" rel="noopener noreferrer">Testar Essencial por 7 dias ↗</a>
           </article>
 
           <article class="pricing-card pricing-card-featured" style="border-width:2px;border-color:#10b981;background:linear-gradient(180deg,#ffffff 0%,#f0fdf4 100%)">
-            <div class="pricing-card-kicker" style="color:#059669;font-weight:900">★ Mais Escolhido para Alimentação</div>
-            <h3>Restaurante Pro</h3>
+            <div class="pricing-card-kicker" style="color:#059669;font-weight:900">★ Mais Escolhido · Operações Dinâmicas</div>
+            <h3>NEXO Pro</h3>
             <strong style="color:#047857">R$ 239<span>/mês</span></strong>
-            <p>A solução completa para restaurantes, pizzarias, bares e hamburguerias atenderem rápido e sem papel.</p>
+            <p>A solução completa com as rotinas especializadas do seu nicho liberadas sem nenhum custo extra.</p>
             <ul style="margin:16px 0 22px;padding-left:18px;color:#1e3a2b;font-size:13.5px;line-height:1.75">
               <li><strong>Tudo incluído no Plano Essencial</strong></li>
-              <li>Gestão completa de Mesas e Comandas</li>
-              <li>Garçom lança pedidos pelo próprio celular</li>
-              <li>Painel de Cozinha (KDS) em tempo real</li>
-              <li>Backup automático em nuvem blindado</li>
+              <li><strong>Módulo do seu nicho liberado:</strong></li>
+              <li>· Restaurantes: Mesas, Comandas, KDS e Garçom no celular</li>
+              <li>· Oficinas: Ordens de Serviço (O.S.) e Peças/Mão de Obra</li>
+              <li>· Moda: Grade completa de Cor e Tamanho</li>
+              <li>· Mercados: Balança integrada e Etiquetas de gôndola</li>
+              <li>· Materiais: Fracionamento (m/kg) e orçamentos rápidos</li>
+              <li>· Celular: Controle de IMEI, serial e termo de garantia</li>
+              <li>Backup blindado em nuvem e suporte prioritário</li>
             </ul>
-            <a class="button" style="display:block;text-align:center;margin-top:auto;background:#059669;color:#fff;box-shadow:0 6px 20px rgba(5,150,105,.28)" href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Quero%20testar%20o%20plano%20Restaurante%20Pro%20(R%24%20239%2Fm%C3%AAs)%20por%207%20dias." target="_blank" rel="noopener noreferrer">Testar Pro por 7 dias ↗</a>
+            <a class="button" style="display:block;text-align:center;margin-top:auto" href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Quero%20testar%20o%20plano%20NEXO%20Pro%20(R%24%20239%2Fm%C3%AAs)%20por%207%20dias%20no%20meu%20com%C3%A9rcio." target="_blank" rel="noopener noreferrer">Testar NEXO Pro por 7 dias ↗</a>
           </article>
 
           <article class="pricing-card">
-            <div class="pricing-card-kicker">Alto Fluxo e Expansão</div>
+            <div class="pricing-card-kicker">Alto Fluxo e Múltiplos Caixas</div>
             <h3>NEXO Premium</h3>
             <strong>R$ 329<span>/mês</span></strong>
-            <p>Para estabelecimentos de grande movimento que exigem múltiplos caixas e recursos avançados.</p>
+            <p>Para estabelecimentos de grande movimento que exigem múltiplos caixas simultâneos e gestão avançada.</p>
             <ul style="margin:16px 0 22px;padding-left:18px;color:#455a4e;font-size:13.5px;line-height:1.75">
-              <li><strong>Tudo incluído no Restaurante Pro</strong></li>
-              <li>Múltiplos caixas simultâneos na loja</li>
-              <li>Segunda tela do cliente (itens e Pix)</li>
-              <li>Nexo Copiloto com diagnóstico inteligente</li>
-              <li>Suporte e implantação prioritários</li>
+              <li><strong>Tudo incluído no Plano NEXO Pro</strong></li>
+              <li>Múltiplos caixas simultâneos na loja física</li>
+              <li>Segunda tela do cliente (itens e Pix dinâmico no visor)</li>
+              <li>Nexo Copiloto com diagnósticos de lucratividade</li>
+              <li>Treinamento de equipe e implantação assistida</li>
+              <li>Atendimento prioritário direto com os especialistas</li>
             </ul>
-            <a class="button" style="display:block;text-align:center;margin-top:auto" href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Quero%20conhecer%20o%20plano%20NEXO%20Premium%20(R%24%20329%2Fm%C3%AAs)." target="_blank" rel="noopener noreferrer">Testar Premium por 7 dias ↗</a>
+            <a class="button secondary" style="display:block;text-align:center;margin-top:auto" href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Quero%20conhecer%20o%20plano%20NEXO%20Premium%20(R%24%20329%2Fm%C3%AAs)%20para%20m%C3%BAltiplos%20caixas." target="_blank" rel="noopener noreferrer">Falar sobre Plano Premium ↗</a>
           </article>
         </div>
 
@@ -942,7 +1480,11 @@
         <div class="faq-list">
           <details class="faq-item">
             <summary>Quanto custa o NEXO ERP PDV?</summary>
-            <p>Os planos começam em R$ 159/mês no Plano Essencial (ideal para balcão e varejo), R$ 239/mês no Restaurante Pro (o mais escolhido, com mesas, KDS e pedidos no celular) e R$ 329/mês no Plano Premium (múltiplos caixas e gestão avançada). Todos contam com 7 dias de teste grátis com suporte dedicado e sem taxa de adesão.</p>
+            <p>Nossos valores são transparentes e iguais para todos os segmentos: R$ 159/mês no Plano Essencial (para balcão e varejo ágil), R$ 239/mês no NEXO Pro (o mais escolhido, que já inclui os recursos especializados do seu nicho: mesas/KDS, O.S., grade de tamanho ou balança) e R$ 329/mês no Plano Premium (para múltiplos caixas simultâneos). Todos incluem 7 dias de teste grátis na sua loja física sem taxa de adesão.</p>
+          </details>
+          <details class="faq-item">
+            <summary>O NEXO ERP PDV atende o meu tipo de comércio?</summary>
+            <p>Sim! O NEXO possui módulos especializados para Restaurantes, Mercadinhos, Lojas de Roupas, Oficinas Mecânicas, Materiais de Construção, Assistência de Celular e Varejo Geral. O sistema se adapta ao seu segmento: você só vê os recursos que fazem sentido para o seu negócio, sem poluição visual nem complicação.</p>
           </details>
           <details class="faq-item">
             <summary>Quais recursos estão incluídos?</summary>
@@ -1796,7 +2338,381 @@
       color: #64748b !important;
     }
 
-</style>
+
+    /* ========================================================
+       TEMA ESCURO PROFISSIONAL (DARK MODE)
+       ======================================================== */
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #090d16;
+      --paper: #111827;
+      --paper-soft: #1a2234;
+      --ink: #f8fafc;
+      --muted: #94a3b8;
+      --line: #1e293b;
+      --blue: #10b981;
+      --green: #34d399;
+    }
+    [data-theme="dark"] header {
+      background: rgba(9, 13, 22, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    [data-theme="dark"] .brand span {
+      color: #cbd5e1;
+    }
+    [data-theme="dark"] .navlinks a {
+      color: #cbd5e1;
+    }
+    [data-theme="dark"] .navlinks a:hover {
+      color: #34d399;
+    }
+    [data-theme="dark"] .hero {
+      background: radial-gradient(ellipse at 50% 0%, #151e32 0%, #090d16 75%);
+    }
+    [data-theme="dark"] .pricebox {
+      background: #111827 !important;
+      border-color: #1e293b !important;
+      color: #f8fafc !important;
+    }
+    [data-theme="dark"] .pricing-card {
+      background: #111827 !important;
+      border-color: #1e293b !important;
+      color: #f8fafc !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+    }
+    [data-theme="dark"] .pricing-card p {
+      color: #94a3b8 !important;
+    }
+    [data-theme="dark"] .pricing-card ul {
+      color: #cbd5e1 !important;
+    }
+    [data-theme="dark"] .pricing-card-featured {
+      background: linear-gradient(180deg, #111827 0%, #064e3b 100%) !important;
+      border-color: #10b981 !important;
+      box-shadow: 0 16px 42px rgba(16, 185, 129, 0.18) !important;
+    }
+    [data-theme="dark"] .card {
+      background: #111827;
+      border-color: #1e293b;
+    }
+    [data-theme="dark"] .card p {
+      color: #94a3b8;
+    }
+    [data-theme="dark"] .faq-item {
+      background: #111827;
+      border-color: #1e293b;
+    }
+    [data-theme="dark"] .trust-strip {
+      background: #0d121f;
+      border-color: #1e293b;
+    }
+    [data-theme="dark"] .offer {
+      background: #111827;
+      border-color: #1e293b;
+    }
+    [data-theme="dark"] .contact-card {
+      background: #111827;
+      border-color: #1e293b;
+    }
+    [data-theme="dark"] .demo-shell {
+      background: #111827;
+      border-color: #1e293b;
+    }
+    [data-theme="dark"] .history-card {
+      background: #111827;
+      border-color: #1e293b;
+    }
+    [data-theme="dark"] .chat-panel {
+      background: #111827;
+      border-color: #1e293b;
+    }
+    [data-theme="dark"] .chat-body {
+      background: #090d16;
+    }
+    [data-theme="dark"] footer {
+      background: #060911;
+      border-top-color: #1e293b;
+    }
+
+    /* BOTAO ALTERNADOR DE TEMA */
+    .theme-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 650;
+      color: var(--ink);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    [data-theme="dark"] .theme-toggle-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: #f1f5f9;
+    }
+    .theme-toggle-btn:hover {
+      transform: translateY(-1px);
+      border-color: var(--blue);
+    }
+    .btn-outline-nav {
+      background: transparent;
+      color: var(--blue) !important;
+      border: 1.5px solid var(--blue);
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-weight: 650;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+    .btn-outline-nav:hover {
+      background: var(--blue);
+      color: #fff !important;
+    }
+
+    /* SEÇÃO DE SEGMENTOS E NICHOS */
+    .segmentos-section {
+      padding: 82px 0 72px;
+      background: transparent;
+    }
+    .segmentos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
+      margin-top: 36px;
+    }
+    .segmento-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      position: relative;
+    }
+    .segmento-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--blue);
+      box-shadow: 0 16px 38px rgba(16, 185, 129, 0.12);
+    }
+    .segmento-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--blue);
+      background: rgba(16, 185, 129, 0.12);
+      padding: 5px 12px;
+      border-radius: 20px;
+      align-self: flex-start;
+      margin-bottom: 14px;
+    }
+    .segmento-card h3 {
+      font-size: 20px;
+      margin: 0 0 10px;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+    .segmento-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0 0 18px;
+      line-height: 1.6;
+    }
+    .segmento-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13.5px;
+    }
+    .segmento-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      line-height: 1.45;
+    }
+    .segmento-features li span.chk {
+      color: var(--blue);
+      font-weight: 900;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .segmento-cta {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 650;
+      text-decoration: none;
+      color: var(--blue);
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .segmento-cta:hover {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    /* ECOSSISTEMA BANNER */
+    .ecossistema-box {
+      margin-top: 54px;
+      background: linear-gradient(135deg, #0b1120 0%, #111827 100%);
+      color: #fff;
+      border-radius: 26px;
+      padding: 44px 34px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+    .ecossistema-head {
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+    .ecossistema-head h3 {
+      font-size: clamp(24px, 3.5vw, 32px);
+      margin: 0 0 10px;
+      color: #fff;
+      letter-spacing: -0.03em;
+    }
+    .ecossistema-head p {
+      color: #cbd5e1;
+      font-size: 15px;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .ecossistema-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+    .ecossistema-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 22px;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .ecossistema-item:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.07);
+    }
+    .ecossistema-icon {
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+    .ecossistema-item h4 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      color: #34d399;
+      letter-spacing: -0.01em;
+    }
+    .ecossistema-item p {
+      margin: 0;
+      font-size: 13px;
+      color: #cbd5e1;
+      line-height: 1.55;
+    }
+
+    /* MODAIS PROFISSIONAIS */
+    .nexo-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .nexo-modal-backdrop.open {
+      display: flex;
+      opacity: 1;
+    }
+    .nexo-modal-card {
+      background: var(--paper);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      max-width: 580px;
+      width: 100%;
+      padding: 34px;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.5);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .nexo-modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.06);
+      border: 0;
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+      color: inherit;
+      transition: background 0.2s ease;
+    }
+    [data-theme="dark"] .nexo-modal-close {
+      background: rgba(255, 255, 255, 0.12);
+    }
+    .nexo-modal-close:hover {
+      background: rgba(239, 68, 68, 0.18);
+      color: #ef4444;
+    }
+    .modal-niche-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 18px 0 24px;
+    }
+    .modal-niche-chip {
+      background: rgba(0, 0, 0, 0.04);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: inherit;
+    }
+    [data-theme="dark"] .modal-niche-chip {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .modal-niche-chip:hover, .modal-niche-chip.active {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+
+  </style>
   <button type="button" class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
   <section class="chat-panel" id="nexoChat" role="dialog" aria-labelledby="chatTitle" aria-describedby="chatDisclaimer" aria-modal="false">
     <div class="chat-head">
@@ -2006,7 +2922,7 @@
         window.nexoChatChoices([['Falar com a equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]); return;
       }
       if(value==='valores'){
-        window.nexoChatMessage('Os planos do NEXO ERP PDV começam em R$ 159/mês (Essencial) e R$ 239/mês (Restaurante Pro, com comandas no celular e KDS). Oferecemos 7 dias de teste grátis na sua loja sem taxa de adesão!','bot');
+        window.nexoChatMessage('Os planos do NEXO ERP PDV são transparentes e universais para qualquer comércio: R$ 159/mês (Essencial para balcão) e R$ 239/mês (NEXO Pro, com os recursos do seu nicho incluídos: mesas, O.S., grades ou balança). Oferecemos 7 dias de teste grátis na sua loja física sem taxa de adesão!','bot');
         window.nexoChatChoices([['Falar com a equipe no WhatsApp','whatsapp'],['Começar novamente','segmento']]); return;
       }
       if(value==='confianca'){
@@ -2028,8 +2944,10 @@
       window.nexoChatMessage(raw,'user');
       window.nexoLastQuestion = raw;
       var answer = '';
-      if (/\b(preco|valor|custa|mensalidade|plano|oferta|quanto paga|quanto custa)\b/.test(q)) {
-        answer='Os planos começam em R$ 159/mês (Essencial para balcão) e R$ 239/mês (Restaurante Pro com celular e KDS). Você tem 7 dias de teste grátis na sua operação e sem taxa de implantação!';
+      if (/\b(nicho|segmento|ramo|tipo de comercio|restaurante|mercado|oficina|roupa|calcado|construcao|celular|ferragem)\b/.test(q)) {
+        answer='O NEXO possui telas e rotinas específicas para Restaurantes, Mercados, Lojas de Roupas, Oficinas, Materiais de Construção, Celulares e Varejo Geral. Você só usa o que é relevante para o seu nicho, pelo mesmo preço justo!';
+      } else if (/\b(preco|valor|custa|mensalidade|plano|oferta|quanto paga|quanto custa)\b/.test(q)) {
+        answer='Os planos do NEXO são universais para qualquer comércio: R$ 159/mês (Essencial para balcão) e R$ 239/mês (NEXO Pro com rotinas especializadas do seu nicho inclusas). Você tem 7 dias de teste grátis na sua operação e sem taxa de implantação!';
       } else if (/\b(demonstracao|demonstrar|ver o sistema|conhecer|apresentacao|mostrar|teste|testar)\b/.test(q)) {
         answer='Posso encaminhar você à equipe NEXO para combinar uma demonstração do sistema real. Assim, vocês podem conferir os recursos na prática e validar se atendem ao seu negócio.';
       } else if (/\b(suporte|atendimento|ajuda tecnica|assistencia|pos venda|horario de atendimento)\b/.test(q)) {
@@ -2152,6 +3070,193 @@
       });
       var year = document.getElementById('year');
       if (year) year.textContent = new Date().getFullYear();
+    })();
+  </script>
+
+
+  <!-- MODAL: AGENDAR DEMO -->
+  <div id="agendarDemoModal" class="nexo-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalDemoTitle">
+    <div class="nexo-modal-card">
+      <button type="button" class="nexo-modal-close" onclick="window.nexoCloseModal('agendarDemoModal')" aria-label="Fechar modal">&times;</button>
+      <div class="eyebrow" style="margin-bottom:8px">Demonstração Real</div>
+      <h3 id="modalDemoTitle" style="font-size:24px;margin:0 0 10px;letter-spacing:-0.03em">Agendar Demonstração Gratuita</h3>
+      <p style="color:var(--muted);font-size:14px;margin:0 0 16px;line-height:1.6">
+        Veja o NEXO ERP PDV funcionando na prática para o seu comércio. Escolha seu segmento abaixo para falarmos diretamente no WhatsApp:
+      </p>
+      
+      <div style="font-size:13px;font-weight:700;margin-bottom:8px">Selecione seu segmento de comércio:</div>
+      <div class="modal-niche-chips" id="modalNicheChips">
+        <button type="button" class="modal-niche-chip active" data-niche="Restaurante / Bar / Gastronomia">🍽️ Restaurante / Bar</button>
+        <button type="button" class="modal-niche-chip" data-niche="Mercadinho / Padaria / Hortifrúti">🛒 Mercado / Mercearia</button>
+        <button type="button" class="modal-niche-chip" data-niche="Loja de Roupas / Calçados / Moda">👗 Moda / Roupas</button>
+        <button type="button" class="modal-niche-chip" data-niche="Oficina Mecânica / Auto Center">🔧 Oficina / Serviços</button>
+        <button type="button" class="modal-niche-chip" data-niche="Materiais de Construção / Ferragens">🧱 Construção / Ferragens</button>
+        <button type="button" class="modal-niche-chip" data-niche="Assistência de Celular / Informática">📱 Celular / Informática</button>
+        <button type="button" class="modal-niche-chip" data-niche="Varejo / Comércio Geral">🛍️ Varejo Geral</button>
+      </div>
+
+      <div style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:14px;padding:14px 18px;margin-bottom:20px;font-size:13.5px">
+        <strong>✓ 7 dias de teste grátis</strong> na sua loja física, com implantação assistida pela equipe NEXO e sem taxa de adesão.
+      </div>
+
+      <a id="btnModalConfirmWhatsApp" class="button" style="display:block;text-align:center;width:100%" href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20NEXO%20ERP%20PDV%20para%20o%20meu%20com%C3%A9rcio%20no%20segmento%20Restaurante%20%2F%20Bar%20%2F%20Gastronomia." target="_blank" rel="noopener noreferrer">
+        Confirmar Agendamento no WhatsApp ↗
+      </a>
+      <div style="text-align:center;margin-top:12px;font-size:12px;color:var(--muted)">
+        Atendimento direto em Avaré e Região: (14) 99107-2843
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ACESSAR / PORTAL DO CLIENTE -->
+  <div id="portalAcessoModal" class="nexo-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalPortalTitle">
+    <div class="nexo-modal-card">
+      <button type="button" class="nexo-modal-close" onclick="window.nexoCloseModal('portalAcessoModal')" aria-label="Fechar modal">&times;</button>
+      <div class="eyebrow" style="margin-bottom:8px">Área do Comerciante</div>
+      <h3 id="modalPortalTitle" style="font-size:24px;margin:0 0 10px;letter-spacing:-0.03em">Central de Acesso &amp; Suporte NEXO</h3>
+      <p style="color:var(--muted);font-size:14px;margin:0 0 20px;line-height:1.6">
+        Canais oficiais e seguros de atendimento, suporte técnico e atualizações do NEXO ERP PDV:
+      </p>
+
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px">
+        <a href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Sou%20cliente%20NEXO%20ERP%20PDV%20e%20preciso%20de%20suporte%20t%C3%A9cnico." target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--paper);color:inherit;transition:border-color 0.2s ease" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--line)'">
+          <span style="font-size:24px">💬</span>
+          <div>
+            <strong style="display:block;font-size:14.5px">Suporte Técnico Prioritário</strong>
+            <span style="font-size:12.5px;color:var(--muted)">Fale direto com Everton e a equipe técnica via WhatsApp: (14) 99107-2843</span>
+          </div>
+        </a>
+
+        <a href="mailto:nexopdv@zohomail.com?subject=Suporte%20NEXO%20ERP%20PDV" style="text-decoration:none;display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--paper);color:inherit;transition:border-color 0.2s ease" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--line)'">
+          <span style="font-size:24px">✉️</span>
+          <div>
+            <strong style="display:block;font-size:14.5px">E-mail Oficial de Atendimento</strong>
+            <span style="font-size:12.5px;color:var(--muted)">Envio de arquivos, notas e solicitações formais: nexopdv@zohomail.com</span>
+          </div>
+        </a>
+
+        <a href="https://wa.me/5514991072843?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20a%20atualiza%C3%A7%C3%A3o%20da%20minha%20vers%C3%A3o%20do%20NEXO%20ERP%20PDV." target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--paper);color:inherit;transition:border-color 0.2s ease" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--line)'">
+          <span style="font-size:24px">🔄</span>
+          <div>
+            <strong style="display:block;font-size:14.5px">Atualizações e Instaladores</strong>
+            <span style="font-size:12.5px;color:var(--muted)">Liberação segura e acompanhamento de novas versões para assinantes</span>
+          </div>
+        </a>
+      </div>
+
+      <div style="background:rgba(0,0,0,0.03);border-radius:12px;padding:14px;text-align:center;font-size:12.5px;color:var(--muted)">
+        Ainda não é cliente? <a href="#precos" onclick="window.nexoCloseModal('portalAcessoModal')" style="color:var(--blue);font-weight:700">Conheça nossos planos a partir de R$ 159/mês</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT DE TEMA E MODAIS -->
+  <script>
+    (function(){
+      // 1. TEMA ESCURO / CLARO
+      var savedTheme = localStorage.getItem('nexo_theme');
+      if (!savedTheme) {
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        savedTheme = prefersDark ? 'dark' : 'light';
+      }
+      function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        var sun = document.getElementById('themeIconSun');
+        var moon = document.getElementById('themeIconMoon');
+        if (sun && moon) {
+          if (theme === 'dark') {
+            sun.style.display = 'none';
+            moon.style.display = 'inline';
+          } else {
+            sun.style.display = 'inline';
+            moon.style.display = 'none';
+          }
+        }
+      }
+      applyTheme(savedTheme);
+
+      var toggleBtn = document.getElementById('themeToggleBtn');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function(){
+          var current = document.documentElement.getAttribute('data-theme') || 'light';
+          var next = current === 'dark' ? 'light' : 'dark';
+          localStorage.setItem('nexo_theme', next);
+          applyTheme(next);
+        });
+      }
+
+      // 2. MODAL LOGIC
+      window.nexoOpenModal = function(id) {
+        var el = document.getElementById(id);
+        if (el) {
+          el.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
+      };
+      window.nexoCloseModal = function(id) {
+        var el = document.getElementById(id);
+        if (el) {
+          el.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      };
+
+      window.nexoOpenDemoModal = function(selectedNiche) {
+        if (selectedNiche) {
+          var chips = document.querySelectorAll('.modal-niche-chip');
+          chips.forEach(function(chip){
+            if (chip.getAttribute('data-niche').toLowerCase().includes(selectedNiche.toLowerCase().split(' ')[0])) {
+              chip.classList.add('active');
+            } else {
+              chip.classList.remove('active');
+            }
+          });
+          window.nexoUpdateDemoWhatsApp(selectedNiche);
+        }
+        window.nexoOpenModal('agendarDemoModal');
+      };
+
+      window.nexoOpenPortalModal = function() {
+        window.nexoOpenModal('portalAcessoModal');
+      };
+
+      window.nexoUpdateDemoWhatsApp = function(nicheText) {
+        var btn = document.getElementById('btnModalConfirmWhatsApp');
+        if (btn) {
+          var msg = 'Olá! Gostaria de agendar uma demonstração do NEXO ERP PDV para o meu comércio no segmento ' + nicheText + '.';
+          btn.href = 'https://wa.me/5514991072843?text=' + encodeURIComponent(msg);
+        }
+      };
+
+      // Chip selector in Demo modal
+      var chips = document.querySelectorAll('.modal-niche-chip');
+      chips.forEach(function(chip){
+        chip.addEventListener('click', function(){
+          chips.forEach(function(c){ c.classList.remove('active'); });
+          chip.classList.add('active');
+          var niche = chip.getAttribute('data-niche');
+          window.nexoUpdateDemoWhatsApp(niche);
+        });
+      });
+
+      // Close on backdrop click & ESC key
+      document.querySelectorAll('.nexo-modal-backdrop').forEach(function(backdrop){
+        backdrop.addEventListener('click', function(e){
+          if (e.target === backdrop) {
+            backdrop.classList.remove('open');
+            document.body.style.overflow = '';
+          }
+        });
+      });
+
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape') {
+          document.querySelectorAll('.nexo-modal-backdrop.open').forEach(function(el){
+            el.classList.remove('open');
+          });
+          document.body.style.overflow = '';
+        }
+      });
     })();
   </script>
 
