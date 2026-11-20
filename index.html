@@ -1897,6 +1897,19 @@
     }
 
     </style>
+<style id="nexo-segment-tabs-css">
+    /* Navegação compacta por segmento: reduz a rolagem sem remover conteúdo. */
+    .segment-tabs-wrap{margin:22px 0 18px;overflow-x:auto;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--green) transparent;padding:2px 2px 10px}
+    .segment-tabs{display:flex;gap:8px;width:max-content;min-width:100%;padding:5px;border:1px solid var(--line);border-radius:16px;background:var(--paper);}
+    .segment-tab{min-height:44px;padding:10px 15px;border:1px solid transparent;border-radius:12px;background:transparent;color:var(--ink);font:600 14px/1.25 inherit;white-space:nowrap;cursor:pointer;transition:background .18s ease,color .18s ease,border-color .18s ease}
+    .segment-tab:hover{background:var(--bg)}
+    .segment-tab[aria-selected="true"]{background:var(--green);color:#fff;border-color:var(--green)}
+    .segment-tab:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+    .segmentos-grid[data-segment-tabs]{display:block}
+    .segmentos-grid[data-segment-tabs]>.segmento-card[hidden]{display:none!important}
+    .segmentos-grid[data-segment-tabs]>.segmento-card[role="tabpanel"]{width:100%;max-width:none;margin:0}
+    @media(max-width:600px){.segment-tabs-wrap{margin:16px -4px 14px}.segment-tabs{min-width:max-content}.segment-tab{padding:10px 13px;font-size:13px}.segmentos-grid[data-segment-tabs]>.segmento-card{padding:20px!important}}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
@@ -5143,6 +5156,38 @@
       });
     })();
   </script>
+
+
+<script id="nexo-segment-tabs">
+(function(){
+  function init(){
+    var section=document.getElementById('segmentos');
+    var grid=section&&section.querySelector('.segmentos-grid');
+    if(!grid)return;
+    var cards=Array.prototype.slice.call(grid.querySelectorAll(':scope > .segmento-card'));
+    if(cards.length<2)return;
+    var wrap=document.createElement('div');wrap.className='segment-tabs-wrap';
+    var list=document.createElement('div');list.className='segment-tabs';list.setAttribute('role','tablist');list.setAttribute('aria-label','Escolha um segmento de comércio');
+    wrap.appendChild(list);grid.parentNode.insertBefore(wrap,grid);grid.setAttribute('data-segment-tabs','true');
+    var tabs=[];
+    function activate(index,focus){
+      tabs.forEach(function(tab,i){var selected=i===index;tab.setAttribute('aria-selected',selected?'true':'false');tab.tabIndex=selected?0:-1;cards[i].hidden=!selected;cards[i].setAttribute('aria-labelledby',tab.id);cards[i].setAttribute('role','tabpanel');cards[i].tabIndex=0;});
+      if(focus)tabs[index].focus();
+    }
+    cards.forEach(function(card,index){
+      var badge=card.querySelector('.segmento-badge');
+      var heading=card.querySelector('h3');
+      var label=(badge?badge.textContent:'Segmento '+(index+1)).replace(/\s+/g,' ').trim();
+      var tab=document.createElement('button');tab.type='button';tab.className='segment-tab';tab.id='nexo-segment-tab-'+index;tab.setAttribute('role','tab');tab.setAttribute('aria-controls','nexo-segment-panel-'+index);tab.textContent=label;tab.addEventListener('click',function(){activate(index,false)});
+      tab.addEventListener('keydown',function(event){var next=index;if(event.key==='ArrowRight')next=(index+1)%tabs.length;else if(event.key==='ArrowLeft')next=(index+tabs.length-1)%tabs.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=tabs.length-1;else return;event.preventDefault();activate(next,true)});
+      card.id='nexo-segment-panel-'+index;if(heading)card.setAttribute('aria-label',heading.textContent.trim());
+      tabs.push(tab);list.appendChild(tab);
+    });
+    activate(0,false);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
 
 </body>
 </html>
