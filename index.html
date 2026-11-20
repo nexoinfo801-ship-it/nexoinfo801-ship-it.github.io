@@ -4956,6 +4956,54 @@
       color: #94a3b8 !important;
     }
 
+  
+    /* --- Enhanced Footer Contrast & Refinement --- */
+    footer {
+      padding: 38px 0 46px !important;
+      border-top: 1px solid var(--line) !important;
+      background: var(--bg) !important;
+      color: var(--muted) !important;
+      font-size: 13.5px !important;
+    }
+    .footer-brand strong {
+      color: var(--ink) !important;
+      font-size: 15px !important;
+      letter-spacing: -0.01em !important;
+    }
+    .footer-brand span {
+      color: var(--muted) !important;
+      font-size: 13px !important;
+    }
+    .footer-contact a {
+      color: var(--muted) !important;
+      font-size: 13px !important;
+      transition: color 0.15s ease !important;
+    }
+    .footer-contact a:hover {
+      color: #10b981 !important;
+      text-decoration: underline !important;
+    }
+    .footer-copyright {
+      color: var(--muted) !important;
+      font-size: 13px !important;
+    }
+
+    [data-theme="dark"] footer {
+      background: #060911 !important;
+      border-top-color: #1e293b !important;
+    }
+    [data-theme="dark"] .footer-brand strong {
+      color: #f8fafc !important;
+    }
+    [data-theme="dark"] .footer-brand span,
+    [data-theme="dark"] .footer-contact a,
+    [data-theme="dark"] .footer-copyright {
+      color: #94a3b8 !important;
+    }
+    [data-theme="dark"] .footer-contact a:hover {
+      color: #34d399 !important;
+    }
+
   </style>
   <button type="button" class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
   <section class="chat-panel" id="nexoChat" role="dialog" aria-labelledby="chatTitle" aria-describedby="chatDisclaimer" aria-modal="false">
