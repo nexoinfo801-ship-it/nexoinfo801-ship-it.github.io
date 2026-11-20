@@ -4452,7 +4452,146 @@
       color: #ffffff !important;
     }
 
-    </style>
+    
+
+    /* Revisão final: alvos de toque, foco consistente e viewport estreito */
+    .button,
+    .demo-primary,
+    .demo-clear,
+    .demo-reset-all,
+    .demo-business-choice,
+    .demo-nav,
+    .demo-item,
+    .chat-launch,
+    .chat-send,
+    .segmento-cta,
+    .btn-outline-nav,
+    .theme-toggle-btn,
+    .modal-niche-chip,
+    .terminal-control button {
+      min-height: 44px !important;
+      font-family: inherit !important;
+    }
+
+    .nexo-modal-close,
+    .chat-close {
+      width: 44px !important;
+      min-width: 44px !important;
+      height: 44px !important;
+      min-height: 44px !important;
+      font-family: inherit !important;
+    }
+
+    :is(
+      .button, .demo-primary, .demo-clear, .demo-reset-all, .demo-business-choice,
+      .demo-nav, .demo-item, .demo-qty button, .chat-choice, .chat-launch, .chat-send,
+      .chat-close, .nexo-modal-close, .segmento-cta, .btn-outline-nav, .theme-toggle-btn,
+      .modal-niche-chip, .terminal-control button, .terminal-control input, .terminal-range,
+      .pricing-details summary, .pricing-calculator-compact summary, .faq-item summary,
+      .faq-cta a, .skip-link, .navlinks a, .brand, .diagnostic-field input,
+      .diagnostic-field select, .diagnostic-field textarea
+    ):focus-visible,
+    #chatLaunch:focus-visible,
+    #chatClose:focus-visible {
+      outline: 3px solid #047857 !important;
+      outline-offset: 3px !important;
+      box-shadow: 0 0 0 2px #ffffff, 0 0 0 5px rgba(4, 120, 87, 0.28) !important;
+    }
+
+    [data-theme="dark"] :is(
+      .button, .demo-primary, .demo-clear, .demo-reset-all, .demo-business-choice,
+      .demo-nav, .demo-item, .demo-qty button, .chat-choice, .chat-launch, .chat-send,
+      .chat-close, .nexo-modal-close, .segmento-cta, .btn-outline-nav, .theme-toggle-btn,
+      .modal-niche-chip, .terminal-control button, .terminal-control input, .terminal-range,
+      .pricing-details summary, .pricing-calculator-compact summary, .faq-item summary,
+      .faq-cta a, .skip-link, .navlinks a, .brand, .diagnostic-field input,
+      .diagnostic-field select, .diagnostic-field textarea
+    ):focus-visible,
+    [data-theme="dark"] #chatLaunch:focus-visible,
+    [data-theme="dark"] #chatClose:focus-visible {
+      outline-color: #34d399 !important;
+      box-shadow: 0 0 0 2px #090d16, 0 0 0 5px rgba(52, 211, 153, 0.3) !important;
+    }
+
+    :focus-visible {
+      outline: 3px solid #047857 !important;
+      outline-offset: 3px !important;
+    }
+
+    [data-theme="dark"] :focus-visible {
+      outline-color: #34d399 !important;
+    }
+
+    input[type="text"],
+    input[type="search"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="password"],
+    input[type="number"],
+    input[type="date"],
+    input[type="time"],
+    input[type="datetime-local"],
+    input[type="month"],
+    input[type="week"],
+    select,
+    textarea {
+      font-family: inherit !important;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"],
+    input[type="range"] {
+      accent-color: #047857;
+    }
+
+    [data-theme="dark"] input[type="checkbox"],
+    [data-theme="dark"] input[type="radio"],
+    [data-theme="dark"] input[type="range"] {
+      accent-color: #34d399;
+    }
+
+    button:disabled,
+    input:disabled,
+    select:disabled,
+    textarea:disabled,
+    [aria-disabled="true"] {
+      cursor: not-allowed !important;
+      opacity: 0.58 !important;
+      transform: none !important;
+    }
+
+    @media (max-width: 380px) {
+      .segmentos-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+
+      .segmento-card {
+        min-width: 0 !important;
+        padding: 18px !important;
+      }
+
+      .segmento-cta {
+        width: 100% !important;
+        white-space: normal !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      button,
+      a,
+      input,
+      select,
+      textarea,
+      summary {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+
+</style>
   <button type="button" class="chat-launch" id="chatLaunch" aria-controls="nexoChat" aria-expanded="false" onclick="window.nexoToggleChat()">💬 Fale com a Cleópatra</button>
   <section class="chat-panel" id="nexoChat" role="dialog" aria-labelledby="chatTitle" aria-describedby="chatDisclaimer" aria-modal="false">
     <div class="chat-head">
